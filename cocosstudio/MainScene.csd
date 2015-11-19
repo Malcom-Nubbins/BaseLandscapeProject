@@ -6,16 +6,16 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="Default" ActionTag="953446860" Tag="5" IconVisible="False" LeftMargin="169.3450" RightMargin="-169.3450" TopMargin="-35.3389" BottomMargin="35.3389" ctype="SpriteObjectData">
-            <Size X="960.0000" Y="640.0000" />
+          <AbstractNodeData Name="Sprite_1" ActionTag="-1331166604" Tag="3" IconVisible="False" RightMargin="-320.0000" TopMargin="-80.0000" ctype="SpriteObjectData">
+            <Size X="1280.0000" Y="720.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="649.3450" Y="355.3389" />
+            <Position X="640.0000" Y="360.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.6764" Y="0.5552" />
+            <PrePosition X="0.6667" Y="0.5625" />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="HelloWorld.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
+            <FileData Type="Normal" Path="Tap Tap Slide BG draft.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
