@@ -32,6 +32,8 @@ public:
 	void EndGame();
 
 private:
+	cocos2d::ui::Button* Start;
+	cocos2d::ui::Button* Credits;
 	cocos2d::Sprite* Paddle;
 	cocos2d::Sprite* Ball;
 	cocos2d::Sprite* Block;

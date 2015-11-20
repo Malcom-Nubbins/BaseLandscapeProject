@@ -40,5 +40,10 @@ bool HelloWorld::init()
 
 void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	CCLOG("In touch! &d", type);
 
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		
+	}
 }
