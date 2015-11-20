@@ -27,7 +27,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("BaseLandscapeProject", Rect(0, 0, 1280, 720));
+        glview = GLViewImpl::createWithRect("Tap-Tap Slide!", Rect(0, 0, 1280, 720));
         director->setOpenGLView(glview);
     }
 
