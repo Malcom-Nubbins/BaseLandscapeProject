@@ -40,13 +40,22 @@ bool HelloWorld::init()
 
 	auto winSize = Director::getInstance()->getVisibleSize();
 
-	// To add: Player sprites, labels
-
 	// Initialise the starting scene (main menu)
 	scene = 1;
 
+	//Initialise buttons, sprites, labels/text
+	// To add: Start button, Player sprites, labels
+
+	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
+	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
+	
 
     return true;
+}
+
+void HelloWorld::Update(float delta)
+{
+
 }
 
 void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)

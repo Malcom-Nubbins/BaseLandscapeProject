@@ -30,8 +30,10 @@ public:
 	void CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
 	// Game Scene changes
+	void MainMenu();
 	void StartGame();
 	void EndGame();
+	void CreditsScene();
 
 private:
 	int scene;
