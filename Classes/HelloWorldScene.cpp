@@ -46,6 +46,9 @@ bool HelloWorld::init()
 	//Initialise buttons, sprites, labels/text
 	// To add: Start button, Player sprites, labels
 
+	/*Start = static_cast<ui::Button*>(rootNode->getChildByName("Start"));
+	Start->addTouchEventListener(CC_CALLBACK_2(HelloWorld::StartButtonPressed, this));*/
+
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
 	
@@ -55,15 +58,61 @@ bool HelloWorld::init()
 
 void HelloWorld::Update(float delta)
 {
+	auto winSize = Director::getInstance()->getVisibleSize();
 
+	if (scene == 1) // Main Menu
+	{
+
+	}
+	else if (scene == 2) // Game Scene
+	{
+
+	}
+	else if (scene == 3) //Game Over
+	{
+
+	}
+	else if (scene == 4) // Credits
+	{
+
+	}
 }
 
 void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-	CCLOG("In touch! &d", type);
+	CCLOG("Push me, and then just touch me! &d", type);
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		
+		this->CreditsScene();
 	}
+	this->CreditsScene();
+}
+
+void HelloWorld::MainMenu()
+{
+	scene = 1;
+}
+
+void HelloWorld::StartGame()
+{
+	scene = 2;
+}
+
+void HelloWorld::EndGame()
+{
+	scene = 3;
+}
+
+void HelloWorld::CreditsScene()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+	scene = 4;
+
+	/*auto startMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Start->getPositionY()));
+	Start->runAction(startMoveTo);*/
+
+	auto creditsMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Credits->getPositionY()));
+	Credits->runAction(creditsMoveTo);
+
 }

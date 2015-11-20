@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
-class Credits;
+//class Credits;
 
 class HelloWorld : public cocos2d::Layer
 {
