@@ -37,3 +37,8 @@ bool HelloWorld::init()
 
     return true;
 }
+
+void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+
+}
