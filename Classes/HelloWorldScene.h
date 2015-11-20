@@ -25,13 +25,16 @@ public:
 	virtual void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchCancelled(cocos2d::Touch*, cocos2d::Event*);*/
 
+	// Button Events
 	void StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
+	// Game Scene changes
 	void StartGame();
 	void EndGame();
 
 private:
+	int scene;
 	cocos2d::ui::Button* Start;
 	cocos2d::ui::Button* Credits;
 	cocos2d::Sprite* Paddle;

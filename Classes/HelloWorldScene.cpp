@@ -32,8 +32,19 @@ bool HelloWorld::init()
     }
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
-
     addChild(rootNode);
+	auto creditsNode = CSLoader::createNode("Credits.csb");
+	addChild(creditsNode);
+
+	this->scheduleUpdate();
+
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	// To add: Player sprites, labels
+
+	// Initialise the starting scene (main menu)
+	scene = 1;
+
 
     return true;
 }
