@@ -6,6 +6,7 @@
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
         <Image Name="Tap Tap Slide BG draft.png" />
+        <Project Name="Credits.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
