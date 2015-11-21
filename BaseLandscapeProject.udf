@@ -14,7 +14,7 @@
         <LuaEncryptSign Value="" />
         <Android_PackageName Value="org.cocos.BASELA~1" />
         <AndroidkeyStore Value="" />
-        <AndroidVersion Value="" />
+        <AndroidVersion Value="android-20" />
         <iOS_Target Value="BASELA~1-mobile" />
         <iOS_BundleID Value="" />
         <Platform Value="Android" />
