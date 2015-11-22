@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "GameMainScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
@@ -47,8 +48,8 @@ bool HelloWorld::init()
 	//Initialise buttons, sprites, labels/text
 	// To add: Start button, Player sprites, labels
 
-	/*Start = static_cast<ui::Button*>(rootNode->getChildByName("Start"));
-	Start->addTouchEventListener(CC_CALLBACK_2(HelloWorld::StartButtonPressed, this));*/
+	Start = static_cast<ui::Button*>(rootNode->getChildByName("Start"));
+	Start->addTouchEventListener(CC_CALLBACK_2(HelloWorld::StartButtonPressed, this));
 
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
@@ -78,6 +79,20 @@ void HelloWorld::Update(float delta)
 
 	}
 }
+
+void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type) 
+{
+	CCLOG("Push me, and then just touch me! &d", type);
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		auto scene = GameScene::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+		//this->CreditsScene();
+	}
+	//this->CreditsScene();
+}
+
 
 void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {

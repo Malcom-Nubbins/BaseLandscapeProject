@@ -1,4 +1,6 @@
 #include "GameMainScene.h"
+#include "HelloWorldScene.h"
+#include "Define.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 USING_NS_CC;
@@ -30,9 +32,15 @@ bool GameScene::init()
 		return false;
 	}
 
-	auto rootNode = CSLoader::createNode("GameMain.csb");
+	auto rootNode = CSLoader::createNode("MainScene.csb");
 
 	addChild(rootNode);
+
+	auto Background = Sprite::create("REPLACE.png");
+	this->addChild(Background);
+
+	Background->setAnchorPoint(Vec2(0, 0));
+	Background->setPosition(0, 0);
 
 	return true;
 }
