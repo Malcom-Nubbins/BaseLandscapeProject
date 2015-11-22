@@ -1,5 +1,5 @@
 #include "SplashScreenScene.h"
-#include "GameMainScene.h"
+#include "HelloWorldScene.h"
 #include "Define.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
@@ -33,14 +33,18 @@ bool SplashScreenScene::init()
 		return false;
 	}
 
-	auto rootNode = CSLoader::createNode("SplashScreen.csb");
+	auto rootNode = CSLoader::createNode("MainScene.csb");
 
 	addChild(rootNode);
 
 	this->scheduleOnce(schedule_selector(SplashScreenScene::TimeMainMenu), Splash_Length);
 
-	auto bg = Sprite::create("Test.png");
-	this->addChild(bg);
+	auto Splash = Sprite::create("Test.png");
+	this->addChild(Splash);
+
+	Splash->setAnchorPoint(Vec2(0, 0));
+	Splash->setPosition(0, 0);
+	//Hard coded size and pos for now. 
 	// Could implement an image for the splash screen here.
 	// Could implement postion for image here.
 	// Add as child (Image)
@@ -50,7 +54,7 @@ bool SplashScreenScene::init()
 
 void SplashScreenScene::TimeMainMenu(float time)
 {
-	auto scene = GameScene::createScene();
+	auto scene = HelloWorld::createScene();
 
 	Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 }
