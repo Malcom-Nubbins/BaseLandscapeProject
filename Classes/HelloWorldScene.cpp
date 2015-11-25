@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "GameMainScene.h"
+#include "proj.win32\CreditsScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
@@ -88,9 +89,9 @@ void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEvent
 	{
 		auto scene = GameScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
-		//this->CreditsScene();
+		this->StartGame();
 	}
-	//this->CreditsScene();
+	this->StartGame();
 }
 
 
@@ -100,7 +101,8 @@ void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEve
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		
+		auto scene = CreditsScene::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->CreditsScene();
 	}
 	this->CreditsScene();
@@ -113,7 +115,14 @@ void HelloWorld::MainMenu()
 
 void HelloWorld::StartGame()
 {
+	auto winSize = Director::getInstance()->getVisibleSize();
 	scene = 2;
+
+	auto startMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Start->getPositionY()));
+	Start->runAction(startMoveTo);
+
+	auto creditsMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Credits->getPositionY()));
+	Credits->runAction(creditsMoveTo);
 }
 
 void HelloWorld::EndGame()

@@ -27,6 +27,9 @@
     <ClCompile Include="SplashScreenScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="CreditsScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -45,6 +48,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="SplashScreenScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditsScene.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

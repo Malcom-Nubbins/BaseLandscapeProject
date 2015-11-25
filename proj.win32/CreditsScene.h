@@ -7,8 +7,11 @@ class CreditsScene : public cocos2d::Layer
 {
 public:
 
-	CreditsScene();
-	~CreditsScene();
+	static cocos2d::Scene* createScene();
+
+	virtual bool init();
+
+	CREATE_FUNC(CreditsScene);
 };
 
 #endif
