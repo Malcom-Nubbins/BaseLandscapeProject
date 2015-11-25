@@ -55,7 +55,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0347" Y="0.9403" />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="toby fox - UNDERTALE Soundtrack - 02 Start Menu.mp3" Plist="" />
+            <FileData Type="Normal" Path="mainmenu.mp3" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -32,7 +32,7 @@ bool GameScene::init()
 		return false;
 	}
 
-	auto rootNode = CSLoader::createNode("MainScene.csb");
+	auto rootNode = CSLoader::createNode("GameScene.csb");
 
 	addChild(rootNode);
 

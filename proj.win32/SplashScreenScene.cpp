@@ -33,7 +33,7 @@ bool SplashScreenScene::init()
 		return false;
 	}
 
-	auto rootNode = CSLoader::createNode("MainScene.csb");
+	auto rootNode = CSLoader::createNode("SplashScreen.csb");
 
 	addChild(rootNode);
 

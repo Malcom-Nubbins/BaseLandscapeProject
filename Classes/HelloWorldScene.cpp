@@ -4,6 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
+#include "AudioEngine.h"
 
 USING_NS_CC;
 
@@ -36,8 +37,6 @@ bool HelloWorld::init()
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
     addChild(rootNode);
-	auto creditsNode = CSLoader::createNode("Credits.csb");
-	addChild(creditsNode);
 
 	this->scheduleUpdate();
 
@@ -47,7 +46,7 @@ bool HelloWorld::init()
 	scene = 1;
 
 	//Initialise buttons, sprites, labels/text
-	// To add: Start button, Player sprites, labels
+	// To add: Start button, Player sprites, labels, sound
 
 	Start = static_cast<ui::Button*>(rootNode->getChildByName("Start"));
 	Start->addTouchEventListener(CC_CALLBACK_2(HelloWorld::StartButtonPressed, this));
@@ -65,11 +64,11 @@ void HelloWorld::Update(float delta)
 
 	if (scene == 1) // Main Menu
 	{
-
+		
 	}
 	else if (scene == 2) // Game Scene
 	{
-
+		
 	}
 	else if (scene == 3) //Game Over
 	{
@@ -83,7 +82,7 @@ void HelloWorld::Update(float delta)
 
 void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type) 
 {
-	CCLOG("Push me, and then just touch me! &d", type);
+	CCLOG("The game begins! &d", type);
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
@@ -97,7 +96,7 @@ void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEvent
 
 void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-	CCLOG("Push me, and then just touch me! &d", type);
+	CCLOG("Everybody needs credit! &d", type);
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
