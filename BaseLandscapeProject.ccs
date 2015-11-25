@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="BaseLandscapeProject" Version="2.3.3.0" Type="CocosStudio" />
+  <PropertyGroup Name="BASELA~1" Version="2.3.3.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -7,6 +7,7 @@
         <Image Name="HelloWorld.png" />
         <Image Name="Tap Tap Slide BG draft.png" />
         <Project Name="Credits.csd" Type="Scene" />
+        <Audio Name="toby fox - UNDERTALE Soundtrack - 02 Start Menu.mp3" />
       </RootFolder>
     </Group>
   </SolutionFolder>

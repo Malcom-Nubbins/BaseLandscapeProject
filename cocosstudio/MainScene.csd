@@ -47,6 +47,16 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
+          <AbstractNodeData Name="MenuBGM" ActionTag="-830837869" Tag="5" IconVisible="True" LeftMargin="44.4540" RightMargin="1235.5460" TopMargin="43.0086" BottomMargin="676.9914" Volume="1.0000" Loop="True" ctype="SimpleAudioObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="44.4540" Y="676.9914" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0347" Y="0.9403" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="toby fox - UNDERTALE Soundtrack - 02 Start Menu.mp3" Plist="" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
