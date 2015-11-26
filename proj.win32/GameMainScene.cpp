@@ -44,11 +44,20 @@ bool GameScene::init()
 	Paddle = Sprite::create("White Brick.png");
 	this->addChild(Paddle);
 
+	Ball = Sprite::create("Ball.png");
+	this->addChild(Ball);
+
+	Block = Sprite::create("White Brick.png");
+	this->addChild(Block);
+
 	Background->setAnchorPoint(Vec2(0, 0));
 	Background->setPosition(0, 0);
 
 	Paddle->setAnchorPoint(Vec2(0, 0));
 	Paddle->setPosition(winSize.width / 2, winSize.height / 6);
+
+	Ball->setAnchorPoint(Vec2(0, 0));
+	Ball->setPosition(winSize.width / 2, winSize.height / 5.5);
 
 	return true;
 }
