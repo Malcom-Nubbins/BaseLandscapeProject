@@ -4,7 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
-#include "AudioEngine.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -54,6 +54,7 @@ bool HelloWorld::init()
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
 	
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("mainmenu.mp3", true);
 
     return true;
 }
@@ -100,6 +101,7 @@ void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEve
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
 		auto scene = CreditsScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->CreditsScene();

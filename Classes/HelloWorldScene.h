@@ -39,9 +39,6 @@ private:
 	int scene;
 	cocos2d::ui::Button* Start;
 	cocos2d::ui::Button* Credits;
-	cocos2d::Sprite* Paddle;
-	cocos2d::Sprite* Ball;
-	cocos2d::Sprite* Block;
 	cocos2d::Label* scoreLabel;
 	cocos2d::Label* ammoCount;
 	cocos2d::Label* livesCount;

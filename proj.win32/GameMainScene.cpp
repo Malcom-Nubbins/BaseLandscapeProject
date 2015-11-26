@@ -32,6 +32,8 @@ bool GameScene::init()
 		return false;
 	}
 
+	auto winSize = Director::getInstance()->getVisibleSize();
+
 	auto rootNode = CSLoader::createNode("GameScene.csb");
 
 	addChild(rootNode);
@@ -39,8 +41,14 @@ bool GameScene::init()
 	auto Background = Sprite::create("REPLACE.png");
 	this->addChild(Background);
 
+	Paddle = Sprite::create("White Brick.png");
+	this->addChild(Paddle);
+
 	Background->setAnchorPoint(Vec2(0, 0));
 	Background->setPosition(0, 0);
+
+	Paddle->setAnchorPoint(Vec2(0, 0));
+	Paddle->setPosition(winSize.width / 2, winSize.height / 6);
 
 	return true;
 }

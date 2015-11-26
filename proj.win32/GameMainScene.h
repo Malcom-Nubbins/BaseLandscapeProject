@@ -14,6 +14,11 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(GameScene);
+
+private:
+	cocos2d::Sprite* Paddle;
+	cocos2d::Sprite* Ball;
+	cocos2d::Sprite* Block;
 };
 
 #endif // __GAMEMAIN_SCENE_H__
