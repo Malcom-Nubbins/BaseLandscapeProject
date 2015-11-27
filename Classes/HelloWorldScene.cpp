@@ -53,7 +53,7 @@ bool HelloWorld::init()
 
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
-	
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("mainmenu.mp3");
 	CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("mainmenu.mp3", true);
 
     return true;
