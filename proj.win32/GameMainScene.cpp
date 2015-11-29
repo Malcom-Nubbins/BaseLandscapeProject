@@ -10,10 +10,12 @@ using namespace cocostudio::timeline;
 Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
-	auto scene = Scene::create();
+	auto scene = Scene::createWithPhysics();
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
+	layer->SetPhysicsWorld(scene->getPhysicsWorld());
 
 	// add layer as a child to scene
 	scene->addChild(layer);
@@ -33,6 +35,7 @@ bool GameScene::init()
 	}
 
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin(); // Gets the origin on the screen
 
 	auto rootNode = CSLoader::createNode("GameScene.csb");
 
@@ -41,7 +44,7 @@ bool GameScene::init()
 	auto Background = Sprite::create("REPLACE.png");
 	this->addChild(Background);
 
-	Paddle = Sprite::create("White Brick.png");
+	Paddle = Sprite::create("Paddle.png");
 	this->addChild(Paddle);
 
 	Ball = Sprite::create("Ball.png");
@@ -58,6 +61,12 @@ bool GameScene::init()
 
 	Ball->setAnchorPoint(Vec2(0, 0));
 	Ball->setPosition(winSize.width / 2, winSize.height / 5.5);
+
+	auto edgeBody = PhysicsBody::createEdgeBox(winSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+	auto edgeNode = Node::create();
+	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y));
+	edgeNode->setPhysicsBody(edgeBody);
+	this->addChild(edgeNode);
 
 	return true;
 }
