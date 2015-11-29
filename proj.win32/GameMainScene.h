@@ -19,6 +19,9 @@ private:
 	cocos2d::Sprite* Paddle;
 	cocos2d::Sprite* Ball;
 	cocos2d::Sprite* Block;
+
+	void SetPhysicsWorld(cocos2d::PhysicsWorld *scene) { GameWorld = scene; };
+	cocos2d::PhysicsWorld *GameWorld;
 };
 
 #endif // __GAMEMAIN_SCENE_H__
