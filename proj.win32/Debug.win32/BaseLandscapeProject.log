@@ -1,21 +1,21 @@
-﻿Build started 30/11/2015 17:10:40.
-     1>Project "D:\TTS\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
+﻿Build started 30-Nov-15 19:59:41.
+     1>Project "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
      1>PreLinkEvent:
-         if not exist "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\"
-         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.8\prebuilt\win32\*.*" "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\"
+         if not exist "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.8\prebuilt\win32\*.*" "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\"
          
          :VCEnd
          60 File(s) copied
        Link:
-         BaseLandscapeProject.vcxproj -> D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe
+         BaseLandscapeProject.vcxproj -> E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe
        CustomBuildStep:
-         if not exist "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\"
-         xcopy "D:\TTS\BaseLandscapeProject\proj.win32\..\Resources" "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\" /D /E /I /F /Y
+         if not exist "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\"
+         xcopy "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\..\Resources" "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\" /D /E /I /F /Y
                
          :VCEnd
          0 File(s) copied
-     1>Done Building Project "D:\TTS\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)).
+     1>Done Building Project "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.71
+Time Elapsed 00:00:02.09

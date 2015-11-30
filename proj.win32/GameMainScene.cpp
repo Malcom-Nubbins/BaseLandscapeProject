@@ -41,8 +41,6 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
-	auto Background = Sprite::create("REPLACE.png");
-	this->addChild(Background);
 
 	Paddle = Sprite::create("Paddle.png");
 	this->addChild(Paddle);
@@ -51,11 +49,6 @@ bool GameScene::init()
 	Ball = Sprite::create("Ball.png");
 	auto BallBounding = PhysicsBody::createBox(Ball->getContentSize());
 	this->addChild(Ball);
-
-
-
-	Background->setAnchorPoint(Vec2(0, 0));
-	Background->setPosition(0, 0);
 
 	Paddle->setAnchorPoint(Vec2(0, 0));
 	Paddle->setPosition(winSize.width / 2, winSize.height / 6);
@@ -69,6 +62,18 @@ bool GameScene::init()
 	edgeNode->setPhysicsBody(edgeBody);
 	this->addChild(edgeNode);
 
+	LeftButton = static_cast<ui::Button*>(rootNode->getChildByName("LeftButton"));
+	LeftButton->addTouchEventListener(CC_CALLBACK_2(GameScene::LeftButtonPressed, this));
+
+	RightButton = static_cast<ui::Button*>(rootNode->getChildByName("RightButton"));
+	RightButton->addTouchEventListener(CC_CALLBACK_2(GameScene::RightButtonPressed, this));
+
+	FireButton = static_cast<ui::Button*>(rootNode->getChildByName("FireButton"));
+	FireButton->addTouchEventListener(CC_CALLBACK_2(GameScene::FireButtonPressed, this));
+
+	PauseButton = static_cast<ui::Button*>(rootNode->getChildByName("PauseButton"));
+	PauseButton->addTouchEventListener(CC_CALLBACK_2(GameScene::PauseButtonPressed, this));
+
 	this->schedule(schedule_selector(GameScene::SetBrick), Brick_Debug *winSize.width); // From Flappy bird.
 
 	return true;
@@ -80,4 +85,30 @@ void GameScene::SetBrick(float i)
 
 	Block = Sprite::create("White Brick.png");
 	this->addChild(Block);
+}
+
+void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+
+}
+
+
+void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+
+}
+
+void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+
+}
+
+void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
+{
+
+}
+
+void GameScene::Update()
+{
+
 }

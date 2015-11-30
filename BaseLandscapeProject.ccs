@@ -11,6 +11,11 @@
         <Audio Name="mainmenu.mp3" />
         <Project Name="SplashScreen.csd" Type="Scene" />
         <Image Name="Test.png" />
+        <Image Name="GameUI.png" />
+        <Image Name="PauseButton.png" />
+        <Image Name="ButtonLeft.png" />
+        <Image Name="FireButton.png" />
+        <Image Name="ButtonRight.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

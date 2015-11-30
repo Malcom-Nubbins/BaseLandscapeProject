@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Brick.h"
+#include "ui/CocosGUI.h"
 
 class GameScene : public cocos2d::Layer
 {
@@ -16,7 +17,18 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(GameScene);
 
+	void Update();
+
+	void LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
 private:
+	cocos2d::ui::Button* LeftButton;
+	cocos2d::ui::Button* RightButton;
+	cocos2d::ui::Button* FireButton;
+	cocos2d::ui::Button* PauseButton;
 	cocos2d::Sprite* Paddle;
 	cocos2d::Sprite* Ball;
 	cocos2d::Sprite* Block;
