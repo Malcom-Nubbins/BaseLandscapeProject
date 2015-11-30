@@ -11,7 +11,7 @@ Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red border
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
@@ -50,8 +50,7 @@ bool GameScene::init()
 	Ball = Sprite::create("Ball.png");
 	this->addChild(Ball);
 
-	Block = Sprite::create("White Brick.png");
-	this->addChild(Block);
+
 
 	Background->setAnchorPoint(Vec2(0, 0));
 	Background->setPosition(0, 0);
@@ -68,5 +67,15 @@ bool GameScene::init()
 	edgeNode->setPhysicsBody(edgeBody);
 	this->addChild(edgeNode);
 
+	this->schedule(schedule_selector(GameScene::SetBrick), Brick_Debug *winSize.width); // From Flappy bird.
+
 	return true;
+}
+
+void GameScene::SetBrick(float i)
+{
+	brick.SetBrick(this);
+
+	Block = Sprite::create("White Brick.png");
+	this->addChild(Block);
 }

@@ -23,5 +23,10 @@
 #define Ball_Smaller 0.25
 #define Ball_Larger 0.25
 
+//Blocks
+#define Brick_Debug 0.001
+#define Brick_NO 64
+#define Brick_Line 6
+#define Brick_Pow 4
 
 #endif // __GAMEMAIN_SCENE_H__
