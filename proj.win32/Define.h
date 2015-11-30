@@ -24,9 +24,14 @@
 #define Ball_Larger 0.25
 
 //Blocks
-#define Brick_Debug 0.001
+#define Brick_Debug 0.00005
+#define Brick_Distance 0
+#define Left_Max 0
+#define Right_Max 0
+#define Down_Max 0
+#define Up_Max 0
 #define Brick_NO 64
-#define Brick_Line 6
+#define Brick_Lines 6
 #define Brick_Pow 4
 
 #endif // __GAMEMAIN_SCENE_H__

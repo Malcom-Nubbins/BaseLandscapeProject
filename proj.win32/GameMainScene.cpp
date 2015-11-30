@@ -46,8 +46,10 @@ bool GameScene::init()
 
 	Paddle = Sprite::create("Paddle.png");
 	this->addChild(Paddle);
+	auto paddleBounding = PhysicsBody::createBox(Paddle->getContentSize());
 
 	Ball = Sprite::create("Ball.png");
+	auto BallBounding = PhysicsBody::createBox(Ball->getContentSize());
 	this->addChild(Ball);
 
 
