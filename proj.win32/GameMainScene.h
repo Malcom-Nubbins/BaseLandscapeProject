@@ -2,6 +2,7 @@
 #define __GAMEMAIN_SCENE_H__
 
 #include "cocos2d.h"
+#include "Brick.h"
 
 class GameScene : public cocos2d::Layer
 {
@@ -19,9 +20,12 @@ private:
 	cocos2d::Sprite* Paddle;
 	cocos2d::Sprite* Ball;
 	cocos2d::Sprite* Block;
+	cocos2d::PhysicsWorld *GameWorld;
 
 	void SetPhysicsWorld(cocos2d::PhysicsWorld *scene) { GameWorld = scene; };
-	cocos2d::PhysicsWorld *GameWorld;
+	void SetBrick(float i);
+	
+	Brick brick;
 };
 
 #endif // __GAMEMAIN_SCENE_H__
