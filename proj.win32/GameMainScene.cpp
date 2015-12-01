@@ -76,15 +76,14 @@ bool GameScene::init()
 
 	this->schedule(schedule_selector(GameScene::SetBrick), Brick_Debug *winSize.width); // From Flappy bird.
 
+	
+
 	return true;
 }
 
 void GameScene::SetBrick(float i)
 {
 	brick.SetBrick(this);
-
-	Block = Sprite::create("White Brick.png");
-	this->addChild(Block);
 }
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)

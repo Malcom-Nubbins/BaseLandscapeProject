@@ -1,21 +1,42 @@
-﻿Build started 30-Nov-15 19:59:41.
-     1>Project "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
-     1>PreLinkEvent:
-         if not exist "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\"
-         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.8\prebuilt\win32\*.*" "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\"
+﻿Build started 01/12/2015 19:16:43.
+     1>Project "D:\TTS\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\audio\include" /I"C:\Cocos\frameworks\cocos2d-x-3.8\external" /I"C:\Cocos\frameworks\cocos2d-x-3.8\external\chipmunk\include\chipmunk" /I"C:\Cocos\frameworks\cocos2d-x-3.8\extensions" /I..\Classes /I.. /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\editor-support" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\platform" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\platform\desktop" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\glfw3\include\win32" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\freetype2\include\win32\\" /I"C:\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\AppDelegate.cpp ..\Classes\HelloWorldScene.cpp Brick.cpp CreditsScene.cpp
+         AppDelegate.cpp
+         HelloWorldScene.cpp
+         Brick.cpp
+         CreditsScene.cpp
+     1>d:\tts\baselandscapeproject\classes\appdelegate.cpp(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\tts\baselandscapeproject\proj.win32\creditsscene.cpp(58): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\tts\baselandscapeproject\classes\helloworldscene.cpp(91): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\tts\baselandscapeproject\classes\helloworldscene.cpp(106): warning C4305: 'argument' : truncation from 'double' to 'float'
+       PreLinkEvent:
+         if not exist "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.8\prebuilt\win32\*.*" "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\"
          
          :VCEnd
          60 File(s) copied
        Link:
-         BaseLandscapeProject.vcxproj -> E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\ /LIBPATH:D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\ opengl32.lib glew32.lib libzlib.lib libwebp.lib libiconv.lib freetype.lib winmm.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.pdb" /SUBSYSTEM:WINDOWS,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.lib" /MACHINE:X86 /SAFESEH Debug.win32\game.res
+         Debug.win32\AppDelegate.obj
+         Debug.win32\GameManager.obj
+         Debug.win32\HelloWorldScene.obj
+         Debug.win32\Brick.obj
+         Debug.win32\CreditsScene.obj
+         Debug.win32\GameMainScene.obj
+         Debug.win32\main.obj
+         Debug.win32\SplashScreenScene.obj
+     1>AppDelegate.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+            Creating library D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.lib and object D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exp
+         BaseLandscapeProject.vcxproj -> D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\BaseLandscapeProject.exe
        CustomBuildStep:
-         if not exist "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\"
-         xcopy "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\..\Resources" "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\Debug.win32\" /D /E /I /F /Y
+         if not exist "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\" mkdir "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\"
+         xcopy "D:\TTS\BaseLandscapeProject\proj.win32\..\Resources" "D:\TTS\BaseLandscapeProject\proj.win32\Debug.win32\" /D /E /I /F /Y
                
          :VCEnd
          0 File(s) copied
-     1>Done Building Project "E:\Uni Stuff\Technical Games Production\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)).
+     1>Done Building Project "D:\TTS\BaseLandscapeProject\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.09
+Time Elapsed 00:00:08.18

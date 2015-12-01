@@ -30,8 +30,30 @@
 #define Right_Max 0
 #define Down_Max 0
 #define Up_Max 0
-#define Brick_NO 64
-#define Brick_Lines 6
-#define Brick_Pow 4
 
+//Level One		//May be best refracted if time. 
+#define L1_Brick_NO 8
+#define L1_Brick_Lines 6
+#define L1_Brick_Pow 4
+//Note to self add Colour blocks etc
+
+//Level Two
+#define L2_Brick_NO 64
+#define L2_Brick_Lines 6
+#define L2_Brick_Pow 4
+
+//Level Three
+#define L3_Brick_NO 64
+#define L3_Brick_Lines 6
+#define L3_Brick_Pow 4
+
+//Level Four
+#define L4_Brick_NO 64
+#define L4_Brick_Lines 6
+#define L4_Brick_Pow 4
+
+//Level Five
+#define L5_Brick_NO 64
+#define L5_Brick_Lines 6
+#define L5_Brick_Pow 4
 #endif // __GAMEMAIN_SCENE_H__
