@@ -100,12 +100,20 @@ void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 
 void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-
+	CCLOG("Fire!");
 }
 
 void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	CCLOG("Paused!");
 
+	// Temporary menu return. Takes the user back to menu, and resets the game scene. *ONLY FOR TESTING. WILL BE REMOVED LATER FOR PROPER PAUSE MENU*
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		auto scene = HelloWorld::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+	}
 }
 
 void GameScene::Update()

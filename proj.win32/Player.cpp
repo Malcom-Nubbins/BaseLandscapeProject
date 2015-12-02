@@ -23,3 +23,8 @@ void Player::SetPlayer(cocos2d::Layer *layer)
 		paddle->setPosition(WinSize.width / 2, WinSize.height / 6);
 		layer->addChild(paddle);
 }
+
+void Player::GetPlayerPosX()
+{
+
+}

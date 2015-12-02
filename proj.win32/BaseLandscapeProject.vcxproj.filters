@@ -36,6 +36,12 @@
     <ClCompile Include="Brick.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -63,6 +69,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Brick.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

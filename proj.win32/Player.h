@@ -9,6 +9,7 @@ public:
 	Player();
 
 	void SetPlayer(cocos2d::Layer *layer);
+	void GetPlayerPosX();
 
 private:
 	cocos2d::Size WinSize;
