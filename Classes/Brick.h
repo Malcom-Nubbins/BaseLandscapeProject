@@ -9,6 +9,8 @@ public:
 	Brick();
 
 	void SetBrick(cocos2d::Layer *layer);
+	float startPos = 80;
+	float startLine = 600;
 
 private:
 	cocos2d::Size WinSize;
