@@ -24,7 +24,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 
 		CCLOG("POWER"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 		auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
-		auto powerUpBounding = PhysicsBody::createBox(powerUp->getContentSize());// CHANGE TO CIRCLE PhysicsShapeCircle
+		auto powerUpBounding = PhysicsBody::createCircle(powerUp->getContentSize().width / 2);
 		powerUpBounding->setDynamic(false);
 		powerUpBounding->setGravityEnable(true);
 		powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.

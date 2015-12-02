@@ -18,7 +18,7 @@
 #define Paddle_Larger 0.4
 
 // Ball
-#define Ball_Acceleration 0.01
+#define Ball_Acceleration 0.02
 #define Ball_Top_Speed 1.25
 #define Ball_Smaller 0.25
 #define Ball_Larger 0.25
