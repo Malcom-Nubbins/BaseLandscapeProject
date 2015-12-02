@@ -11,7 +11,7 @@ Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_NONE);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_None to add red borders
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
@@ -41,24 +41,9 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
-
-	Paddle = Sprite::create("Paddle.png");
-	this->addChild(Paddle);
-	auto paddleBounding = PhysicsBody::createBox(Paddle->getContentSize());
-
-	Ball = Sprite::create("Ball.png");
-	auto BallBounding = PhysicsBody::createBox(Ball->getContentSize());
-	this->addChild(Ball);
-
-	Paddle->setAnchorPoint(Vec2(0, 0));
-	Paddle->setPosition(winSize.width / 2, winSize.height / 6);
-
-	Ball->setAnchorPoint(Vec2(0, 0));
-	Ball->setPosition(winSize.width / 2, winSize.height / 5.5);
-
-	auto edgeBody = PhysicsBody::createEdgeBox(winSize, PHYSICSBODY_MATERIAL_DEFAULT, 3);
+	auto edgeBody = PhysicsBody::createEdgeBox(winSize, PHYSICSBODY_MATERIAL_DEFAULT, 3); 
 	auto edgeNode = Node::create();
-	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y));
+	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
 	edgeNode->setPhysicsBody(edgeBody);
 	this->addChild(edgeNode);
 
@@ -74,7 +59,9 @@ bool GameScene::init()
 	PauseButton = static_cast<ui::Button*>(rootNode->getChildByName("PauseButton"));
 	PauseButton->addTouchEventListener(CC_CALLBACK_2(GameScene::PauseButtonPressed, this));
 
-	this->schedule(schedule_selector(GameScene::SetBrick)); // From Flappy bird.
+	this->schedule(schedule_selector(GameScene::SetBrick)); 
+	this->schedule(schedule_selector(GameScene::SetPlayer)); 
+	this->schedule(schedule_selector(GameScene::SetBall));
 
 	
 
@@ -85,6 +72,18 @@ void GameScene::SetBrick(float i)
 {
 	brick.SetBrick(this);
 	unschedule(schedule_selector(GameScene::SetBrick));
+}
+
+void GameScene::SetPlayer(float i)
+{
+	player.SetPlayer(this);
+	unschedule(schedule_selector(GameScene::SetPlayer));
+}
+
+void GameScene::SetBall(float i)
+{
+	ball.SetBall(this);
+	unschedule(schedule_selector(GameScene::SetBall));
 }
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
