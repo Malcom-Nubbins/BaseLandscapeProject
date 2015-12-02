@@ -11,7 +11,7 @@ Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red border
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_NONE);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_None to add red borders
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
@@ -74,7 +74,7 @@ bool GameScene::init()
 	PauseButton = static_cast<ui::Button*>(rootNode->getChildByName("PauseButton"));
 	PauseButton->addTouchEventListener(CC_CALLBACK_2(GameScene::PauseButtonPressed, this));
 
-	this->schedule(schedule_selector(GameScene::SetBrick), Brick_Debug *winSize.width); // From Flappy bird.
+	this->schedule(schedule_selector(GameScene::SetBrick)); // From Flappy bird.
 
 	
 

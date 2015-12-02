@@ -33,10 +33,15 @@
 #define Down_Max 0
 #define Up_Max 0
 
+
+
 //Level One		//May be best refracted if time. 
 #define L1_Brick_NO 96
-#define L1_Brick_Lines 6
-#define L1_Brick_Pow 4
+#define L1_Brick_Violet 64 //must add up to L1_Brick_NO
+#define L1_Brick_Yellow 24 //must add up to L1_Brick_NO
+#define L1_Brick_Orange 8 //must add up to L1_Brick_NO
+#define L1_Brick_Lines 6 //Currently tied to L1_Brick_NO
+#define L1_Brick_Pow 4 //Now Not tied To bricks
 //Note to self add Colour blocks etc
 
 //Level Two
