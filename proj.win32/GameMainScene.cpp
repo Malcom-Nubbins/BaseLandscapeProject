@@ -84,17 +84,18 @@ bool GameScene::init()
 void GameScene::SetBrick(float i)
 {
 	brick.SetBrick(this);
+	unschedule(schedule_selector(GameScene::SetBrick));
 }
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	CCLOG("Left!");
 
 }
 
-
 void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-
+	CCLOG("Right!");
 }
 
 void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
