@@ -63,7 +63,7 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
-
+	
 	
 
 	return true;
@@ -89,8 +89,19 @@ void GameScene::SetBall(float i)
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	
+	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
+	float paddlePos = player.GetPlayerPosX();
+	auto winSize = Director::getInstance()->getVisibleSize();
 	CCLOG("Left!");
 
+	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+	{
+		if (paddlePos > 0)
+		{
+			player.SetPlayerPos((paddlePos - 3.0f), winSize.height / 6);
+		}
+	}
 }
 
 void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
