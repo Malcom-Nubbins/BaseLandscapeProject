@@ -11,7 +11,7 @@ Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_NONE);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
@@ -41,7 +41,7 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
-	auto edgeBody = PhysicsBody::createEdgeBox(winSize, PHYSICSBODY_MATERIAL_DEFAULT, 3); 
+	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
 	PhysicsMaterial(0.1f, 1.0f, 0.0f);
 	auto edgeNode = Node::create();
 	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
@@ -63,7 +63,7 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
-
+	
 	
 
 	return true;
@@ -89,8 +89,19 @@ void GameScene::SetBall(float i)
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	
+	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
+	float paddlePos = player.GetPlayerPosX();
+	auto winSize = Director::getInstance()->getVisibleSize();
 	CCLOG("Left!");
 
+	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+	{
+		if (paddlePos > 0)
+		{
+			player.SetPlayerPos((paddlePos - 3.0f), winSize.height / 6);
+		}
+	}
 }
 
 void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
@@ -100,12 +111,20 @@ void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 
 void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-
+	CCLOG("Fire!");
 }
 
 void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	CCLOG("Paused!");
 
+	// Temporary menu return. Takes the user back to menu, and resets the game scene. *ONLY FOR TESTING. WILL BE REMOVED LATER FOR PROPER PAUSE MENU*
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		auto scene = HelloWorld::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+	}
 }
 
 void GameScene::Update()
