@@ -64,6 +64,9 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
 	
+	isLeftFingerDown = false;
+	isRightFingerDown = false;
+	this->scheduleUpdate();
 	
 
 	return true;
@@ -89,24 +92,67 @@ void GameScene::SetBall(float i)
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-	
-	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
-	float paddlePos = player.GetPlayerPosX();
-	auto winSize = Director::getInstance()->getVisibleSize();
 	CCLOG("Left!");
 
 	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 	{
-		if (paddlePos > 0)
-		{
-			player.SetPlayerPos((paddlePos - 3.0f), winSize.height / 6);
-		}
+		isLeftFingerDown = true;
+		LeftButtonDown();
 	}
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		LeftButtonUp();
+	}
+}
+
+void GameScene::LeftButtonDown()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
+	paddlePos = player.GetPlayerPosX();
+	if (paddlePos > 40)
+		player.SetPlayerPos((paddlePos - 6.0f), winSize.height / 6);
+	else
+		LeftButtonUp();
+
+}
+
+void GameScene::LeftButtonUp()
+{
+	isLeftFingerDown = false;
 }
 
 void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	CCLOG("Right!");
+	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+	{
+		isRightFingerDown = true;
+		RightButtonDown();
+	}
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		RightButtonUp();
+	}
+}
+
+void GameScene::RightButtonDown()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
+	paddlePos = player.GetPlayerPosX();
+	if (paddlePos < winSize.width - 40)
+		player.SetPlayerPos((paddlePos + 6.0f), winSize.height / 6);
+	else
+		RightButtonUp();
+	
+}
+
+void GameScene::RightButtonUp()
+{
+	isRightFingerDown = false;
 }
 
 void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
@@ -127,7 +173,11 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 	}
 }
 
-void GameScene::Update()
+void GameScene::update(float dt)
 {
+	if (isLeftFingerDown)
+		LeftButtonDown();
 
+	if (isRightFingerDown)
+		RightButtonDown();
 }

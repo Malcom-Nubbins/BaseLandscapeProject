@@ -19,12 +19,17 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(GameScene);
 
-	void Update();
+	void update(float dt);
 
 	void LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
+	void LeftButtonDown();
+	void LeftButtonUp();
+	void RightButtonDown();
+	void RightButtonUp();
 
 private:
 	cocos2d::ui::Button* LeftButton;
@@ -35,6 +40,9 @@ private:
 	//cocos2d::Sprite* Balls;
 	//cocos2d::Sprite* Block; //No longer needed?
 	cocos2d::PhysicsWorld *GameWorld;
+	bool isLeftFingerDown;
+	bool isRightFingerDown;
+	float paddlePos;
 
 	void SetPhysicsWorld(cocos2d::PhysicsWorld *scene) { GameWorld = scene; };
 	void SetBrick(float i);
