@@ -4,7 +4,6 @@
 #include "SoundManager.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "SimpleAudioEngine.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -71,7 +70,10 @@ bool GameScene::init()
 	isRightFingerDown = false;
 
 	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+
+
 	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
+
 
 	this->scheduleUpdate();
 	
@@ -175,6 +177,7 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}

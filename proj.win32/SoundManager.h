@@ -19,6 +19,8 @@ public:
 	void PlaySoundEffect(const char*, bool, float, float, float);
 	void PlayMusic(const char*, bool);
 
+	void StopMusic();
+
 private:
 	SoundManager();
 	static SoundManager* instance;

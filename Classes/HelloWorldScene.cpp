@@ -88,6 +88,7 @@ void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = GameScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->StartGame();

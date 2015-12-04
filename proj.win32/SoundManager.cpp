@@ -45,3 +45,8 @@ void SoundManager::PlayMusic(const char* fName, bool isLooping)
 {
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fName, isLooping);
 }
+
+void SoundManager::StopMusic()
+{
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+}
