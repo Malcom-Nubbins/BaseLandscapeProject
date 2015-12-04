@@ -1,8 +1,10 @@
 #include "GameMainScene.h"
 #include "HelloWorldScene.h"
 #include "Define.h"
+#include "SoundManager.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -48,6 +50,7 @@ bool GameScene::init()
 	edgeNode->setPhysicsBody(edgeBody);
 	this->addChild(edgeNode);
 
+
 	LeftButton = static_cast<ui::Button*>(rootNode->getChildByName("LeftButton"));
 	LeftButton->addTouchEventListener(CC_CALLBACK_2(GameScene::LeftButtonPressed, this));
 
@@ -66,6 +69,10 @@ bool GameScene::init()
 	
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
+
+	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
+
 	this->scheduleUpdate();
 	
 

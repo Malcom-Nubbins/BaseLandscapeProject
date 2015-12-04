@@ -39,10 +39,6 @@ private:
 	int scene;
 	cocos2d::ui::Button* Start;
 	cocos2d::ui::Button* Credits;
-	cocos2d::Label* scoreLabel;
-	cocos2d::Label* ammoCount;
-	cocos2d::Label* livesCount;
-	cocos2d::Label* currentPower;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

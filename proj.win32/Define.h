@@ -3,7 +3,7 @@
 
 // Spash Screen Specific
 
-#define Splash_Length 3.0 // Defines the length of splash screen.
+#define Splash_Length 0.5 // Defines the length of splash screen. Temporarily reduced splash screen time for ease of debugging
 #define Transition_Length 0.8 // Defines the length of transitions.
 #define Load_MaxTime 8 // Used to prevent infinte loading.
 

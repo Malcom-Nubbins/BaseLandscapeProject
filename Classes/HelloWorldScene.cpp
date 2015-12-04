@@ -4,7 +4,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
-#include "SimpleAudioEngine.h"
+#include "proj.win32\SoundManager.h"
 
 USING_NS_CC;
 
@@ -53,8 +53,9 @@ bool HelloWorld::init()
 
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
-	//CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("credits.mp3");
-	//CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("credits.mp3", true);
+	
+	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
     return true;
 }
