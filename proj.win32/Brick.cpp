@@ -4,21 +4,33 @@
 
 USING_NS_CC;
 
+Brick::~Brick()
+{
+	
+}
+
 Brick::Brick()
 {
 	WinSize = Director::getInstance()->getVisibleSize();
 	origin= Director::getInstance()->getVisibleOrigin();
 
+	cocos2d::CCArray *_bricks;
+	this->_bricks = CCArray::createWithCapacity(L1_Brick_NO);
+	this->_bricks->retain();
+	//_bricks = new CCArray;
 	//auto winSize = Director::getInstance()->getVisibleSize();
 	//Vec2 origin = Director::getInstance()->getVisibleOrigin();
 }
 
 
 
-void Brick::SetBrick(cocos2d::Layer *layer)
+bool Brick::init()
 {
-
+	return true;
+}
+void Brick::SetBrick(cocos2d::Layer *layer)
 	
+{
 
 	for (int i = 0; i < L1_Brick_NO ; i++)
 	{
@@ -46,7 +58,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 
 		}
 
-
+		
 
 		/*if (miss < 0)
 		{
@@ -66,20 +78,31 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			//if 
 			CCLOG("Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 			CCSprite *basicbrick = CCSprite::create("Violet Brick.png");
+			this->_bricks->addObject(basicbrick);
 			//basicbrick->setScale(2 .0);
-			auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());// sets size of box
+			auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 			brickBounding->setCollisionBitmask(1);
 			brickBounding->setContactTestBitmask(true);
+			//brickBounding->setCollisionBitmask(VIOLET_COL_BITMASK);
 			//auto startingBrickPos = () ; //Add Define
 			brickBounding->setDynamic(false);
-			brickBounding->setGravityEnable(false);
+			brickBounding->setGravityEnable(true);
 			basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
 			startPos = startPos + (Brick_Size + Brick_Distance);
 			basicbrick->setPosition(Vec2(startPos, startLine));;
 			//basicbrick->setPosition(WinSize.width / 16 +StartPos, WinSize.height / 2 + WinSize.height / 3);// could use getPhysicsWorld but requires refractoring
-			layer->addChild(basicbrick);
+			layer->addChild(basicbrick, 1);
+			//basicbrick->setTag(i);
+
+			//_bricks->addObject(basicbrick);
+
+			
 		}
-
-
 	}
+}
+
+void Brick::RemoveBrick(cocos2d::Layer *layer)
+{
+	
+	layer->removeChildByTag(4, true);
 }

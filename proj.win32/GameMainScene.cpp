@@ -42,7 +42,7 @@ bool GameScene::init()
 	addChild(rootNode);
 
 	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
-	PhysicsMaterial(0.1f, 1.0f, 0.0f);
+	//PhysicsMaterial(0.0f, 0.0f, 0.0f);
 	auto edgeNode = Node::create();
 	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
 	edgeNode->setPhysicsBody(edgeBody);
@@ -72,10 +72,29 @@ bool GameScene::init()
 	return true;
 }
 
+
+
 bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 {
-	CCLOG("Hit");
+	PhysicsBody *brick = contact.getShapeA()->getBody();
+	PhysicsBody *ball = contact.getShapeB()->getBody();
+
+	
+	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))
+	{
+		CCLOG("Hit");
+		this->removeChild(contact.getShapeB()->getBody()->getNode());
+	}
+	
+	else
+	{
+		CCLOG("test");
+		this->removeChild(contact.getShapeA()->getBody()->getNode());
+	}
+	
+	//unschedule(schedule_selector(GameScene::SetBrick));
 	return true;
+	
 
 }
 

@@ -25,6 +25,11 @@ public:
 	void RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void brickIdent(cocos2d::CCArray * getBricks);
+
+protected:
+	cocos2d::CCArray *_bricks;
+	cocos2d::CCArray *_balls;
 
 private:
 	cocos2d::ui::Button* LeftButton;
@@ -39,6 +44,7 @@ private:
 
 	void SetPhysicsWorld(cocos2d::PhysicsWorld *scene) { GameWorld = scene; };
 	void SetBrick(float i);
+	void RemoveBrick(float i);
 	void SetPlayer(float i);
 	void SetBall(float i);
 	bool setHit(cocos2d::PhysicsContact &contact);

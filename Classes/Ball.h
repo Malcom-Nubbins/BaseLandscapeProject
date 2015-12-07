@@ -10,6 +10,9 @@ public:
 
 	void SetBall(cocos2d::Layer *layer);
 
+protected:
+	cocos2d::CCArray *_balls;
+
 private:
 	cocos2d::Size WinSize;
 	cocos2d::Vec2 origin;
