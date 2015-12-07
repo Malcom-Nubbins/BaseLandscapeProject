@@ -39,11 +39,6 @@ bool SplashScreenScene::init()
 
 	this->scheduleOnce(schedule_selector(SplashScreenScene::TimeMainMenu), Splash_Length);
 
-	auto Splash = Sprite::create("Test.png");
-	this->addChild(Splash);
-
-	Splash->setAnchorPoint(Vec2(0, 0));
-	Splash->setPosition(0, 0);
 	//Hard coded size and pos for now. 
 	// Could implement an image for the splash screen here.
 	// Could implement postion for image here.

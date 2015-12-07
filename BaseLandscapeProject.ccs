@@ -16,6 +16,17 @@
         <Image Name="ButtonLeft.png" />
         <Image Name="FireButton.png" />
         <Image Name="ButtonRight.png" />
+        <Image Name="SplashScreen.png" />
+        <Image Name="StartButton.png" />
+        <Image Name="CreditsButton.png" />
+        <Image Name="StartButtonDown.png" />
+        <Image Name="CreditsButtonDown.png" />
+        <Image Name="ButtonLeftDown.png" />
+        <Image Name="FireButtonDown.png" />
+        <Image Name="ButtonRightDown.png" />
+        <Image Name="PauseButtonDown.png" />
+        <Image Name="GenericBG.png" />
+        <Image Name="CreditsScreen.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -6,6 +6,17 @@
       <ObjectData Name="Scene" Tag="7" ctype="GameNodeObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
+          <AbstractNodeData Name="BG" ActionTag="-1758373845" Tag="16" IconVisible="False" ctype="SpriteObjectData">
+            <Size X="1280.0000" Y="720.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="640.0000" Y="360.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.5000" />
+            <PreSize X="1.0000" Y="1.0000" />
+            <FileData Type="Normal" Path="GenericBG.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
           <AbstractNodeData Name="UI" ActionTag="629039223" Tag="8" IconVisible="False" LeftMargin="0.5000" RightMargin="0.5000" TopMargin="0.5000" BottomMargin="0.5000" ctype="SpriteObjectData">
             <Size X="1279.0000" Y="719.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -27,7 +38,7 @@
             <PreSize X="0.1266" Y="0.1292" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <PressedFileData Type="Normal" Path="ButtonLeftDown.png" Plist="" />
             <NormalFileData Type="Normal" Path="ButtonLeft.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -42,7 +53,7 @@
             <PreSize X="0.2367" Y="0.1292" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <PressedFileData Type="Normal" Path="FireButtonDown.png" Plist="" />
             <NormalFileData Type="Normal" Path="FireButton.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -57,7 +68,7 @@
             <PreSize X="0.1266" Y="0.1292" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <PressedFileData Type="Normal" Path="ButtonRightDown.png" Plist="" />
             <NormalFileData Type="Normal" Path="ButtonRight.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -72,7 +83,7 @@
             <PreSize X="0.0469" Y="0.0833" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <PressedFileData Type="Normal" Path="PauseButtonDown.png" Plist="" />
             <NormalFileData Type="Normal" Path="PauseButton.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -109,6 +120,15 @@
             <PreSize X="0.0086" Y="0.0319" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="42.7804" RightMargin="1237.2196" TopMargin="39.2852" BottomMargin="680.7148" Volume="1.0000" ctype="SimpleAudioObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="42.7804" Y="680.7148" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0334" Y="0.9454" />
+            <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
