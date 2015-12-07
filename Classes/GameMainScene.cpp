@@ -64,9 +64,19 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
 	
-	
+	auto contactListner = EventListenerPhysicsContact::create();
+	contactListner->onContactBegin = CC_CALLBACK_1(GameScene::setHit, this);
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListner, this);
+
 
 	return true;
+}
+
+bool GameScene::setHit(cocos2d::PhysicsContact &contact)
+{
+	CCLOG("Hit");
+	return true;
+
 }
 
 void GameScene::SetBrick(float i)
@@ -85,7 +95,14 @@ void GameScene::SetBall(float i)
 {
 	ball.SetBall(this);
 	unschedule(schedule_selector(GameScene::SetBall));
+
+	
 }
+
+//void GameScene::SetCollisions(cocos2d::PhysicsContact &contact)
+//{
+	
+//}
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {

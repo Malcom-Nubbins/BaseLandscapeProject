@@ -1,5 +1,6 @@
 #include "Brick.h"
 #include "Define.h"
+#include "physics\CCPhysicsBody.h"
 
 USING_NS_CC;
 
@@ -11,6 +12,8 @@ Brick::Brick()
 	//auto winSize = Director::getInstance()->getVisibleSize();
 	//Vec2 origin = Director::getInstance()->getVisibleOrigin();
 }
+
+
 
 void Brick::SetBrick(cocos2d::Layer *layer)
 {
@@ -62,9 +65,11 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			//BRICKS COULD BE REFRACTORED TO REDUCE REPEATED CODE
 			//if 
 			CCLOG("Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
-			auto basicbrick = Sprite::create("Violet Brick.png"); // May not need the auto
+			CCSprite *basicbrick = CCSprite::create("Violet Brick.png");
 			//basicbrick->setScale(2 .0);
 			auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());// sets size of box
+			brickBounding->setCollisionBitmask(1);
+			brickBounding->setContactTestBitmask(true);
 			//auto startingBrickPos = () ; //Add Define
 			brickBounding->setDynamic(false);
 			brickBounding->setGravityEnable(false);
@@ -74,5 +79,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			//basicbrick->setPosition(WinSize.width / 16 +StartPos, WinSize.height / 2 + WinSize.height / 3);// could use getPhysicsWorld but requires refractoring
 			layer->addChild(basicbrick);
 		}
+
+
 	}
 }

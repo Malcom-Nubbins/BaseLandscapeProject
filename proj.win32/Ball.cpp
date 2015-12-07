@@ -22,12 +22,14 @@ void Ball::SetBall(cocos2d::Layer *layer)
 		PhysicsMaterial(0.5f, 2.00f, 0.0f));
 	ballBounding->setVelocity(Vec2(cocos2d::random(-500, 500),
 		cocos2d::random(-500, 500)));
-
+	ballBounding->setCollisionBitmask(2);
+	ballBounding->setContactTestBitmask(true);
 	ballBounding->setDynamic(true);
 	ballBounding->setGravityEnable(false);
 	ball->setPhysicsBody(ballBounding); //sets a bounding box around brick.
 	ball->setPosition(Vec2(550, 150));
 	layer->addChild(ball);
+	ball->setTag(1);
 }
 
 
