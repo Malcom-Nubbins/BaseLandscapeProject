@@ -25,7 +25,6 @@ public:
 	void RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
-	void brickIdent(cocos2d::CCArray * getBricks);
 
 protected:
 	cocos2d::CCArray *_bricks;
@@ -36,9 +35,6 @@ private:
 	cocos2d::ui::Button* RightButton;
 	cocos2d::ui::Button* FireButton;
 	cocos2d::ui::Button* PauseButton;
-	//cocos2d::Sprite* Paddle;
-	//cocos2d::Sprite* Balls;
-	//cocos2d::Sprite* Block; //No longer needed?
 	cocos2d::PhysicsWorld *GameWorld;
 	cocos2d::PhysicsContact *onContactBegin;
 

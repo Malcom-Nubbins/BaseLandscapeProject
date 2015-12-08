@@ -14,9 +14,6 @@ public:
 	float startPos = 80;
 	float startLine = 600;
 	int miss = 0;
-
-	cocos2d::CCArray * getBricksArray() { return _bricks; }
-
 protected:
 	cocos2d::CCArray *_bricks;
 
