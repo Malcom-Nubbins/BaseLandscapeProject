@@ -13,6 +13,7 @@ Scene* GameScene::createScene()
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
 	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
+	scene->getPhysicsWorld()->setGravity(Vec2(0, 0));
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
@@ -43,7 +44,7 @@ bool GameScene::init()
 	addChild(rootNode);
 
 	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
-	//PhysicsMaterial(0.0f, 0.0f, 0.0f);
+	PhysicsMaterial(0.0f, 0.0f, 0.0f);
 	auto edgeNode = Node::create();
 	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
 	edgeNode->setPhysicsBody(edgeBody);
@@ -65,7 +66,6 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
-	
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
 
@@ -97,6 +97,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	{
 		CCLOG("Hit");
 		this->removeChild(contact.getShapeB()->getBody()->getNode());
+
 	}
 	
 	else
