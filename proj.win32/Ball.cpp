@@ -19,7 +19,7 @@ void Ball::SetBall(cocos2d::Layer *layer)
 	auto ballBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 		PhysicsMaterial(1.0f, 2.0f, 0.0f));
 	//ballBounding->setVelocity(Vec2(-500, -500)); // 
-	ballBounding->applyForce (Vect(10, 10)); 
+	//ballBounding->applyForce (Vect(2200, 2200)); 
 	ballBounding->applyImpulse(Vect(50000 + acceleration, 68000 + acceleration)); // Dont Understand why the values need to be so high.
 	ballBounding->applyTorque(10000); // helps keeps the ball path true. Think spinning a coin
 	force = (Vec2(10, 10));

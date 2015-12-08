@@ -1,6 +1,5 @@
 #include "Brick.h"
 #include "Define.h"
-#include "LevelDefine.h"
 #include "physics\CCPhysicsBody.h"
 
 USING_NS_CC;
@@ -16,7 +15,7 @@ Brick::Brick()
 	origin= Director::getInstance()->getVisibleOrigin();
 
 	cocos2d::CCArray *_bricks;
-	this->_bricks = CCArray::createWithCapacity(5);
+	this->_bricks = CCArray::createWithCapacity(L1_Brick_NO);
 	this->_bricks->retain();
 }
 
@@ -30,9 +29,9 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	
 {
 
-	for (int i = 0; i < 5 ; i++)
+	for (int i = 0; i < L1_Brick_NO ; i++)
 	{
-		/*cocos2d::RandomHelper::random_int(1, L1_Brick_NO); //randomises what bricks contain the powerups.
+		cocos2d::RandomHelper::random_int(1, L1_Brick_NO); //randomises what bricks contain the powerups.
 		CCLOG("POWER"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 		auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
 		auto powerUpBounding = PhysicsBody::createCircle(powerUp->getContentSize().width / 2);
@@ -42,11 +41,11 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 		powerUp->setPosition(Vec2(500, 600));
 		layer->addChild(powerUp);
 		//currently all powerups are one ups and currently dont do anything. Have also given them physics for later implementation if there is time.
-		*/
+
 		if (i % 16 == 0) //CURRENTLY MEANS MUST BE 16 BRICKS ON A LINE. 
 		{
-			//startLine = startLine - 24;
-			//startPos = 80 ;
+			startLine = startLine - 24;
+			startPos = 80 ;
 
 		}
 
@@ -64,9 +63,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			brickBounding->setDynamic(false);
 			brickBounding->setGravityEnable(true);
 			basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
-			//startPos = startPos + (Brick_Size + Brick_Distance);((Brick_W / 2) + (Brick_H / 2) + Brick_Distance
-			startPos = startPos + ((Brick_W / 2) + Brick_Distance);
-
+			startPos = startPos + (Brick_Size + Brick_Distance);
 			basicbrick->setPosition(Vec2(startPos, startLine));;
 			layer->addChild(basicbrick, 1);
 			//basicbrick->setTag(i);
