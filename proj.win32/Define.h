@@ -25,8 +25,8 @@
 
 //Blocks
 #define Brick_Debug 0.00005
-#define Brick_Distance 2
-#define Brick_Line_Distance 2
+#define Brick_Distance 0
+#define Brick_Line_Distance 0
 #define Brick_Size 60
 #define Left_Max 0
 #define Right_Max 0
@@ -42,6 +42,10 @@
 #define L1_Brick_Orange 8 //must add up to L1_Brick_NO
 #define L1_Brick_Lines 6 //Currently tied to L1_Brick_NO
 #define L1_Brick_Pow 4 //Now Not tied To bricks
+#define L1_Brick_Miss_1 1 
+#define L1_Brick_Miss_2 2 
+#define L1_Brick_Miss_4 4 
+#define L1_Brick_Miss_8 8 
 //Note to self add Colour blocks etc
 
 //Level Two

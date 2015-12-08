@@ -31,23 +31,28 @@ public:
 	void RightButtonDown();
 	void RightButtonUp();
 
+protected:
+	cocos2d::CCArray *_bricks;
+	cocos2d::CCArray *_balls;
+
 private:
 	cocos2d::ui::Button* LeftButton;
 	cocos2d::ui::Button* RightButton;
 	cocos2d::ui::Button* FireButton;
 	cocos2d::ui::Button* PauseButton;
-	//cocos2d::Sprite* Paddle;
-	//cocos2d::Sprite* Balls;
-	//cocos2d::Sprite* Block; //No longer needed?
 	cocos2d::PhysicsWorld *GameWorld;
 	bool isLeftFingerDown;
 	bool isRightFingerDown;
 	float paddlePos;
 
+	cocos2d::PhysicsContact *onContactBegin;
+
 	void SetPhysicsWorld(cocos2d::PhysicsWorld *scene) { GameWorld = scene; };
 	void SetBrick(float i);
+	void RemoveBrick(float i);
 	void SetPlayer(float i);
 	void SetBall(float i);
+	bool setHit(cocos2d::PhysicsContact &contact);
 	
 	Brick brick;
 	Player player;
