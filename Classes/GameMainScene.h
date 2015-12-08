@@ -26,20 +26,24 @@ public:
 	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
+protected:
+	cocos2d::CCArray *_bricks;
+	cocos2d::CCArray *_balls;
+
 private:
 	cocos2d::ui::Button* LeftButton;
 	cocos2d::ui::Button* RightButton;
 	cocos2d::ui::Button* FireButton;
 	cocos2d::ui::Button* PauseButton;
-	//cocos2d::Sprite* Paddle;
-	//cocos2d::Sprite* Balls;
-	//cocos2d::Sprite* Block; //No longer needed?
 	cocos2d::PhysicsWorld *GameWorld;
+	cocos2d::PhysicsContact *onContactBegin;
 
 	void SetPhysicsWorld(cocos2d::PhysicsWorld *scene) { GameWorld = scene; };
 	void SetBrick(float i);
+	void RemoveBrick(float i);
 	void SetPlayer(float i);
 	void SetBall(float i);
+	bool setHit(cocos2d::PhysicsContact &contact);
 	
 	Brick brick;
 	Player player;

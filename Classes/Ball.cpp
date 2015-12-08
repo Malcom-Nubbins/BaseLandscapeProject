@@ -8,26 +8,25 @@ Ball::Ball()
 	WinSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
-	//auto winSize = Director::getInstance()->getVisibleSize();
-	//Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	_balls = new CCArray;
 }
 
 void Ball::SetBall(cocos2d::Layer *layer)
 {
-	CCLOG("POWER"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
-	auto ball = Sprite::create("Ball.png"); // May not need the auto
-	//auto ballBounding = PhysicsBody::createCircle(ball->getContentSize().width / 2), (PhysicsMaterial(1.0f, 1.0f, 1.0f));
-
-	auto ballBounding = PhysicsBody::createCircle((9.0f, 9.0f),
-		PhysicsMaterial(0.5f, 2.00f, 0.0f));
-	ballBounding->setVelocity(Vec2(cocos2d::random(-500, 500),
-		cocos2d::random(-500, 500)));
-
+	CCLOG("Ball"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+	CCSprite *ball = CCSprite::create("Ball.png");
+	auto ballBounding = PhysicsBody::createCircle((10.0f, 10.0f),
+		PhysicsMaterial(0.0f, 2.05f, 0.0f));
+	ballBounding->setVelocity(Vec2(0, -200));
+	ballBounding->setCollisionBitmask(2);
+	ballBounding->setContactTestBitmask(true);
 	ballBounding->setDynamic(true);
 	ballBounding->setGravityEnable(false);
 	ball->setPhysicsBody(ballBounding); //sets a bounding box around brick.
-	ball->setPosition(Vec2(550, 650));
-	layer->addChild(ball);
+	ball->setPosition(Vec2(550, 150));
+	layer->addChild(ball ,2);
+	ball->setTag(1);
+	//_balls->addObject(ball);
 }
 
 
