@@ -5,6 +5,7 @@
 #include "ui/CocosGUI.h"
 #include "Define.h"
 #include "proj.win32\SoundManager.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 

@@ -2,11 +2,13 @@
 #include "HelloWorldScene.h"
 #include "Define.h"
 #include "SoundManager.h"
+#include "GameManager.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
+using namespace cocos2d;
 
 Scene* GameScene::createScene()
 {
@@ -82,6 +84,9 @@ bool GameScene::init()
 
 	this->scheduleUpdate();
 
+	ScoreLabel = (ui::Text*)rootNode->getChildByName("Score");
+	GameManager::sharedGameManager()->ResetScore();
+
 	return true;
 }
 
@@ -97,7 +102,8 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	{
 		CCLOG("Hit");
 		this->removeChild(contact.getShapeB()->getBody()->getNode());
-
+		GameManager::sharedGameManager()->AddToScore(1);
+		//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 	}
 	
 	else
@@ -228,4 +234,6 @@ void GameScene::update(float dt)
 
 	if (isRightFingerDown)
 		RightButtonDown();
+
+	ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 }
