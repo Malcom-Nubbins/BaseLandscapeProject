@@ -14,6 +14,13 @@ public:
 	float startPos = 80;
 	float startLine = 600;
 	int miss = 0;
+	int bricks;
+	int blocks;
+	int lines;
+	int inc;
+	int test;
+	int type;
+	int level;
 protected:
 	cocos2d::CCArray *_bricks;
 
