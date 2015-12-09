@@ -34,7 +34,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	lines = 0;
 	inc = 1;
 	type = 1;
-	level = 2;
+	level = 1; // Level 2 gives different block layout
 	__String spawn = "1";
 
 	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
@@ -978,7 +978,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 } 
-		 if (blocks >= 1 && blocks <= 96)
+		 if (blocks == 0 || blocks == 1)
 		 {
 			 if (type == 1)
 			 {
@@ -1031,14 +1031,14 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 basicbrick->setPosition(Vec2(startPos, startLine));;
 				 layer->addChild(basicbrick, 1);
 			 }
-			 blocks = 0;
+			 //blocks = 0;
 			 if (i % 16 == 0) //CURRENTLY MEANS MUST BE 16 BRICKS ON A LINE. 
 			 {
 				 startLine = startLine - 24;
 				 startPos = 80;
 			 }
 
-			 if (blocks = 0)
+			 if (blocks == 0)
 			 {
 				 startPos = startPos + (Brick_Size + Brick_Distance);
 			 }
