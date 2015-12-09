@@ -30,7 +30,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 {
 
 	bricks = 0;
-	blocks = 0;
+	//blocks = 0;
 	lines = 0;
 	inc = 1;
 	type = 1;
@@ -49,10 +49,10 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	 CCLOG("Bricks: %i", bricks);
 	 CCLOG("Lines: %i", lines);
 
-	 for (int i = 0; i < bricks; i++)
+	 for (int i = 1; i < bricks; i++)
 	 {
-
-		 if (i = 1)
+		// blocks = i;
+		 if (i == 1)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("1")->getCString());
 			 blocks = Block->intValue();
@@ -63,7 +63,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("type: %i", type);
 		 }
 
-		 if (i = 2)
+		 if (i == 2)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("2")->getCString());
 			 blocks = Block->intValue();
@@ -74,7 +74,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("type: %i", type);
 		 }
 
-		 if (i = 3)
+		 if (i == 3)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("3")->getCString());
 			 blocks = Block->intValue();
@@ -84,7 +84,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 4)
+		 if (i == 4)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("4")->getCString());
 			 blocks = Block->intValue();
@@ -94,7 +94,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 5)
+		 if (i == 5)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("5")->getCString());
 			 blocks = Block->intValue();
@@ -104,7 +104,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 6)
+		 if (i == 6)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("6")->getCString());
 			 blocks = Block->intValue();
@@ -114,7 +114,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 7)
+		 if (i == 7)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("7")->getCString());
 			 blocks = Block->intValue();
@@ -124,7 +124,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 8)
+		 if (i == 8)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("8")->getCString());
 			 blocks = Block->intValue();
@@ -134,7 +134,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 9)
+		 if (i == 9)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("9")->getCString());
 			 blocks = Block->intValue();
@@ -144,7 +144,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 10)
+		 if (i == 10)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("10")->getCString());
 			 blocks = Block->intValue();
@@ -154,7 +154,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 11)
+		 if (i == 11)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("11")->getCString());
 			 blocks = Block->intValue();
@@ -164,7 +164,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 12)
+		 if (i == 12)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("12")->getCString());
 			 blocks = Block->intValue();
@@ -174,7 +174,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 13)
+		 if (i == 13)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("13")->getCString());
 			 blocks = Block->intValue();
@@ -184,7 +184,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 14)
+		 if (i == 14)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("14")->getCString());
 			 blocks = Block->intValue();
@@ -194,7 +194,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 15)
+		 if (i == 15)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("15")->getCString());
 			 blocks = Block->intValue();
@@ -204,7 +204,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 16)
+		 if (i == 16)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("16")->getCString());
 			 blocks = Block->intValue();
@@ -214,7 +214,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 17)
+		 if (i == 17)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("17")->getCString());
 			 blocks = Block->intValue();
@@ -224,7 +224,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 18)
+		 if (i == 18)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("18")->getCString());
 			 blocks = Block->intValue();
@@ -234,7 +234,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 19)
+		 if (i == 19)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("19")->getCString());
 			 blocks = Block->intValue();
@@ -244,7 +244,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 20)
+		 if (i == 20)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("20")->getCString());
 			 blocks = Block->intValue();
@@ -254,7 +254,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 21)
+		 if (i == 21)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("21")->getCString());
 			 blocks = Block->intValue();
@@ -264,7 +264,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 22)
+		 if (i == 22)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("22")->getCString());
 			 blocks = Block->intValue();
@@ -274,7 +274,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 23)
+		 if (i == 23)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("23")->getCString());
 			 blocks = Block->intValue();
@@ -284,7 +284,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 24)
+		 if (i == 24)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("24")->getCString());
 			 blocks = Block->intValue();
@@ -294,7 +294,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 25)
+		 if (i == 25)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("25")->getCString());
 			 blocks = Block->intValue();
@@ -304,7 +304,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 26)
+		 if (i == 26)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("26")->getCString());
 			 blocks = Block->intValue();
@@ -314,7 +314,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 27)
+		 if (i == 27)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("27")->getCString());
 			 blocks = Block->intValue();
@@ -324,7 +324,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 28)
+		 if (i == 28)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("28")->getCString());
 			 blocks = Block->intValue();
@@ -334,7 +334,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 29)
+		 if (i == 29)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("29")->getCString());
 			 blocks = Block->intValue();
@@ -344,7 +344,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 30)
+		 if (i == 30)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("31")->getCString());
 			 blocks = Block->intValue();
@@ -354,7 +354,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 32)
+		 if (i == 32)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("32")->getCString());
 			 blocks = Block->intValue();
@@ -364,7 +364,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 33)
+		 if (i == 33)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("34")->getCString());
 			 blocks = Block->intValue();
@@ -374,7 +374,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 35)
+		 if (i == 35)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("35")->getCString());
 			 blocks = Block->intValue();
@@ -384,7 +384,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 36)
+		 if (i == 36)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("36")->getCString());
 			 blocks = Block->intValue();
@@ -394,7 +394,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 37)
+		 if (i == 37)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("37")->getCString());
 			 blocks = Block->intValue();
@@ -404,7 +404,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 38)
+		 if (i == 38)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("38")->getCString());
 			 blocks = Block->intValue();
@@ -414,7 +414,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 39)
+		 if (i == 39)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("39")->getCString());
 			 blocks = Block->intValue();
@@ -424,7 +424,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 40)
+		 if (i == 40)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("40")->getCString());
 			 blocks = Block->intValue();
@@ -434,7 +434,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 41)
+		 if (i == 41)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("41")->getCString());
 			 blocks = Block->intValue();
@@ -444,7 +444,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 42)
+		 if (i == 42)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("42")->getCString());
 			 blocks = Block->intValue();
@@ -454,7 +454,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 43)
+		 if (i == 43)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("43")->getCString());
 			 blocks = Block->intValue();
@@ -464,7 +464,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 44)
+		 if (i == 44)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("44")->getCString());
 			 blocks = Block->intValue();
@@ -474,7 +474,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 45)
+		 if (i == 45)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("45")->getCString());
 			 blocks = Block->intValue();
@@ -484,7 +484,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 46)
+		 if (i == 46)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("46")->getCString());
 			 blocks = Block->intValue();
@@ -494,7 +494,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 47)
+		 if (i == 47)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("47")->getCString());
 			 blocks = Block->intValue();
@@ -504,7 +504,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 48)
+		 if (i == 48)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("48")->getCString());
 			 blocks = Block->intValue();
@@ -514,7 +514,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 49)
+		 if (i == 49)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("49")->getCString());
 			 blocks = Block->intValue();
@@ -524,7 +524,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 50)
+		 if (i == 50)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("50")->getCString());
 			 blocks = Block->intValue();
@@ -536,7 +536,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 		 }
 
 
-		 if (i = 51)
+		 if (i == 51)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("51")->getCString());
 			 blocks = Block->intValue();
@@ -547,7 +547,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("type: %i", type);
 		 }
 
-		 if (i = 52)
+		 if (i == 52)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("52")->getCString());
 			 blocks = Block->intValue();
@@ -558,7 +558,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("type: %i", type);
 		 }
 
-		 if (i = 53)
+		 if (i == 53)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("53")->getCString());
 			 blocks = Block->intValue();
@@ -568,7 +568,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 54)
+		 if (i == 54)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("54")->getCString());
 			 blocks = Block->intValue();
@@ -578,7 +578,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 55)
+		 if (i == 55)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("55")->getCString());
 			 blocks = Block->intValue();
@@ -588,7 +588,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 56)
+		 if (i == 56)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("56")->getCString());
 			 blocks = Block->intValue();
@@ -598,7 +598,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 57)
+		 if (i == 57)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("58")->getCString());
 			 blocks = Block->intValue();
@@ -608,7 +608,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 59)
+		 if (i == 59)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("59")->getCString());
 			 blocks = Block->intValue();
@@ -618,7 +618,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 60)
+		 if (i == 60)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("61")->getCString());
 			 blocks = Block->intValue();
@@ -628,7 +628,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 62)
+		 if (i == 62)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("62")->getCString());
 			 blocks = Block->intValue();
@@ -638,7 +638,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 63)
+		 if (i == 63)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("63")->getCString());
 			 blocks = Block->intValue();
@@ -648,7 +648,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 64)
+		 if (i == 64)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("64")->getCString());
 			 blocks = Block->intValue();
@@ -658,7 +658,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 65)
+		 if (i == 65)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("65")->getCString());
 			 blocks = Block->intValue();
@@ -668,7 +668,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 66)
+		 if (i == 66)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("66")->getCString());
 			 blocks = Block->intValue();
@@ -678,7 +678,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 67)
+		 if (i == 67)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("67")->getCString());
 			 blocks = Block->intValue();
@@ -688,7 +688,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 68)
+		 if (i == 68)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("68")->getCString());
 			 blocks = Block->intValue();
@@ -698,7 +698,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 69)
+		 if (i == 69)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("69")->getCString());
 			 blocks = Block->intValue();
@@ -708,7 +708,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 70)
+		 if (i == 70)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("70")->getCString());
 			 blocks = Block->intValue();
@@ -718,7 +718,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 71)
+		 if (i == 71)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("71")->getCString());
 			 blocks = Block->intValue();
@@ -728,7 +728,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 72)
+		 if (i == 72)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("72")->getCString());
 			 blocks = Block->intValue();
@@ -738,7 +738,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 73)
+		 if (i == 73)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("73")->getCString());
 			 blocks = Block->intValue();
@@ -748,7 +748,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 74)
+		 if (i == 74)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("74")->getCString());
 			 blocks = Block->intValue();
@@ -758,7 +758,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 75)
+		 if (i == 75)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("75")->getCString());
 			 blocks = Block->intValue();
@@ -768,7 +768,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 76)
+		 if (i == 76)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("76")->getCString());
 			 blocks = Block->intValue();
@@ -778,7 +778,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 77)
+		 if (i == 77)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("77")->getCString());
 			 blocks = Block->intValue();
@@ -788,7 +788,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 78)
+		 if (i == 78)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("78")->getCString());
 			 blocks = Block->intValue();
@@ -798,7 +798,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 79)
+		 if (i == 79)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("79")->getCString());
 			 blocks = Block->intValue();
@@ -808,7 +808,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 80)
+		 if (i == 80)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("80")->getCString());
 			 blocks = Block->intValue();
@@ -818,7 +818,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 81)
+		 if (i == 81)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("81")->getCString());
 			 blocks = Block->intValue();
@@ -828,7 +828,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 82)
+		 if (i == 82)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("82")->getCString());
 			 blocks = Block->intValue();
@@ -838,7 +838,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 83)
+		 if (i == 83)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("83")->getCString());
 			 blocks = Block->intValue();
@@ -848,7 +848,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 84)
+		 if (i == 84)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("84")->getCString());
 			 blocks = Block->intValue();
@@ -858,7 +858,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 85)
+		 if (i == 85)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("85")->getCString());
 			 blocks = Block->intValue();
@@ -868,7 +868,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 86)
+		 if (i == 86)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("86")->getCString());
 			 blocks = Block->intValue();
@@ -878,7 +878,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 87)
+		 if (i == 87)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("87")->getCString());
 			 blocks = Block->intValue();
@@ -888,7 +888,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 88)
+		 if (i == 88)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("88")->getCString());
 			 blocks = Block->intValue();
@@ -898,7 +898,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 89)
+		 if (i == 89)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("89")->getCString());
 			 blocks = Block->intValue();
@@ -908,7 +908,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 90)
+		 if (i == 90)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("90")->getCString());
 			 blocks = Block->intValue();
@@ -918,7 +918,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 91)
+		 if (i == 91)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("91")->getCString());
 			 blocks = Block->intValue();
@@ -928,7 +928,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 92)
+		 if (i == 92)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("92")->getCString());
 			 blocks = Block->intValue();
@@ -938,7 +938,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 93)
+		 if (i == 93)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("93")->getCString());
 			 blocks = Block->intValue();
@@ -948,7 +948,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 94)
+		 if (i == 94)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("94")->getCString());
 			 blocks = Block->intValue();
@@ -958,7 +958,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 95)
+		 if (i == 95)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("95")->getCString());
 			 blocks = Block->intValue();
@@ -968,7 +968,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 }
-		 if (i = 96)
+		 if (i == 96)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("96")->getCString());
 			 blocks = Block->intValue();
@@ -978,9 +978,9 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("block: %i", blocks);
 			 CCLOG("type: %i", type);
 		 } 
-		 if (blocks = 1)
+		 if (blocks >= 1 && blocks <= 96)
 		 {
-			 if (type = 1)
+			 if (type == 1)
 			 {
 				 CCLOG("Purple Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 				 CCLOG("Start: %i", startPos);
@@ -998,7 +998,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 layer->addChild(basicbrick, 1);
 			 }
 
-			 if (type = 2)
+			 if (type == 2)
 			 {
 				 CCLOG("Yellow Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 				 CCSprite *basicbrick = CCSprite::create("Yellow Brick.png");
@@ -1015,7 +1015,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 layer->addChild(basicbrick, 1);
 			 }
 
-			 if (type = 3)
+			 if (type == 3)
 			 {
 				 CCLOG(" Orange Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 				 CCSprite *basicbrick = CCSprite::create("Orange Brick.png");
