@@ -18,6 +18,7 @@ public:
 	int blocks;
 	int lines;
 	int inc;
+	int test;
 	int type;
 	int level;
 protected:

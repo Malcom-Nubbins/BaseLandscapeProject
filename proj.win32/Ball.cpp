@@ -33,8 +33,6 @@ void Ball::SetBall(cocos2d::Layer *layer)
 	layer->addChild(ball ,2);
 	ball->setTag(1);
 	//_balls->addObject(ball);
-
-	 
 }
 
 
