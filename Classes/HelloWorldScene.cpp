@@ -1,11 +1,8 @@
 #include "HelloWorldScene.h"
 #include "GameMainScene.h"
-#include "proj.win32\CreditsScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
-#include "proj.win32\SoundManager.h"
-#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -38,6 +35,8 @@ bool HelloWorld::init()
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
     addChild(rootNode);
+	auto creditsNode = CSLoader::createNode("Credits.csb");
+	addChild(creditsNode);
 
 	this->scheduleUpdate();
 
@@ -47,7 +46,7 @@ bool HelloWorld::init()
 	scene = 1;
 
 	//Initialise buttons, sprites, labels/text
-	// To add: Start button, Player sprites, labels, sound
+	// To add: Start button, Player sprites, labels
 
 	Start = static_cast<ui::Button*>(rootNode->getChildByName("Start"));
 	Start->addTouchEventListener(CC_CALLBACK_2(HelloWorld::StartButtonPressed, this));
@@ -55,8 +54,6 @@ bool HelloWorld::init()
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
 	
-	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
-	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
     return true;
 }
@@ -67,11 +64,11 @@ void HelloWorld::Update(float delta)
 
 	if (scene == 1) // Main Menu
 	{
-		
+
 	}
 	else if (scene == 2) // Game Scene
 	{
-		
+
 	}
 	else if (scene == 3) //Game Over
 	{
@@ -85,28 +82,24 @@ void HelloWorld::Update(float delta)
 
 void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type) 
 {
-	CCLOG("The game begins! &d", type);
+	CCLOG("Push me, and then just touch me! &d", type);
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = GameScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
-		this->StartGame();
+		//this->CreditsScene();
 	}
-	this->StartGame();
+	//this->CreditsScene();
 }
 
 
 void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-	CCLOG("Everybody needs credit! &d", type);
+	CCLOG("Push me, and then just touch me! &d", type);
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-		auto scene = CreditsScene::createScene();
-		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->CreditsScene();
 	}
 	this->CreditsScene();
@@ -119,14 +112,7 @@ void HelloWorld::MainMenu()
 
 void HelloWorld::StartGame()
 {
-	auto winSize = Director::getInstance()->getVisibleSize();
 	scene = 2;
-
-	auto startMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Start->getPositionY()));
-	Start->runAction(startMoveTo);
-
-	auto creditsMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Credits->getPositionY()));
-	Credits->runAction(creditsMoveTo);
 }
 
 void HelloWorld::EndGame()
@@ -139,8 +125,8 @@ void HelloWorld::CreditsScene()
 	auto winSize = Director::getInstance()->getVisibleSize();
 	scene = 4;
 
-	auto startMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Start->getPositionY()));
-	Start->runAction(startMoveTo);
+	/*auto startMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Start->getPositionY()));
+	Start->runAction(startMoveTo);*/
 
 	auto creditsMoveTo = MoveTo::create(0.5, Vec2(winSize.width, Credits->getPositionY()));
 	Credits->runAction(creditsMoveTo);
