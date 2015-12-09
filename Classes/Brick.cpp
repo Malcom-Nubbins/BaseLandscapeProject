@@ -29,10 +29,46 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	
 {
 
-	for (int i = 0; i < L1_Brick_NO ; i++)
+	bricks = 0;
+	blocks = 0;
+	lines = 0;
+	inc = 1;
+	type = 0;
+	level = 1;
+	__String spawn = "1";
+
+	__String *file = __String::createWithFormat("level%i.plist",level); // allows mutiple level .plists
+	__Dictionary *list = __Dictionary::createWithContentsOfFile(file->getCString()); //makes a list with all the data
+	__String *Bricks = __String::create(list->valueForKey("Bricks")->getCString()); //assiging a key.
+	__String *Lines = __String::create(list->valueForKey("Lines")->getCString());
+
+	 bricks = Bricks->intValue();
+	 lines = Lines->intValue();
+
+	 CCLOG("level: %i", level);
+	 CCLOG("Bricks: %i", bricks);
+	 CCLOG("Lines: %i", lines);
+
+	 for (int i = 0; i < bricks; i++)
+	 {
+
+		 __String *spawn = __String::createWithFormat("%d", inc);
+
+		
+		 //Block = list->valueForKey(spawn ->get)
+
+		__String *Block = __String::createWithFormat(list->valueForKey("1")->getCString());
+
+		 blocks = Block->intValue();
+		 CCLOG("block: %i", blocks);
+		 inc = inc + 1;
+	 }
+
+
+	 for (int i = 0; i < bricks; i++)
 	{
 		cocos2d::RandomHelper::random_int(1, L1_Brick_NO); //randomises what bricks contain the powerups.
-		CCLOG("POWER"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+		//CCLOG("POWER"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 		auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
 		auto powerUpBounding = PhysicsBody::createCircle(powerUp->getContentSize().width / 2);
 		powerUpBounding->setDynamic(false);
@@ -53,7 +89,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 		{
 			//BRICKS COULD BE REFRACTORED TO REDUCE REPEATED CODE
 			//if 
-			CCLOG("Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+			//CCLOG("Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 			CCSprite *basicbrick = CCSprite::create("Violet Brick.png");
 			this->_bricks->addObject(basicbrick);
 			//basicbrick->setScale(2 .0);
