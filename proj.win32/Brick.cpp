@@ -34,7 +34,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	lines = 0;
 	inc = 1;
 	type = 1;
-	level = 1; // Level 2 gives different block layout
+	level = 3; // Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
 	__String spawn = "1";
 
 	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
@@ -52,6 +52,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	 for (int i = 1; i < bricks; i++)
 	 {
 		// blocks = i;
+
 		 if (i == 1)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("1")->getCString());
@@ -619,6 +620,17 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 CCLOG("type: %i", type);
 		 }
 		 if (i == 60)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("60")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("60b")->getCString());
+			 type = Type->intValue();
+
+			 CCLOG("block: %i", blocks);
+			 CCLOG("type: %i", type);
+		 }
+
+		 if (i == 61)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("61")->getCString());
 			 blocks = Block->intValue();
