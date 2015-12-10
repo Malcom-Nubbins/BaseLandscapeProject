@@ -101,6 +101,8 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 {
 	PhysicsBody *brick = contact.getShapeA()->getBody();
 	PhysicsBody *ball = contact.getShapeB()->getBody();
+	PhysicsBody *powerup = contact.getShapeB()->getBody();
+	PhysicsBody *paddle = contact.getShapeA()->getBody();
 
 	
 	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))// BACK TO FRONT FOR NOW
@@ -113,7 +115,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		//Ball::sharedBall()->AddToAcceleration(5000);
 		//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
-		int a = cocos2d::RandomHelper::random_int(4, 4);
+		int a = cocos2d::RandomHelper::random_int(2, 4);
 
 		if (a == 4)
 		{
@@ -128,7 +130,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		this->removeChild(contact.getShapeB()->getBody()->getNode());
 		GameManager::sharedGameManager()->AddToScore(1);
 
-		int a = cocos2d::RandomHelper::random_int(4, 4);
+		int a = cocos2d::RandomHelper::random_int(2, 4);
 
 		if (a == 4)
 		{
@@ -136,6 +138,13 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		}
 	}
 	
+	if ((1 == powerup->getCollisionBitmask() && 2 == paddle->getCollisionBitmask()) || (2 == powerup->getCollisionBitmask() && 1 == paddle->getCollisionBitmask()))
+	{
+		CCLOG("Lives UP!");
+
+		GameManager::sharedGameManager()->AddToLives(1);
+	}
+
 	//unschedule(schedule_selector(GameScene::SetBrick));
 	return true;
 	
