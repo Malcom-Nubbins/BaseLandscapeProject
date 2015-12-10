@@ -2,15 +2,20 @@
 #define __BALL_H__
 
 #include "cocos2d.h"
+#include <stdio.h>
 
 class Ball //: public cocos2d::Layer
 {
 public:
 	Ball();
+
+	static Ball* sharedBall();
 	void Update(float dt);
 
 	void SetBall(cocos2d::Layer *layer);
-	int acceleration;
+
+	void AddToAcceleration(int speed);
+	void ResetAcceleration();
 
 protected:
 	cocos2d::CCArray *_balls;
@@ -22,7 +27,10 @@ private:
 	cocos2d::Vec2 ballPos;
 	cocos2d::Vec2 force;
 
-	void Rotate(float i);
+
+	static Ball* instance;
+
+	int acceleration;
 };
 
 #endif //__BALL_H__

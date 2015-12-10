@@ -5,6 +5,7 @@
 #include "Brick.h"
 #include "Player.h"
 #include "Ball.h"
+#include "PowerUp.h"
 #include "ui/CocosGUI.h"
 
 class GameScene : public cocos2d::Layer
@@ -40,10 +41,12 @@ private:
 	cocos2d::ui::Button* RightButton;
 	cocos2d::ui::Button* FireButton;
 	cocos2d::ui::Button* PauseButton;
+	cocos2d::ui::Text*	 ScoreLabel;
 	cocos2d::PhysicsWorld *GameWorld;
 	bool isLeftFingerDown;
 	bool isRightFingerDown;
 	float paddlePos;
+	int col;
 
 	cocos2d::PhysicsContact *onContactBegin;
 
@@ -52,11 +55,14 @@ private:
 	void RemoveBrick(float i);
 	void SetPlayer(float i);
 	void SetBall(float i);
+	void SetPowerUp(float i);
 	bool setHit(cocos2d::PhysicsContact &contact);
+	bool setHitPaddle(cocos2d::PhysicsContact &contact);
 	
 	Brick brick;
 	Player player;
 	Ball ball;
+	PowerUp powerUp;
 };
 
 #endif // __GAMEMAIN_SCENE_H__
