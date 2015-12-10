@@ -25,8 +25,12 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 		powerUpBounding->applyForce(Vect(a, b));
 		powerUpBounding->setDynamic(true);
 		powerUpBounding->setGravityEnable(true);
+		powerUpBounding->setCategoryBitmask(0x02);
+		powerUpBounding->setCollisionBitmask(0x01);
 		powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.
 		powerUp->setPosition(Vec2(200, 600));
 		layer->addChild(powerUp);
+
+		
 	}
 }
