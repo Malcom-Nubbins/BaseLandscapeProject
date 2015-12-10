@@ -43,6 +43,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="PowerUp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -79,6 +82,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="PowerUp.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
