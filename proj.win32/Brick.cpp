@@ -19,8 +19,6 @@ Brick::Brick()
 	this->_bricks->retain();
 }
 
-
-
 bool Brick::init()
 {
 	return true;
@@ -883,17 +881,6 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 {
 				 startPos = startPos + (Brick_Size + Brick_Distance);
 			 }
-			 /*
-			cocos2d::RandomHelper::random_int(1, L1_Brick_NO); //randomises what bricks contain the powerups.
-			//CCLOG("POWER"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
-			auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
-			auto powerUpBounding = PhysicsBody::createCircle(powerUp->getContentSize().width / 2);
-			powerUpBounding->setDynamic(false);
-			powerUpBounding->setGravityEnable(true);
-			powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.
-			powerUp->setPosition(Vec2(500, 600));
-			layer->addChild(powerUp);
-			//currently all powerups are one ups and currently dont do anything. Have also given them physics for later implementation if there is time.*/
 		 }
 	}
 }
