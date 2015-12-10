@@ -2,6 +2,7 @@
 #define __PLAYER_H__
 
 #include "cocos2d.h"
+#include <stdio.h>
 
 class Player //: public cocos2d::Layer
 {

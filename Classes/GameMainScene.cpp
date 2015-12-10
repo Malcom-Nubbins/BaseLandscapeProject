@@ -2,18 +2,21 @@
 #include "HelloWorldScene.h"
 #include "Define.h"
 #include "SoundManager.h"
+#include "Ball.h"
+#include "GameManager.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
+using namespace cocos2d;
 
 Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
-	scene->getPhysicsWorld()->setGravity(Vec2(0, 0));
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_NONE);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
+	//scene->getPhysicsWorld()->setGravity(Vec2(0, 0));
 
 	// 'layer' is an autorelease object
 	auto layer = GameScene::create();
@@ -82,6 +85,10 @@ bool GameScene::init()
 
 	this->scheduleUpdate();
 
+	ScoreLabel = (ui::Text*)rootNode->getChildByName("Score");
+	GameManager::sharedGameManager()->ResetScore();
+	//Ball::sharedBall()->ResetAcceleration();
+
 	return true;
 }
 
@@ -93,17 +100,37 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	PhysicsBody *ball = contact.getShapeB()->getBody();
 
 	
-	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))
+	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 	{
 		CCLOG("Hit");
-		this->removeChild(contact.getShapeB()->getBody()->getNode());
 
+		//this->removeChild(contact.getShapeB()->getBody()->getNode());
+		GameManager::sharedGameManager()->AddToScore(1);
+
+		//Ball::sharedBall()->AddToAcceleration(5000);
+		//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
+
+		int a = cocos2d::RandomHelper::random_int(4, 4);
+
+		if (a == 4)
+		{
+			this->schedule(schedule_selector(GameScene::SetPowerUp));
+		}
+		
 	}
 	
-	else
+	else // BACK TO FRONT FOR NOW
 	{
 		CCLOG("test");
-		this->removeChild(contact.getShapeA()->getBody()->getNode());
+		this->removeChild(contact.getShapeB()->getBody()->getNode());
+		GameManager::sharedGameManager()->AddToScore(1);
+
+		int a = cocos2d::RandomHelper::random_int(4, 4);
+
+		if (a == 4)
+		{
+			this->schedule(schedule_selector(GameScene::SetPowerUp));
+		}
 	}
 	
 	//unschedule(schedule_selector(GameScene::SetBrick));
@@ -130,6 +157,14 @@ void GameScene::SetBall(float i)
 	unschedule(schedule_selector(GameScene::SetBall));
 
 	
+}
+
+void GameScene::SetPowerUp(float i)
+{
+	powerUp.SetPowerUp(this);
+	unschedule(schedule_selector(GameScene::SetPowerUp));
+
+
 }
 
 //void GameScene::SetCollisions(cocos2d::PhysicsContact &contact)
@@ -228,4 +263,6 @@ void GameScene::update(float dt)
 
 	if (isRightFingerDown)
 		RightButtonDown();
+
+	ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 }

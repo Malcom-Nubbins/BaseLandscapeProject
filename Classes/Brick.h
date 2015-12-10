@@ -11,8 +11,8 @@ public:
 	virtual bool init();
 	void SetBrick(cocos2d::Layer *layer);
 	void RemoveBrick(cocos2d::Layer *layer);
-	float startPos = 80;
-	float startLine = 600;
+	float startPos = 140;
+	float startLine = 576;
 	int miss = 0;
 	int bricks;
 	int blocks;

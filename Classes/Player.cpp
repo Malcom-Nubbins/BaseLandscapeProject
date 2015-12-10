@@ -18,10 +18,11 @@ void Player::SetPlayer(cocos2d::Layer *layer)
 		paddle = Sprite::create("Paddle.png"); // May not need the auto
 		auto paddleBounding = PhysicsBody::createBox(paddle->getContentSize());// CHANGE TO CIRCLE PhysicsShapeCircle
 		paddleBounding->setDynamic(false);
-		paddleBounding->setGravityEnable(true);
+		paddleBounding->setGravityEnable(false);
 		paddle->setPhysicsBody(paddleBounding); //sets a bounding box around brick.
 		SetPlayerPos(WinSize.width / 2, WinSize.height / 6);
-		layer->addChild(paddle);
+		layer->addChild(paddle,1);
+		paddle->setTag(1);
 }
 
 void Player::SetPlayerPos(float x, float y)
