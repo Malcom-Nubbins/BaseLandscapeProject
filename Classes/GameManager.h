@@ -3,7 +3,7 @@
 //  FlappyBird
 //
 //  Created by Paul Roberts on 28/09/2015.
-//	Addtions added by James Edgerton & Joshua Marshall
+//	Additions  added by James Edgerton & Joshua Marshall
 //
 
 #ifndef GameManager_h
@@ -26,6 +26,14 @@ public:
 	void ResetScore();
 	int  GetScore();
 
+	void AddToLives(int incrementlives);
+	void ResetLives();
+	int  GetLives();
+
+	void AddToLevel(int incrementLevel);
+	void ResetLevel();
+	int  GetLevel();
+
 	//Accessible variable
 	bool isGameLive;
 
@@ -34,7 +42,9 @@ private:
 	GameManager();
 	static GameManager* instance;
 
-	int  score;
+	int score;
+	int lives;
+	int level;
 };
 
 //-------------------------------------------------------------------------

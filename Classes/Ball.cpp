@@ -11,6 +11,18 @@ Ball::Ball()
 	_balls = new CCArray;
 }
 
+void Ball::AddToAcceleration(int speed)
+{
+	this->acceleration += speed;
+}
+
+void Ball::ResetAcceleration()
+{
+	acceleration = 0;
+}
+
+
+
 void Ball::SetBall(cocos2d::Layer *layer)
 {
 	acceleration = 0;
@@ -21,7 +33,7 @@ void Ball::SetBall(cocos2d::Layer *layer)
 	//ballBounding->setVelocity(Vec2(-500, -500)); // 
 	//ballBounding->applyForce (Vect(2200, 2200)); 
 	ballBounding->applyImpulse(Vect(50000 + acceleration, 68000 + acceleration)); // Dont Understand why the values need to be so high.
-	ballBounding->applyTorque(10000); // helps keeps the ball path true. Think spinning a coin
+	ballBounding->applyTorque(200000); // helps keeps the ball path true. Think spinning a coin
 	force = (Vec2(10, 10));
 	ballPos = (Vec2(550, 150));;
 	ballBounding->setCollisionBitmask(2);
@@ -33,12 +45,4 @@ void Ball::SetBall(cocos2d::Layer *layer)
 	layer->addChild(ball ,2);
 	ball->setTag(1);
 	//_balls->addObject(ball);
-
-	 
-}
-
-
-void Ball::Rotate(float i)
-{
-
 }
