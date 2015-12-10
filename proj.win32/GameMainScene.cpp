@@ -87,6 +87,9 @@ bool GameScene::init()
 
 	ScoreLabel = (ui::Text*)rootNode->getChildByName("Score");
 	GameManager::sharedGameManager()->ResetScore();
+
+	LivesLabel = (ui::Text*)rootNode->getChildByName("Lives");
+	GameManager::sharedGameManager()->ResetLives();
 	//Ball::sharedBall()->ResetAcceleration();
 
 	return true;
@@ -265,4 +268,5 @@ void GameScene::update(float dt)
 		RightButtonDown();
 
 	ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
+	LivesLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetLives()));
 }

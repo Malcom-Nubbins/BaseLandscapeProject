@@ -42,6 +42,7 @@ private:
 	cocos2d::ui::Button* FireButton;
 	cocos2d::ui::Button* PauseButton;
 	cocos2d::ui::Text*	 ScoreLabel;
+	cocos2d::ui::Text*	 LivesLabel;
 	cocos2d::PhysicsWorld *GameWorld;
 	bool isLeftFingerDown;
 	bool isRightFingerDown;
