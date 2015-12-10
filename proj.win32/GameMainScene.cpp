@@ -100,11 +100,11 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	PhysicsBody *ball = contact.getShapeB()->getBody();
 
 	
-	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))
+	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 	{
 		CCLOG("Hit");
 
-		this->removeChild(contact.getShapeB()->getBody()->getNode());
+		//this->removeChild(contact.getShapeB()->getBody()->getNode());
 		GameManager::sharedGameManager()->AddToScore(1);
 
 		//Ball::sharedBall()->AddToAcceleration(5000);
@@ -119,10 +119,18 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		
 	}
 	
-	else
+	else // BACK TO FRONT FOR NOW
 	{
 		CCLOG("test");
-		this->removeChild(contact.getShapeA()->getBody()->getNode());
+		this->removeChild(contact.getShapeB()->getBody()->getNode());
+		GameManager::sharedGameManager()->AddToScore(1);
+
+		int a = cocos2d::RandomHelper::random_int(4, 4);
+
+		if (a == 4)
+		{
+			this->schedule(schedule_selector(GameScene::SetPowerUp));
+		}
 	}
 	
 	//unschedule(schedule_selector(GameScene::SetBrick));

@@ -32,7 +32,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	lines = 0;
 	inc = 1;
 	type = 1;
-	level = 4; // Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
+	level = 1; // Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
 	__String spawn = "1";
 
 	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
@@ -810,6 +810,8 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 this->_bricks->addObject(basicbrick);
 				 //basicbrick->setScale(2 .0);
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
+				// brickBounding->setCollisionBitmask(1);
+				 brickBounding->setCategoryBitmask(1);    // 0010
 				 brickBounding->setCollisionBitmask(1);
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setDynamic(false);
