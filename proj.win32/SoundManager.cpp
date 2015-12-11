@@ -51,6 +51,11 @@ void SoundManager::StopMusic()
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 }
 
+void SoundManager::StopSoundEffect()
+{
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopAllEffects();
+}
+
 void SoundManager::PauseMusic()
 {
 	CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();

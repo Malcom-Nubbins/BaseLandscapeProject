@@ -200,12 +200,14 @@ void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
 		isLeftFingerDown = true;
 		LeftButtonDown();
 	}
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->StopSoundEffect();
 		LeftButtonUp();
 	}
 }
@@ -232,18 +234,21 @@ void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 	CCLOG("Right!");
 	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
 		isRightFingerDown = true;
 		RightButtonDown();
 	}
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->StopSoundEffect();
 		RightButtonUp();
 	}
 }
 
 void GameScene::RightButtonDown()
 {
+	
 	auto winSize = Director::getInstance()->getVisibleSize();
 	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
 	paddlePos = player.GetPlayerPosX();
@@ -311,7 +316,7 @@ void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
-		SoundManager::sharedSoundManager()->StopMusic();
+		//SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}
