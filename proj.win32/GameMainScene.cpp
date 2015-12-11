@@ -66,11 +66,11 @@ bool GameScene::init()
 	PauseButton = static_cast<ui::Button*>(rootNode->getChildByName("PauseButton"));
 	PauseButton->addTouchEventListener(CC_CALLBACK_2(GameScene::PauseButtonPressed, this));
 
-	ResumeButton = static_cast<ui::Button*>(rootNode->getChildByName("ResumeButton"));
-	ResumeButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ResumeButtonPressed, this));
 
-	ReturnButton = static_cast<ui::Button*>(rootNode->getChildByName("ReturnButton"));
+	ReturnButton = static_cast<ui::Button*>(rootNode->getChildByName("MenuReturn"));
 	ReturnButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ReturnButtonPressed, this));
+	ReturnButton->setPositionX(winSize.width + ReturnButton->getContentSize().width);
+	ReturnButton->setVisible(false);
 
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
@@ -88,6 +88,10 @@ bool GameScene::init()
 	contactListner->onContactBegin = CC_CALLBACK_1(GameScene::setHit, this);
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListner, this);
 
+	ResumeButton = static_cast<ui::Button*>(rootNode->getChildByName("ResumeButton"));
+	ResumeButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ResumeButtonPressed, this));
+	ResumeButton->setPositionX(winSize.width + ResumeButton->getContentSize().width);
+	ResumeButton->setVisible(false);
 
 	this->scheduleUpdate();
 
@@ -262,9 +266,45 @@ void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	auto winSize = Director::getInstance()->getVisibleSize();
 	CCLOG("Paused!");
 
 	// Temporary menu return. Takes the user back to menu, and resets the game scene. *ONLY FOR TESTING. WILL BE REMOVED LATER FOR PROPER PAUSE MENU*
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		//SoundManager::sharedSoundManager()->StopMusic();
+
+		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, ResumeButton->getPositionY()));
+		ResumeButton->setVisible(true);
+		ResumeButton->runAction(resumeMoveTo);
+
+		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 1.5, ReturnButton->getPositionY()));
+		ReturnButton->setVisible(true);
+		ReturnButton->runAction(returnMoveTo);
+	}
+}
+
+void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Resumed!");
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
+		ResumeButton->setVisible(true);
+		ResumeButton->runAction(resumeMoveTo);
+
+		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ReturnButton->getContentSize().width, ReturnButton->getPositionY()));
+		ReturnButton->setVisible(true);
+		ReturnButton->runAction(returnMoveTo);
+	}
+}
+
+void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Returning to menu!");
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
@@ -273,17 +313,6 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}
 }
-
-void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
-{
-	CCLOG("Resumed!");
-}
-
-void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
-{
-	CCLOG("Returning to menu!");
-}
-
 
 
 void GameScene::update(float dt)

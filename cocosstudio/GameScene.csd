@@ -162,13 +162,13 @@
             <PreSize X="0.0570" Y="0.0500" />
             <LabelBMFontFile_CNB Type="Default" Path="Default/defaultBMFont.fnt" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="MenuReturn" ActionTag="-723840547" Tag="16" IconVisible="False" LeftMargin="1299.8132" RightMargin="-159.8132" TopMargin="334.9955" BottomMargin="310.0045" TouchEnable="True" FontSize="20" ButtonText="Return to Menu" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="MenuReturn" ActionTag="-723840547" Tag="16" IconVisible="False" LeftMargin="408.2522" RightMargin="731.7478" TopMargin="500.5804" BottomMargin="144.4196" TouchEnable="True" FontSize="20" ButtonText="Return to Menu" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="140.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1369.8132" Y="347.5045" />
+            <Position X="478.2522" Y="181.9196" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.0702" Y="0.4826" />
+            <PrePosition X="0.3736" Y="0.2527" />
             <PreSize X="0.1094" Y="0.1042" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -177,13 +177,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ResumeButton" ActionTag="953536917" Tag="17" IconVisible="False" LeftMargin="1459.3677" RightMargin="-319.3677" TopMargin="334.5879" BottomMargin="310.4121" TouchEnable="True" FontSize="20" ButtonText="Resume Game" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ResumeButton" ActionTag="953536917" Tag="17" IconVisible="False" LeftMargin="688.0591" RightMargin="451.9409" TopMargin="503.0054" BottomMargin="141.9946" TouchEnable="True" FontSize="20" ButtonText="Resume Game" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="140.0000" Y="75.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1529.3677" Y="347.9121" />
+            <Position X="758.0591" Y="179.4946" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.1948" Y="0.4832" />
+            <PrePosition X="0.5922" Y="0.2493" />
             <PreSize X="0.1094" Y="0.1042" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />

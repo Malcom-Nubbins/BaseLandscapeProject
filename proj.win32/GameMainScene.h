@@ -26,6 +26,7 @@ public:
 	void RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void PauseGame();
 	void ResumeButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void ReturnButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
