@@ -66,6 +66,12 @@ bool GameScene::init()
 	PauseButton = static_cast<ui::Button*>(rootNode->getChildByName("PauseButton"));
 	PauseButton->addTouchEventListener(CC_CALLBACK_2(GameScene::PauseButtonPressed, this));
 
+	ResumeButton = static_cast<ui::Button*>(rootNode->getChildByName("ResumeButton"));
+	ResumeButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ResumeButtonPressed, this));
+
+	ReturnButton = static_cast<ui::Button*>(rootNode->getChildByName("ReturnButton"));
+	ReturnButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ReturnButtonPressed, this));
+
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
@@ -267,6 +273,18 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}
 }
+
+void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Resumed!");
+}
+
+void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Returning to menu!");
+}
+
+
 
 void GameScene::update(float dt)
 {

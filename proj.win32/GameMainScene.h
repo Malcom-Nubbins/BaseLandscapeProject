@@ -26,6 +26,8 @@ public:
 	void RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void ResumeButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void ReturnButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
 	void LeftButtonDown();
 	void LeftButtonUp();
@@ -41,8 +43,11 @@ private:
 	cocos2d::ui::Button* RightButton;
 	cocos2d::ui::Button* FireButton;
 	cocos2d::ui::Button* PauseButton;
+	cocos2d::ui::Button* ResumeButton;
+	cocos2d::ui::Button* ReturnButton;
 	cocos2d::ui::Text*	 ScoreLabel;
 	cocos2d::ui::Text*	 LivesLabel;
+	cocos2d::ui::Text*	 AmmoLabel;
 	cocos2d::PhysicsWorld *GameWorld;
 	bool isLeftFingerDown;
 	bool isRightFingerDown;

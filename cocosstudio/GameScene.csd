@@ -121,14 +121,76 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="42.7804" RightMargin="1237.2196" TopMargin="39.2852" BottomMargin="680.7148" Volume="1.0000" ctype="SimpleAudioObjectData">
+          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="-38.0843" RightMargin="1318.0842" TopMargin="33.4244" BottomMargin="686.5756" Volume="1.0000" ctype="SimpleAudioObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
-            <Position X="42.7804" Y="680.7148" />
+            <Position X="-38.0843" Y="686.5756" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0334" Y="0.9454" />
+            <PrePosition X="-0.0298" Y="0.9536" />
             <PreSize X="0.0000" Y="0.0000" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_1" ActionTag="1502522923" Tag="12" IconVisible="False" LeftMargin="56.4167" RightMargin="1135.5833" TopMargin="25.6379" BottomMargin="676.3621" ctype="SpriteObjectData">
+            <Size X="88.0000" Y="18.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="100.4167" Y="685.3621" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0785" Y="0.9519" />
+            <PreSize X="0.0688" Y="0.0250" />
+            <FileData Type="Normal" Path="Lives.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_3" ActionTag="318459719" Tag="14" IconVisible="False" LeftMargin="1015.7296" RightMargin="178.2704" TopMargin="25.8563" BottomMargin="676.1437" ctype="SpriteObjectData">
+            <Size X="86.0000" Y="18.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1058.7296" Y="685.1437" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.8271" Y="0.9516" />
+            <PreSize X="0.0672" Y="0.0250" />
+            <FileData Type="Normal" Path="Score.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1329576527" Tag="15" IconVisible="False" LeftMargin="271.1329" RightMargin="935.8671" TopMargin="15.7274" BottomMargin="668.2726" LabelText="Ammo" ctype="TextBMFontObjectData">
+            <Size X="73.0000" Y="36.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="307.6329" Y="686.2726" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="0" G="0" B="0" />
+            <PrePosition X="0.2403" Y="0.9532" />
+            <PreSize X="0.0570" Y="0.0500" />
+            <LabelBMFontFile_CNB Type="Default" Path="Default/defaultBMFont.fnt" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="MenuReturn" ActionTag="-723840547" Tag="16" IconVisible="False" LeftMargin="1299.8132" RightMargin="-159.8132" TopMargin="334.9955" BottomMargin="310.0045" TouchEnable="True" FontSize="20" ButtonText="Return to Menu" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="140.0000" Y="75.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1369.8132" Y="347.5045" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.0702" Y="0.4826" />
+            <PreSize X="0.1094" Y="0.1042" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="ResumeButton" ActionTag="953536917" Tag="17" IconVisible="False" LeftMargin="1459.3677" RightMargin="-319.3677" TopMargin="334.5879" BottomMargin="310.4121" TouchEnable="True" FontSize="20" ButtonText="Resume Game" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="140.0000" Y="75.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1529.3677" Y="347.9121" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.1948" Y="0.4832" />
+            <PreSize X="0.1094" Y="0.1042" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
