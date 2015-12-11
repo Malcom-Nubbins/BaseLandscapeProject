@@ -88,7 +88,7 @@ void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		//SoundManager::sharedSoundManager()->PauseMusic();
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto scene = GameScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->StartGame();
@@ -103,7 +103,7 @@ void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEve
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto scene = CreditsScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->CreditsScene();

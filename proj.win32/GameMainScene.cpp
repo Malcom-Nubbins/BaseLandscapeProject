@@ -25,9 +25,6 @@ Scene* GameScene::createScene()
 	// add layer as a child to scene
 	scene->addChild(layer);
 
-	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
-	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
-
 	// return the scene
 	return scene;
 }
@@ -101,7 +98,8 @@ bool GameScene::init()
 	GameManager::sharedGameManager()->ResetLives();
 	//Ball::sharedBall()->ResetAcceleration();
 
-
+	//SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+	//SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
 	//SoundManager::sharedSoundManager()->ResumeMusic();
 	return true;
@@ -276,6 +274,7 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
 		//SoundManager::sharedSoundManager()->StopMusic();
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 
 		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, ResumeButton->getPositionY()));
 		ResumeButton->setVisible(true);
@@ -294,6 +293,7 @@ void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
 		ResumeButton->setVisible(true);
 		ResumeButton->runAction(resumeMoveTo);
@@ -310,6 +310,7 @@ void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
