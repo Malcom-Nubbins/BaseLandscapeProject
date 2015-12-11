@@ -25,6 +25,9 @@ Scene* GameScene::createScene()
 	// add layer as a child to scene
 	scene->addChild(layer);
 
+	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
+
 	// return the scene
 	return scene;
 }
@@ -78,10 +81,6 @@ bool GameScene::init()
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
 
-	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
-
-
-	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
 	
 	auto contactListner = EventListenerPhysicsContact::create();
@@ -102,6 +101,9 @@ bool GameScene::init()
 	GameManager::sharedGameManager()->ResetLives();
 	//Ball::sharedBall()->ResetAcceleration();
 
+
+
+	//SoundManager::sharedSoundManager()->ResumeMusic();
 	return true;
 }
 

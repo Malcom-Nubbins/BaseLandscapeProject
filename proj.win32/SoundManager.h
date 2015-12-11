@@ -20,6 +20,8 @@ public:
 	void PlayMusic(const char*, bool);
 
 	void StopMusic();
+	void PauseMusic();
+	void ResumeMusic();
 
 private:
 	SoundManager();
