@@ -54,7 +54,8 @@ bool HelloWorld::init()
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
 	
-	//SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
 	//SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
     return true;
