@@ -16,6 +16,7 @@ public:
 	int miss = 0;
 	int bricks;
 	int blocks;
+	int blocks2;
 	int lines;
 	int inc;
 	int test;

@@ -26,13 +26,12 @@ bool Brick::init()
 void Brick::SetBrick(cocos2d::Layer *layer)
 	
 {
-
 	bricks = 0;
 	//blocks = 0;
 	lines = 0;
 	inc = 1;
 	type = 1;
-	level = 1; // Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
+	level = 5; // Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
 	__String spawn = "1";
 
 	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
@@ -386,7 +385,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 		 {
 			 __String *Block = __String::createWithFormat(list->valueForKey("50")->getCString());
 			 blocks = Block->intValue();
-			 __String *Type = __String::createWithFormat(list->valueForKey("51b")->getCString());
+			 __String *Type = __String::createWithFormat(list->valueForKey("50b")->getCString());
 			 type = Type->intValue();
 		 }
 
@@ -716,6 +715,900 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 			 __String *Type = __String::createWithFormat(list->valueForKey("96b")->getCString());
 			 type = Type->intValue();
 		 } 
+
+		 else if (i == 97)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("97")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("97b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 98)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("98")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("98b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 99)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("100")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("100b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 101)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("101")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("101b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 102)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("102")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("102b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 103)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("103")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("103b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 104)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("104")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("104b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 105)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("105")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("105b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 106)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("107")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("108b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 108)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("108")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("108b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 109)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("109")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("109b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 12)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("12")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("12b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 110)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("110")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("110b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 111)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("111")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("111b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 112)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("112")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("112b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 113)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("113")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("113b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 114)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("114")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("114b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 116)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("116")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("116b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 117)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("117")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("117b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 118)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("118")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("118b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 119)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("119")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("119b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 120)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("120")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("120b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 121)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("121")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("121b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 122)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("122")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("122b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 123)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("123")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("123b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 124)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("124")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("124b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 125)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("125")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("125b")->getCString());
+			 type = Type->intValue();
+		 }
+			 if (i == 126)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("126")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("126b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 128)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("128")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("128b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 129)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("129")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("129b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 130)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("130")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("130b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 131)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("131")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("131b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 132)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("132")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("132b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 133)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("133")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("133b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 134)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("134")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("134b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 135)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("135")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("135b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 136)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("136")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("136b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 137)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("137")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("137b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 138)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("138")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("138b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 139)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("139")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("139b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 140)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("140")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("140b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 141)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("141")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("141b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 142)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("142")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("142b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 143)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("143")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("143b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 144)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("144")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("144b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 145)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("145")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("145b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 146)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("146")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("146b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 147)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("147")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("147b")->getCString());
+			 type = Type->intValue();
+		 }
+
+
+		 else if (i == 148)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("148")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("148b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 149)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("149")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("149b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 150)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("150")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("150b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 151)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("151")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("151b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 152)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("152")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("152b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 153)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("153")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("153b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 154)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("154")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("154b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 155)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("155")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("155b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 156)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("156")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("156b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 157)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("157")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("157b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 158)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("158")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("158b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 159)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("159")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("159b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 160)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("160")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("160b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 161)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("161")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("161b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 162)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("162")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("162b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 163)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("163")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("163b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 164)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("164")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("164b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 165)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("165")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("165b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 166)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("166")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("166b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 167)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("167")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("167b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 168)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("168")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("168b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 169)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("169")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("169b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 170)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("170")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("170b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 171)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("171")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("171b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 172)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("172")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("172b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 173)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("173")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("173b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 174)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("174")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("174b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 175)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("175")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("175b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 176)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("176")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("176b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 177)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("178")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("178b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 179)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("179")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("179b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 180)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("180")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("180b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 181)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("181")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("181b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 182)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("182")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("182b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 183)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("183")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("183b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 184)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("184")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("184b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 185)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("185")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("185b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 186)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("186")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("186b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 187)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("187")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("187b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 188)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("188")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("188b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 189)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("189")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("189b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 190)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("190")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("190b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 191)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("191")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("191b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 192)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("192")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("192b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 193)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("193")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("193b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 194)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("194")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("194b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 195)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("195")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("195b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 196)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("196")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("196b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 197)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("197")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("197b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 198)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("198")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("198b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 199)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("199")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("199b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 200)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("200")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("200b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 201)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("201")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("201b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 202)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("202")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("202b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 203)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("203")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("203b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 204)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("204")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("204b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 205)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("205")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("205b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 206)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("206")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("206b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 207)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("207")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("207b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 208)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("208")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("208b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 209)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("209")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("209b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 210)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("210")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("210b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 211)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("211")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("211b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 212)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("212")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("212b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 213)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("213")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("213b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 214)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("214")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("214b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 215)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("215")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("215b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 216)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("216")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("216b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 217)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("217")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("217b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 218)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("218")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("218b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 219)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("219")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("219b")->getCString());
+			 type = Type->intValue();
+		 }
+
+		 else if (i == 220)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("220")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("220b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 221)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("221")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("221b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 222)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("222")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("222b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 223)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("223")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("223b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 224)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("224")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("224b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 225)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("225")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("225b")->getCString());
+			 type = Type->intValue();
+		 }
+		 else if (i == 226)
+		 {
+			 __String *Block = __String::createWithFormat(list->valueForKey("226")->getCString());
+			 blocks = Block->intValue();
+			 __String *Type = __String::createWithFormat(list->valueForKey("226b")->getCString());
+			 type = Type->intValue();
+		 }
 		 if (blocks == 0 || blocks == 1)
 		 {
 			 if (type == 1)
@@ -856,10 +1749,95 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 layer->addChild(basicbrick, 1);
 			 }
 
-			 else if (type == 9)
+			 else if (type == 14)
 			 {
 				 CCLOG("White Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 				 CCSprite *basicbrick = CCSprite::create("White Brick.png");
+				 this->_bricks->addObject(basicbrick);
+				 //basicbrick->setScale(2 .0);
+				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
+				 brickBounding->setCollisionBitmask(1);
+				 brickBounding->setContactTestBitmask(true);
+				 brickBounding->setDynamic(false);
+				 brickBounding->setGravityEnable(true);
+				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
+				 startPos = startPos + (Brick_Size + Brick_Distance);
+				 basicbrick->setPosition(Vec2(startPos, startLine));;
+				 layer->addChild(basicbrick, 1);
+			 }
+
+			 else if (type == 10)
+			 {
+				 CCLOG("Grey Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+				 CCSprite *basicbrick = CCSprite::create("Grey Brick.png");
+				 this->_bricks->addObject(basicbrick);
+				 //basicbrick->setScale(2 .0);
+				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
+				 brickBounding->setCollisionBitmask(1);
+				 brickBounding->setContactTestBitmask(true);
+				 brickBounding->setDynamic(false);
+				 brickBounding->setGravityEnable(true);
+				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
+				 startPos = startPos + (Brick_Size + Brick_Distance);
+				 basicbrick->setPosition(Vec2(startPos, startLine));;
+				 layer->addChild(basicbrick, 1);
+			 }
+
+			 else if (type == 11)
+			 {
+				 CCLOG("Black Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+				 CCSprite *basicbrick = CCSprite::create("Black Brick.png");
+				 this->_bricks->addObject(basicbrick);
+				 //basicbrick->setScale(2 .0);
+				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
+				 brickBounding->setCollisionBitmask(1);
+				 brickBounding->setContactTestBitmask(true);
+				 brickBounding->setDynamic(false);
+				 brickBounding->setGravityEnable(true);
+				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
+				 startPos = startPos + (Brick_Size + Brick_Distance);
+				 basicbrick->setPosition(Vec2(startPos, startLine));;
+				 layer->addChild(basicbrick, 1);
+			 }
+
+			 else if (type == 12)
+			 {
+				 CCLOG("Amber Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+				 CCSprite *basicbrick = CCSprite::create("Amber Brick.png");
+				 this->_bricks->addObject(basicbrick);
+				 //basicbrick->setScale(2 .0);
+				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
+				 brickBounding->setCollisionBitmask(1);
+				 brickBounding->setContactTestBitmask(true);
+				 brickBounding->setDynamic(false);
+				 brickBounding->setGravityEnable(true);
+				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
+				 startPos = startPos + (Brick_Size + Brick_Distance);
+				 basicbrick->setPosition(Vec2(startPos, startLine));;
+				 layer->addChild(basicbrick, 1);
+			 }
+
+			 else if (type == 13)
+			 {
+				 CCLOG("Dakota Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+				 CCSprite *basicbrick = CCSprite::create("Dakota Brick.png");
+				 this->_bricks->addObject(basicbrick);
+				 //basicbrick->setScale(2 .0);
+				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
+				 brickBounding->setCollisionBitmask(1);
+				 brickBounding->setContactTestBitmask(true);
+				 brickBounding->setDynamic(false);
+				 brickBounding->setGravityEnable(true);
+				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
+				 startPos = startPos + (Brick_Size + Brick_Distance);
+				 basicbrick->setPosition(Vec2(startPos, startLine));;
+				 layer->addChild(basicbrick, 1);
+			 }
+
+			 else if (type == 9)
+			 {
+				 CCLOG("Blue Grey Brick"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+				 CCSprite *basicbrick = CCSprite::create("Blue Grey Brick.png");
 				 this->_bricks->addObject(basicbrick);
 				 //basicbrick->setScale(2 .0);
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
