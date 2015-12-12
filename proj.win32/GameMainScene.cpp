@@ -80,7 +80,7 @@ bool GameScene::init()
 
 
 	
-	auto contactListner = EventListenerPhysicsContact::create();
+	auto contactListner = EventListenerPhysicsContactWithGroup::EventListenerPhysicsContact::create();
 	contactListner->onContactBegin = CC_CALLBACK_1(GameScene::setHit, this);
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListner, this);
 
@@ -109,56 +109,60 @@ bool GameScene::init()
 
 bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 {
-	PhysicsBody *brick = contact.getShapeA()->getBody();
-	PhysicsBody *ball = contact.getShapeB()->getBody();
-	PhysicsBody *powerup = contact.getShapeB()->getBody();
-	PhysicsBody *paddle = contact.getShapeA()->getBody();
-
+	PhysicsBody *a = contact.getShapeA()->getBody();
+	PhysicsBody *b = contact.getShapeB()->getBody();
 	
-	if ((1 == brick->getCollisionBitmask() && 2 == ball->getCollisionBitmask()) || (2 == brick->getCollisionBitmask() && 1 == ball->getCollisionBitmask()))// BACK TO FRONT FOR NOW
+	if ((1 == a->getCollisionBitmask() && 2 == b->getCollisionBitmask()) || (2 == a->getCollisionBitmask() && 1 == b->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 	{
-		CCLOG("Hit");
+		bool hit = true;
+		CCLOG(" A Collision has occured");
+	}
+	
+	else
+	{
+		bool hit = false;
+	}
+	
+	if (hit = true)
+	{
 
-		//this->removeChild(contact.getShapeB()->getBody()->getNode());
-		GameManager::sharedGameManager()->AddToScore(1);
-
-		//Ball::sharedBall()->AddToAcceleration(5000);
-		//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
-
-		int a = cocos2d::RandomHelper::random_int(2, 4);
-
-		if (a == 4)
+		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
-			this->schedule(schedule_selector(GameScene::SetPowerUp));
+			CCLOG("BP");
 		}
-		
-	}
-	
-	else // BACK TO FRONT FOR NOW
-	{
-		CCLOG("test");
-		this->removeChild(contact.getShapeB()->getBody()->getNode());
-		GameManager::sharedGameManager()->AddToScore(1);
 
-		int a = cocos2d::RandomHelper::random_int(2, 4);
-
-		if (a == 4)
+		if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
 		{
-			this->schedule(schedule_selector(GameScene::SetPowerUp));
+			CCLOG("BB");
+
+			GameManager::sharedGameManager()->AddToScore(1);
+			this->removeChild(contact.getShapeB()->getBody()->getNode());
+
+
+			//Ball::sharedBall()->AddToAcceleration(5000);
+			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
+
+
+			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
+
+			if (a == 4)
+			{
+				this->schedule(schedule_selector(GameScene::SetPowerUp));
+			}
+		}
+
+		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+		{
+			CCLOG("PP");
+
+			CCLOG("Lives UP!");
+
+			GameManager::sharedGameManager()->AddToLives(1);
+
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 	}
-	
-	if ((1 == powerup->getCollisionBitmask() && 2 == paddle->getCollisionBitmask()) || (2 == powerup->getCollisionBitmask() && 1 == paddle->getCollisionBitmask()))
-	{
-		CCLOG("Lives UP!");
-
-		GameManager::sharedGameManager()->AddToLives(1);
-	}
-
-	//unschedule(schedule_selector(GameScene::SetBrick));
 	return true;
-	
-
 }
 
 void GameScene::SetBrick(float i)

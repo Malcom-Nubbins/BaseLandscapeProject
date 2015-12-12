@@ -65,6 +65,7 @@ private:
 	void SetPowerUp(float i);
 	bool setHit(cocos2d::PhysicsContact &contact);
 	bool setHitPaddle(cocos2d::PhysicsContact &contact);
+	bool hit;
 	
 	Brick brick;
 	Player player;

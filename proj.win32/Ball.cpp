@@ -36,8 +36,12 @@ void Ball::SetBall(cocos2d::Layer *layer)
 	ballBounding->applyTorque(200000); // helps keeps the ball path true. Think spinning a coin
 	force = (Vec2(10, 10));
 	ballPos = (Vec2(550, 150));;
-	ballBounding->setCollisionBitmask(1);
+	//ballBounding->setCategoryBitmask(0x02);    // 0010
 	ballBounding->setContactTestBitmask(true);
+	ballBounding->setCollisionBitmask(Ball_Bitmask);
+	//ballBounding->setContactTestBitmask(0x02);
+	//ballBounding->setCollisionBitmask(1);
+	//ballBounding->setContactTestBitmask(true);
 	ballBounding->setDynamic(true);
 	ballBounding->setGravityEnable(false);
 	ball->setPhysicsBody(ballBounding); //sets a bounding box around brick.
