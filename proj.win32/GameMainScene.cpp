@@ -66,22 +66,28 @@ bool GameScene::init()
 	PauseButton = static_cast<ui::Button*>(rootNode->getChildByName("PauseButton"));
 	PauseButton->addTouchEventListener(CC_CALLBACK_2(GameScene::PauseButtonPressed, this));
 
+
+	ReturnButton = static_cast<ui::Button*>(rootNode->getChildByName("MenuReturn"));
+	ReturnButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ReturnButtonPressed, this));
+	ReturnButton->setPositionX(winSize.width + ReturnButton->getContentSize().width);
+	ReturnButton->setVisible(false);
+
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
 
-	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
-
-
-	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
 	
 	auto contactListner = EventListenerPhysicsContact::create();
 	contactListner->onContactBegin = CC_CALLBACK_1(GameScene::setHit, this);
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListner, this);
 
+	ResumeButton = static_cast<ui::Button*>(rootNode->getChildByName("ResumeButton"));
+	ResumeButton->addTouchEventListener(CC_CALLBACK_2(GameScene::ResumeButtonPressed, this));
+	ResumeButton->setPositionX(winSize.width + ResumeButton->getContentSize().width);
+	ResumeButton->setVisible(false);
 
 	this->scheduleUpdate();
 
@@ -92,6 +98,10 @@ bool GameScene::init()
 	GameManager::sharedGameManager()->ResetLives();
 	//Ball::sharedBall()->ResetAcceleration();
 
+	//SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
+	//SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
+
+	//SoundManager::sharedSoundManager()->ResumeMusic();
 	return true;
 }
 
@@ -190,12 +200,14 @@ void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
 		isLeftFingerDown = true;
 		LeftButtonDown();
 	}
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->StopSoundEffect();
 		LeftButtonUp();
 	}
 }
@@ -222,18 +234,21 @@ void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 	CCLOG("Right!");
 	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
 		isRightFingerDown = true;
 		RightButtonDown();
 	}
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->StopSoundEffect();
 		RightButtonUp();
 	}
 }
 
 void GameScene::RightButtonDown()
 {
+	
 	auto winSize = Director::getInstance()->getVisibleSize();
 	float paddleSpeed = Paddle_Top_Speed * Paddle_Acceleration;
 	paddlePos = player.GetPlayerPosX();
@@ -256,17 +271,57 @@ void GameScene::FireButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	auto winSize = Director::getInstance()->getVisibleSize();
 	CCLOG("Paused!");
 
 	// Temporary menu return. Takes the user back to menu, and resets the game scene. *ONLY FOR TESTING. WILL BE REMOVED LATER FOR PROPER PAUSE MENU*
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		SoundManager::sharedSoundManager()->StopMusic();
+		//SoundManager::sharedSoundManager()->StopMusic();
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
+		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, ResumeButton->getPositionY()));
+		ResumeButton->setVisible(true);
+		ResumeButton->runAction(resumeMoveTo);
+
+		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 1.5, ReturnButton->getPositionY()));
+		ReturnButton->setVisible(true);
+		ReturnButton->runAction(returnMoveTo);
+	}
+}
+
+void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Resumed!");
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
+		ResumeButton->setVisible(true);
+		ResumeButton->runAction(resumeMoveTo);
+
+		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ReturnButton->getContentSize().width, ReturnButton->getPositionY()));
+		ReturnButton->setVisible(true);
+		ReturnButton->runAction(returnMoveTo);
+	}
+}
+
+void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Returning to menu!");
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+		//SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}
 }
+
 
 void GameScene::update(float dt)
 {
