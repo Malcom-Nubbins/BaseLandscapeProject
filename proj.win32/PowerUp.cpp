@@ -26,6 +26,9 @@ void PowerUp::SetPowerUpPos(float posX, float posY)
 {
 	this->pos.x = posX;
 	this->pos.y = posY;
+
+	CCLOG("x in SetPowerUpPos  = %f", pos.x);
+	CCLOG("y in SetPowerUpPos = %f", pos.y);
 }
 
 void PowerUp::SetPowerUp(cocos2d::Layer *layer)
@@ -45,6 +48,11 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 		powerUpBounding->setCategoryBitmask(1);
 		powerUpBounding->setCollisionBitmask(PowerUp_Bitmask);
 		powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.
+		
+
+
+		CCLOG("x in SetPowerUp= %f", pos.x);
+		CCLOG("y in SetPowerUp = %f", pos.y);
 		powerUp->setPosition(Vec2(pos.x, pos.y));
 		layer->addChild(powerUp);
 }

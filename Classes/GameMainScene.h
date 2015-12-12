@@ -54,6 +54,10 @@ private:
 	bool isLeftFingerDown;
 	bool isRightFingerDown;
 	float paddlePos;
+	float a;
+	float b;
+	float x;
+	float y;
 	int col;
 
 	cocos2d::PhysicsContact *onContactBegin;
