@@ -17,6 +17,9 @@ public:
 	void AddToAcceleration(int speed);
 	void ResetAcceleration();
 
+	void AddToDampening(float dampening);
+	void ResetDampening();
+
 protected:
 	cocos2d::CCArray *_balls;
 
@@ -31,6 +34,7 @@ private:
 	static Ball* instance;
 
 	int acceleration;
+	float dampening;
 };
 
 #endif //__BALL_H__
