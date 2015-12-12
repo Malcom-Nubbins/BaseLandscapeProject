@@ -39,6 +39,7 @@ void Ball::SetBall(cocos2d::Layer *layer)
 	//ballBounding->setCategoryBitmask(0x02);    // 0010
 	ballBounding->setContactTestBitmask(true);
 	ballBounding->setCollisionBitmask(Ball_Bitmask);
+	ballBounding->setCategoryBitmask(1);
 	//ballBounding->setContactTestBitmask(0x02);
 	//ballBounding->setCollisionBitmask(1);
 	//ballBounding->setContactTestBitmask(true);
