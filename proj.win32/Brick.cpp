@@ -1620,6 +1620,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1637,6 +1638,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1654,6 +1656,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1671,6 +1674,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1688,6 +1692,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1706,7 +1711,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				// brickBounding->setCollisionBitmask(1);
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
-				 brickBounding->setContactTestBitmask(true);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1724,6 +1729,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1741,6 +1747,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1758,6 +1765,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1775,6 +1783,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1792,6 +1801,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1809,6 +1819,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1826,6 +1837,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.
@@ -1843,6 +1855,7 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 				 auto brickBounding = PhysicsBody::createBox(basicbrick->getContentSize());
 				 brickBounding->setContactTestBitmask(true);
 				 brickBounding->setCollisionBitmask(Brick_Bitmask);
+				 brickBounding->setCategoryBitmask(1);
 				 brickBounding->setDynamic(false);
 				 brickBounding->setGravityEnable(true);
 				 basicbrick->setPhysicsBody(brickBounding); //sets a bounding box around brick.

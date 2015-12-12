@@ -162,43 +162,6 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 	}
-	
-
-	
-
-		
-
-		
-		
-	
-/**
-	
-	else // BACK TO FRONT FOR NOW
-	{
-		CCLOG("test");
-		this->removeChild(contact.getShapeB()->getBody()->getNode());
-		GameManager::sharedGameManager()->AddToScore(1);
-
-		int a = cocos2d::RandomHelper::random_int(2, 4);
-
-		if (a == 4)
-		{
-			this->schedule(schedule_selector(GameScene::SetPowerUp));
-		}
-	}
-	
-	if ((1 == powerup->getCollisionBitmask() && 2 == paddle->getCollisionBitmask()) || (2 == powerup->getCollisionBitmask() && 1 == paddle->getCollisionBitmask()))
-	{
-		CCLOG("Lives UP!");
-
-		GameManager::sharedGameManager()->AddToLives(1);
-	}
-
-	//unschedule(schedule_selector(GameScene::SetBrick));
-	
-	
-	*/
-
 	return true;
 }
 
