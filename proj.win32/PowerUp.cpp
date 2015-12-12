@@ -3,10 +3,29 @@
 
 USING_NS_CC;
 
+PowerUp* PowerUp::instance = NULL;
+
+PowerUp* PowerUp::sharedPowerUp()
+{
+	if (instance == NULL)
+	{
+		instance = new PowerUp();
+	}
+
+	return instance;
+}
+
 PowerUp::PowerUp()
 {
 	WinSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
+}
+
+
+void PowerUp::SetPowerUpPos(float posX, float posY)
+{
+	this->pos.x = posX;
+	this->pos.y = posY;
 }
 
 void PowerUp::SetPowerUp(cocos2d::Layer *layer)
@@ -26,6 +45,6 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 		powerUpBounding->setCategoryBitmask(1);
 		powerUpBounding->setCollisionBitmask(PowerUp_Bitmask);
 		powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.
-		powerUp->setPosition(Vec2(200, 600));
+		powerUp->setPosition(Vec2(pos.x, pos.y));
 		layer->addChild(powerUp);
 }
