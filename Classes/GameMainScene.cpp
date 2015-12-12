@@ -15,7 +15,7 @@ Scene* GameScene::createScene()
 {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_NONE);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);// Change to Debugdraw_None to remove red borders , Change to Debugdraw_ALL to add red borders
 	//scene->getPhysicsWorld()->setGravity(Vec2(0, 0));
 
 	// 'layer' is an autorelease object
@@ -75,6 +75,7 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
+	this->schedule(schedule_selector(GameScene::SetDeath));
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
 
@@ -129,17 +130,19 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			CCLOG("BP");
+			Ball::sharedBall()->AddToDampening(5000.0f);
 		}
 
 		if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
 		{
 			CCLOG("BB");
 
+			Ball::sharedBall()->AddToDampening(5000.0f);
 			GameManager::sharedGameManager()->AddToScore(1);
 			this->removeChild(contact.getShapeB()->getBody()->getNode());
 
 
-			//Ball::sharedBall()->AddToAcceleration(5000);
+			Ball::sharedBall()->AddToAcceleration(5000);
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
 
@@ -159,6 +162,21 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 			GameManager::sharedGameManager()->AddToLives(1);
 
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			CCLOG("DB");
+
+			GameManager::sharedGameManager()->AddToLives(-1);
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			this->schedule(schedule_selector(GameScene::SetBall));
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			CCLOG("DP");
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 	}
@@ -189,6 +207,14 @@ void GameScene::SetPowerUp(float i)
 {
 	powerUp.SetPowerUp(this);
 	unschedule(schedule_selector(GameScene::SetPowerUp));
+
+
+}
+
+void GameScene::SetDeath(float i)
+{
+	death.SetDeath(this);
+	unschedule(schedule_selector(GameScene::SetDeath));
 
 
 }

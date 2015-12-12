@@ -15,7 +15,7 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 		auto powerUpBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 			PhysicsMaterial(1.0f, 2.0f, 0.0f));
 		a = cocos2d::RandomHelper::random_int(-12000, 12000);
-		b = cocos2d::RandomHelper::random_int( 8000, 10000);
+		b = cocos2d::RandomHelper::random_int(8000, 10000);
 		//powerUpBounding->setVelocity(Vec2(a, b)); // 
 		powerUpBounding->applyImpulse(Vec2(a, b));
 		powerUpBounding->applyTorque(12000);
