@@ -43,4 +43,7 @@
 //PowerUp
 #define PowerUp_Bitmask 4
 
+//Death
+#define Death_Bitmask 5
+
 #endif // __GAMEMAIN_SCENE_H__

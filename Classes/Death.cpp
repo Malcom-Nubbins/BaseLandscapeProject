@@ -22,6 +22,8 @@ void Death::SetDeath(cocos2d::Layer *layer)
 	//ballBounding->setContactTestBitmask(true);
 	die->setPhysicsBody(death); //sets a bounding box around brick.
 	die->setPosition(WinSize.width / 2 + origin.x, WinSize.height / 13 + origin.y);
+	death->setContactTestBitmask(Death_Bitmask);
+	death->setCollisionBitmask(Death_Bitmask);
 	layer->addChild(die);
 	//_balls->addObject(ball);
 }

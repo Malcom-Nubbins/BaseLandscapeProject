@@ -11,8 +11,6 @@ PowerUp::PowerUp()
 
 void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 {
-	for (int i = 1; i < 1; i++)
-	{
 		auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
 		auto powerUpBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 			PhysicsMaterial(1.0f, 2.0f, 0.0f));
@@ -30,5 +28,4 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 		powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.
 		powerUp->setPosition(Vec2(200, 600));
 		layer->addChild(powerUp);
-	}
 }

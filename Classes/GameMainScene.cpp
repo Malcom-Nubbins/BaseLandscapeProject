@@ -146,7 +146,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
 
-			int a = cocos2d::RandomHelper::random_int(2, 4); //set this to everytime for testing purposes
+			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
 
 			if (a == 4)
 			{
@@ -162,6 +162,21 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 			GameManager::sharedGameManager()->AddToLives(1);
 
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			CCLOG("DB");
+
+			GameManager::sharedGameManager()->AddToLives(-1);
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			this->schedule(schedule_selector(GameScene::SetBall));
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			CCLOG("DP");
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 	}
