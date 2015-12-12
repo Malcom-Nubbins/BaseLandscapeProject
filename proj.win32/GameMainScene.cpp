@@ -129,21 +129,23 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			CCLOG("BP");
+			Ball::sharedBall()->AddToDampening(2.0f);
 		}
 
 		if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
 		{
 			CCLOG("BB");
 
+			Ball::sharedBall()->AddToDampening(2.0f);
 			GameManager::sharedGameManager()->AddToScore(1);
 			this->removeChild(contact.getShapeB()->getBody()->getNode());
 
 
-			//Ball::sharedBall()->AddToAcceleration(5000);
+			Ball::sharedBall()->AddToAcceleration(5000);
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
 
-			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
+			int a = cocos2d::RandomHelper::random_int(2, 4); //set this to everytime for testing purposes
 
 			if (a == 4)
 			{
