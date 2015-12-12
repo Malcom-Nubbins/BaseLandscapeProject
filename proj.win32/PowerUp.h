@@ -16,13 +16,16 @@ public:
 
 	int a;
 	int b;
-
+float x;
+	float y;
 private:
 	cocos2d::Size WinSize;
 	cocos2d::Vec2 origin;
 	cocos2d::Vec2 pos;
 
 	static PowerUp* instance;
+
+	
 };
 
 #endif //__POWERUP_H__
