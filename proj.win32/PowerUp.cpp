@@ -11,7 +11,7 @@ PowerUp::PowerUp()
 
 void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 {
-	for (int i = 1; i < 30; i++)
+	for (int i = 1; i < 1; i++)
 	{
 		auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
 		auto powerUpBounding = PhysicsBody::createCircle((10.0f, 10.0f),

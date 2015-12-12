@@ -5,6 +5,7 @@
 #include "Brick.h"
 #include "Player.h"
 #include "Ball.h"
+#include "Death.h"
 #include "PowerUp.h"
 #include "ui/CocosGUI.h"
 
@@ -63,6 +64,7 @@ private:
 	void SetPlayer(float i);
 	void SetBall(float i);
 	void SetPowerUp(float i);
+	void SetDeath(float i);
 	bool setHit(cocos2d::PhysicsContact &contact);
 	bool setHitPaddle(cocos2d::PhysicsContact &contact);
 	bool hit;
@@ -71,6 +73,7 @@ private:
 	Player player;
 	Ball ball;
 	PowerUp powerUp;
+	Death death;
 };
 
 #endif // __GAMEMAIN_SCENE_H__
