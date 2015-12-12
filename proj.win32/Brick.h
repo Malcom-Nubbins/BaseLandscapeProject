@@ -6,8 +6,12 @@
 class Brick //: public cocos2d::Layer
 {
 public:
+	static Brick* sharedBrick();
+
 	Brick();
 	~Brick(); 
+	void SetLevel(int level);
+
 	virtual bool init();
 	void SetBrick(cocos2d::Layer *layer);
 	void RemoveBrick(cocos2d::Layer *layer);
@@ -28,6 +32,8 @@ protected:
 private:
 	cocos2d::Size WinSize;
 	cocos2d::Vec2 origin;
+
+	static Brick* instance;
 };
 
 #endif //__BRICK_H__

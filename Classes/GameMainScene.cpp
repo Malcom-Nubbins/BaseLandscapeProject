@@ -129,19 +129,23 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
-			CCLOG("BP");
 			Ball::sharedBall()->AddToDampening(5000.0f);
 		}
 
 		if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
 		{
-			CCLOG("BB");
-
 			Ball::sharedBall()->AddToDampening(5000.0f);
 			GameManager::sharedGameManager()->AddToScore(1);
 			this->removeChild(contact.getShapeB()->getBody()->getNode());
+			Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(x, y));
 
+			
 
+			//CCLOG("X: %f",x);
+			//CCLOG("Y: %f", y);
+			//CCLOG("position = (%f,%f)", x, y);
+			CCLOG("position = (%f,%f)", first.x, first.y);
+			PowerUp::sharedPowerUp()->SetPowerUpPos(first.x, first.y);
 			Ball::sharedBall()->AddToAcceleration(5000);
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
@@ -156,10 +160,6 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
-			CCLOG("PP");
-
-			CCLOG("Lives UP!");
-
 			GameManager::sharedGameManager()->AddToLives(1);
 
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
@@ -167,8 +167,6 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
-			CCLOG("DB");
-
 			GameManager::sharedGameManager()->AddToLives(-1);
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 			this->schedule(schedule_selector(GameScene::SetBall));
@@ -176,7 +174,6 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
-			CCLOG("DP");
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 	}
