@@ -13,7 +13,6 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 {
 	for (int i = 1; i <= 10; i++)
 	{
-		cocos2d::RandomHelper::random_int(1, L1_Brick_NO); //randomises what bricks contain the powerups.
 		auto powerUp = Sprite::create("Extra Life.png"); // May not need the auto
 		auto powerUpBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 			PhysicsMaterial(1.0f, 0.25f, 0.0f));
@@ -25,8 +24,8 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer)
 		powerUpBounding->applyForce(Vect(a, b));
 		powerUpBounding->setDynamic(true);
 		powerUpBounding->setGravityEnable(true);
-		powerUpBounding->setCategoryBitmask(0x02);
-		powerUpBounding->setCollisionBitmask(0x01);
+		powerUpBounding->setContactTestBitmask(true);
+		powerUpBounding->setCollisionBitmask(PowerUp_Bitmask);
 		powerUp->setPhysicsBody(powerUpBounding); //sets a bounding box around brick.
 		powerUp->setPosition(Vec2(200, 600));
 		layer->addChild(powerUp);
