@@ -27,8 +27,6 @@
         <Image Name="PauseButtonDown.png" />
         <Image Name="GenericBG.png" />
         <Image Name="CreditsScreen.png" />
-        <Image Name="Lives.png" />
-        <Image Name="Score.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

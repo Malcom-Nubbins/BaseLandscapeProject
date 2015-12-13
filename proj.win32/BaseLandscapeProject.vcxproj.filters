@@ -46,9 +46,6 @@
     <ClCompile Include="PowerUp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Death.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -86,9 +83,6 @@
     </ClInclude>
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="PowerUp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="Death.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
