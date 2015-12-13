@@ -58,7 +58,13 @@ private:
 	float b;
 	float x;
 	float y;
+<<<<<<< HEAD
+	float xb;
+	float yb;
+=======
+>>>>>>> origin/testing
 	int lives;
+	int ba;
 
 	cocos2d::PhysicsContact *onContactBegin;
 

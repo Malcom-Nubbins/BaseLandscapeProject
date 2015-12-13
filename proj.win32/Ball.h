@@ -12,7 +12,7 @@ public:
 	static Ball* sharedBall();
 	void Update(float dt);
 
-	void SetBall(cocos2d::Layer *layer);
+	void SetBall(cocos2d::Layer *layer, float posX, float posY,int ba);
 
 	void AddToAcceleration(int speed);
 	void ResetAcceleration();
@@ -30,7 +30,9 @@ private:
 	cocos2d::Vec2 ballPos;
 	cocos2d::Vec2 force;
 
-
+	float x;
+	float y;
+	int amount;
 	static Ball* instance;
 
 	int acceleration;

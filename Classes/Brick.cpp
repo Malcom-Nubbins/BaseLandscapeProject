@@ -36,11 +36,7 @@ Brick::Brick()
 void Brick::SetLevel(int level)
 {
 	this->level += level;
-}
 
-void Brick::SetLevel(int level)
-{
-	this->level += level;
 }
 
 bool Brick::init()
