@@ -17,7 +17,9 @@ public:
 
 private:
 	void TimeMainMenu(float time);
+	
 
+	
 };
 
 #endif // __GAMEMAIN_SCENE_H__
