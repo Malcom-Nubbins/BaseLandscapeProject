@@ -13,10 +13,10 @@ public:
 	void SetLevel(int level);
 
 	virtual bool init();
-	void SetBrick(cocos2d::Layer *layer);
+	void SetBrick(cocos2d::Layer *layer,int level);
 	void RemoveBrick(cocos2d::Layer *layer);
-	float startPos = 140;
-	float startLine = 576;
+	int startPos;
+	int startLine;
 	int miss = 0;
 	int bricks;
 	int blocks;

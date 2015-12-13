@@ -156,6 +156,60 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				CCLOG("position = (%f,%f)", first.x, first.y);
 				this->schedule(schedule_selector(GameScene::SetPowerUp));
 			}
+
+			 if (level == 1)
+			{
+				 number = number + 1;
+				 CCLOG("number = %i", number);
+				 if (number == 5)
+				 {
+					 CCLOG("level 2");
+					 level = 2;
+					 this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				 }
+			}
+
+			else if (level == 2)
+			{
+				number = number + 1;
+
+				if (number == 5)
+				{
+					level = 3;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				}
+
+			}
+
+			else if (level == 3)
+			{
+				number = number + 1;
+
+				if (number == 5)
+				{
+					level = 4;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				}
+			}
+
+			else if (level == 4)
+			{
+				number = number + 1;
+
+				if (number == 5)
+				{
+					level = 5;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				}
+			}
 		}
 
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
@@ -182,8 +236,17 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 void GameScene::SetBrick(float i)
 {
-	brick.SetBrick(this);
+
+
+	CCLOG("level gam: %i", level);
+	if (level <= 0)
+	{
+		level = 1;
+	}
+	CCLOG("levelgame after: %i", level);
+	brick.SetBrick(this,level);
 	unschedule(schedule_selector(GameScene::SetBrick));
+	number = 0;
 }
 
 void GameScene::SetPlayer(float i)
