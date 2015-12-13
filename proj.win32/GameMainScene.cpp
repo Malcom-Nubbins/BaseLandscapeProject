@@ -126,7 +126,83 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		else
 		{
-			bool hit = false;
+			Ball::sharedBall()->AddToDampening(5000.0f);
+			GameManager::sharedGameManager()->AddToScore(1);
+			this->removeChild(contact.getShapeB()->getBody()->getNode());
+			
+			Ball::sharedBall()->AddToAcceleration(5000);
+			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
+
+
+			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
+
+			if (a == 4)
+			{	
+				Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+				//CCLOG("X: %f",x);
+				//CCLOG("Y: %f", y);
+				//CCLOG("position = (%f,%f)", x, y);
+
+				x = first.x;
+				y = first.y;
+				CCLOG("position = (%f,%f)", first.x, first.y);
+				this->schedule(schedule_selector(GameScene::SetPowerUp));
+			}
+
+			 if (level == 1)
+			{
+				 number = number + 1;
+				 CCLOG("number = %i", number);
+				 if (number == 5)
+				 {
+					 CCLOG("level 2");
+					 level = 2;
+					 this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				 }
+			}
+
+			else if (level == 2)
+			{
+				number = number + 1;
+
+				if (number == 5)
+				{
+					level = 3;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				}
+
+			}
+
+			else if (level == 3)
+			{
+				number = number + 1;
+
+				if (number == 5)
+				{
+					level = 4;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				}
+			}
+
+			else if (level == 4)
+			{
+				number = number + 1;
+
+				if (number == 5)
+				{
+					level = 5;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
+				}
+			}
+
 		}
 
 		if (hit = true)
@@ -137,11 +213,27 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				Ball::sharedBall()->AddToDampening(5000.0f);
 			}
 
+
+			if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+			{
+				GameManager::sharedGameManager()->AddToLives(-1);
+
+				this->lives = GameManager::sharedGameManager()->GetLives();
+				if (lives == 0)
+				{
+					auto scene = HelloWorld::createScene();
+					Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+				}
+				this->removeChild(contact.getShapeA()->getBody()->getNode());
+				this->schedule(schedule_selector(GameScene::SetBall));
+			}
+
 			if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
 			{
 				Ball::sharedBall()->AddToDampening(5000.0f);
 				GameManager::sharedGameManager()->AddToScore(1);
 				this->removeChild(contact.getShapeB()->getBody()->getNode());
+
 
 				Ball::sharedBall()->AddToAcceleration(5000);
 				//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
@@ -193,8 +285,17 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 void GameScene::SetBrick(float i)
 {
-	brick.SetBrick(this);
+
+
+	CCLOG("level gam: %i", level);
+	if (level <= 0)
+	{
+		level = 1;
+	}
+	CCLOG("levelgame after: %i", level);
+	brick.SetBrick(this,level);
 	unschedule(schedule_selector(GameScene::SetBrick));
+	number = 0;
 }
 
 void GameScene::SetPlayer(float i)

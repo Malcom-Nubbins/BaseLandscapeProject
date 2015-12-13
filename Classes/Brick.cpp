@@ -29,6 +29,13 @@ Brick::Brick()
 	cocos2d::CCArray *_bricks;
 	this->_bricks = CCArray::createWithCapacity(L1_Brick_NO);
 	this->_bricks->retain();
+
+	
+}
+
+void Brick::SetLevel(int level)
+{
+	this->level += level;
 }
 
 void Brick::SetLevel(int level)
@@ -40,15 +47,19 @@ bool Brick::init()
 {
 	return true;
 }
-void Brick::SetBrick(cocos2d::Layer *layer)
+void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
 	
 {
+
+	CCLOG("level: %i", level);
+	this->level = level;
 	bricks = 0;
 	//blocks = 0;
 	lines = 0;
 	inc = 1;
 	type = 1;
-	level = 5; // Level 2 gives different block layout //so does level 3 YEAHHHHHH!!!!!! I May be drunk while typing this.
+	startPos = 140;
+	startLine = 576;
 	__String spawn = "1";
 
 	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
@@ -59,7 +70,6 @@ void Brick::SetBrick(cocos2d::Layer *layer)
 	 bricks = Bricks->intValue();
 	 lines = Lines->intValue();
 
-	 CCLOG("level: %i", level);
 	 CCLOG("Bricks: %i", bricks);
 	 CCLOG("Lines: %i", lines);
 
