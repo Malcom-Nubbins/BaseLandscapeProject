@@ -3,7 +3,7 @@
 #include "Define.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "SimpleAudioEngine.h"
+#include "SoundManager.h"
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -54,6 +54,7 @@ void CreditsScene::ReturnButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEv
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->MenuReturn();
