@@ -50,18 +50,14 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 	this->x = posX;
 	this->y = posY;
 	this->amount = ba;
-	CCLOG("Amount: %i", amount);
 	if (amount <= 0)
 	{
-		CCLOG("Amount: %i", amount);
 		amount == 1;
-		CCLOG("Amount: %i", amount);
 	}
 	for (int q = 0; q < amount; q++)
 	{
-		CCLOG("Amount: %i", amount);
 		acceleration = 0;
-		CCLOG("Ball"); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
+		CCLOG("Ball %i",q); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
 		CCSprite *ball = CCSprite::create("Ball.png");
 		auto ballBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 			PhysicsMaterial(1.0f, 2.0f, 0.0f));
@@ -85,10 +81,7 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 		ballBounding->setGravityEnable(false);
 		ball->setPhysicsBody(ballBounding); //sets a bounding box around brick.
 
-		CCLOG("X: %f", x);
-		CCLOG("Y: %f", y);
-
-		if (x <= 0)
+		if (ba <= 1)
 		{
 			ball->setPosition(Vec2(550, 150));
 		}

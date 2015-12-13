@@ -35,6 +35,7 @@ public:
 	void LeftButtonUp();
 	void RightButtonDown();
 	void RightButtonUp();
+	int balls;
 
 protected:
 	cocos2d::CCArray *_bricks;
@@ -63,6 +64,7 @@ private:
 
 	int lives;
 	int ba;
+	
 
 	cocos2d::PhysicsContact *onContactBegin;
 
