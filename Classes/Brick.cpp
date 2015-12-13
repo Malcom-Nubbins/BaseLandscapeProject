@@ -46,7 +46,7 @@ void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives differen
 	
 {
 
-	CCLOG("level: %i", level);
+	//CCLOG("level: %i", level);
 	this->level = level;
 	bricks = 0;
 	//blocks = 0;
@@ -57,7 +57,7 @@ void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives differen
 	startLine = 576;
 	__String spawn = "1";
 
-	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
+	__String *file = __String::createWithFormat("level 5.plist",level); // allows mutiple level .plists
 	__Dictionary *list = __Dictionary::createWithContentsOfFile(file->getCString()); //makes a list with all the data
 	__String *Bricks = __String::create(list->valueForKey("Bricks")->getCString()); //assiging a key.
 	__String *Lines = __String::create(list->valueForKey("Lines")->getCString());
@@ -65,8 +65,8 @@ void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives differen
 	 bricks = Bricks->intValue();
 	 lines = Lines->intValue();
 
-	 CCLOG("Bricks: %i", bricks);
-	 CCLOG("Lines: %i", lines);
+	 //CCLOG("Bricks: %i", bricks);
+	 //CCLOG("Lines: %i", lines);
 
 	 for (int i = 1; i < bricks; i++)
 	 {

@@ -76,6 +76,8 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
 	ba = 1;
+	balls = 1;
+	CCLOG("tester: %i", balls);
 	this->schedule(schedule_selector(GameScene::SetDeath));
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
@@ -143,18 +145,18 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
 				Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
-				Vec2 Second = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+				
 				//CCLOG("X: %f",x);
 				//CCLOG("Y: %f", y);
 				//CCLOG("position = (%f,%f)", x, y);
 				x = first.x;
 				y = first.y;
 
-				xb = Second.x;
-				yb = Second.y;
+				
 				CCLOG("position = (%f,%f)", first.x, first.y);
 				this->schedule(schedule_selector(GameScene::SetPowerUp));
 
+				level = 50;
 			 if (level == 1)
 			{
 				 number = number + 1;
@@ -214,20 +216,29 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		{
 			GameManager::sharedGameManager()->AddToLives(1);
 			ba = 1;
+			
+			CCLOG("BALLS test:%i", balls);
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 		//TWO
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == TwoSplit_Bitmask) || (a->getCollisionBitmask() == TwoSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
+
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
-			ba = 2;
+
+			xb = 700;
+			yb = 300;
+			ba = 1;
+			balls = balls + 1;
+			CCLOG("BALLS 2:%i", balls);
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 		//THREE
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
-			ba = 3;
+			ba = 2;
+			balls = balls + 2;
 			this->schedule(schedule_selector(GameScene::SetBall));
 			
 		}
@@ -235,14 +246,22 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == NineSplit_Bitmask) || (a->getCollisionBitmask() == NineSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
-			ba = 9;
+			ba = 8;
+			balls = balls + 8;
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
-			GameManager::sharedGameManager()->AddToLives(-1);
 
+			if (balls <= 1)
+			{
+				CCLOG("BALLS:%i", balls);
+				GameManager::sharedGameManager()->AddToLives(-1);
+				this->schedule(schedule_selector(GameScene::SetBall));
+			}
+			balls = balls - 1;
+			CCLOG("BALLS Death:%i", balls);
 			this->lives = GameManager::sharedGameManager()->GetLives();
 			if (lives == 0)
 			{
@@ -251,7 +270,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			}
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 			ba = 1;
-			this->schedule(schedule_selector(GameScene::SetBall));
+			
 		}
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == LiveUp_Bitmask) || (a->getCollisionBitmask() == LiveUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
@@ -262,6 +281,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == TwoSplit_Bitmask) || (a->getCollisionBitmask() == TwoSplit_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+
 		}
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
