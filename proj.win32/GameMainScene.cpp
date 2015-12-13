@@ -39,6 +39,7 @@ bool GameScene::init()
 		return false;
 	}
 
+	GameManager::sharedGameManager()->isGameLive = true;
 	auto winSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin(); // Gets the origin on the screen
 
@@ -113,69 +114,79 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	PhysicsBody *a = contact.getShapeA()->getBody();
 	PhysicsBody *b = contact.getShapeB()->getBody();
 	
-	if ((1 == a->getCollisionBitmask() && 2 == b->getCollisionBitmask()) || (2 == a->getCollisionBitmask() && 1 == b->getCollisionBitmask()))// BACK TO FRONT FOR NOW
+	if (GameManager::sharedGameManager()->isGameLive = true)
 	{
-		bool hit = true;
-		CCLOG(" A Collision has occured");
-	}
-	
-	else
-	{
-		bool hit = false;
-	}
-	
-	if (hit = true)
-	{
+		
 
-		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+		if ((1 == a->getCollisionBitmask() && 2 == b->getCollisionBitmask()) || (2 == a->getCollisionBitmask() && 1 == b->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 		{
-			Ball::sharedBall()->AddToDampening(5000.0f);
+			bool hit = true;
+			CCLOG(" A Collision has occured");
 		}
 
-		if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
+		else
 		{
-			Ball::sharedBall()->AddToDampening(5000.0f);
-			GameManager::sharedGameManager()->AddToScore(1);
-			this->removeChild(contact.getShapeB()->getBody()->getNode());
-			
-			Ball::sharedBall()->AddToAcceleration(5000);
-			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
+			bool hit = false;
+		}
+
+		if (hit = true)
+		{
+
+			if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+			{
+				Ball::sharedBall()->AddToDampening(5000.0f);
+			}
+
+			if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
+			{
+				Ball::sharedBall()->AddToDampening(5000.0f);
+				GameManager::sharedGameManager()->AddToScore(1);
+				this->removeChild(contact.getShapeB()->getBody()->getNode());
+
+				Ball::sharedBall()->AddToAcceleration(5000);
+				//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
 
-			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
+				int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
 
-			if (a == 4)
-			{	
-				Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
-				//CCLOG("X: %f",x);
-				//CCLOG("Y: %f", y);
-				//CCLOG("position = (%f,%f)", x, y);
+				if (a == 4)
+				{
+					Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+					//CCLOG("X: %f",x);
+					//CCLOG("Y: %f", y);
+					//CCLOG("position = (%f,%f)", x, y);
 
-				x = first.x;
-				y = first.y;
-				CCLOG("position = (%f,%f)", first.x, first.y);
-				this->schedule(schedule_selector(GameScene::SetPowerUp));
+					x = first.x;
+					y = first.y;
+					CCLOG("position = (%f,%f)", first.x, first.y);
+					this->schedule(schedule_selector(GameScene::SetPowerUp));
+				}
+			}
+
+			if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+			{
+				GameManager::sharedGameManager()->AddToLives(1);
+
+				this->removeChild(contact.getShapeA()->getBody()->getNode());
+			}
+
+			if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+			{
+				GameManager::sharedGameManager()->AddToLives(-1);
+				this->removeChild(contact.getShapeA()->getBody()->getNode());
+				this->schedule(schedule_selector(GameScene::SetBall));
+			}
+
+			if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+			{
+				this->removeChild(contact.getShapeA()->getBody()->getNode());
 			}
 		}
+	}
 
-		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
-		{
-			GameManager::sharedGameManager()->AddToLives(1);
-
-			this->removeChild(contact.getShapeA()->getBody()->getNode());
-		}
-
-		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
-		{
-			GameManager::sharedGameManager()->AddToLives(-1);
-			this->removeChild(contact.getShapeA()->getBody()->getNode());
-			this->schedule(schedule_selector(GameScene::SetBall));
-		}
-
-		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
-		{
-			this->removeChild(contact.getShapeA()->getBody()->getNode());
-		}
+	else
+	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
 	}
 	return true;
 }
@@ -306,7 +317,9 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
 		//SoundManager::sharedSoundManager()->StopMusic();
+		GameManager::sharedGameManager()->isGameLive = false;
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 
 		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, ResumeButton->getPositionY()));
@@ -326,6 +339,8 @@ void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		GameManager::sharedGameManager()->isGameLive = true;
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1);
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
 		ResumeButton->setVisible(true);
@@ -353,12 +368,18 @@ void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 void GameScene::update(float dt)
 {
-	if (isLeftFingerDown)
-		LeftButtonDown();
+	if (GameManager::sharedGameManager()->isGameLive = true)
+	{
+		if (isLeftFingerDown)
+			LeftButtonDown();
 
-	if (isRightFingerDown)
-		RightButtonDown();
+		if (isRightFingerDown)
+			RightButtonDown();
+	
+		ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
+		LivesLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetLives()));
+	
+	}
 
-	ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
-	LivesLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetLives()));
+
 }
