@@ -64,6 +64,7 @@ private:
 =======
 >>>>>>> origin/testing
 	int lives;
+	int ba;
 
 	cocos2d::PhysicsContact *onContactBegin;
 

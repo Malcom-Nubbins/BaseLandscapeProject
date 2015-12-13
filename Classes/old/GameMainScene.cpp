@@ -75,6 +75,7 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetBrick)); 
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
+	ba = 1;
 	this->schedule(schedule_selector(GameScene::SetDeath));
 	isLeftFingerDown = false;
 	isRightFingerDown = false;
@@ -212,30 +213,30 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == LiveUp_Bitmask) || (a->getCollisionBitmask() == LiveUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			GameManager::sharedGameManager()->AddToLives(1);
-
+			ba = 1;
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
 		//TWO
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == TwoSplit_Bitmask) || (a->getCollisionBitmask() == TwoSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			ba = 2;
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 		//THREE
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			ba = 3;
 			this->schedule(schedule_selector(GameScene::SetBall));
-			this->schedule(schedule_selector(GameScene::SetBall));
+			
 		}
 		//FOUR
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == NineSplit_Bitmask) || (a->getCollisionBitmask() == NineSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
-			for (int i = 1; i < 9; i++)
-			{
-				this->schedule(schedule_selector(GameScene::SetBall));
-			}
+			ba = 9;
+			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
@@ -249,6 +250,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 			}
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			ba = 1;
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 
@@ -298,9 +300,9 @@ void GameScene::SetPlayer(float i)
 
 void GameScene::SetBall(float i)
 {
-	ball.SetBall(this,xb,yb);
+	ball.SetBall(this,xb,yb,ba);
 	unschedule(schedule_selector(GameScene::SetBall));
-
+	ba = 0;
 	
 }
 
