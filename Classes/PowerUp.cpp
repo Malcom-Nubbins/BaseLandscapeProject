@@ -54,6 +54,7 @@ void PowerUp::SetPowerUp(cocos2d::Layer *layer, float posX, float posY)
 
 
 		
-	powerUp->setPosition(Vec2(x+30, y+12));
+	powerUp->setPosition(Vec2(x, y));
 	layer->addChild(powerUp);
+	powerUp->setZOrder(1);
 }
