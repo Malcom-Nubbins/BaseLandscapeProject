@@ -58,7 +58,7 @@ private:
 	float b;
 	float x;
 	float y;
-	int col;
+	int lives;
 
 	cocos2d::PhysicsContact *onContactBegin;
 
@@ -72,7 +72,9 @@ private:
 	bool setHit(cocos2d::PhysicsContact &contact);
 	bool setHitPaddle(cocos2d::PhysicsContact &contact);
 	bool hit;
-	
+	int level;
+	int number;
+
 	Brick brick;
 	Player player;
 	Ball ball;

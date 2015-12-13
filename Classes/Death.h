@@ -8,7 +8,7 @@ class Death //: public cocos2d::Layer
 {
 public:
 	Death();
-
+	int a;
 
 	void SetDeath(cocos2d::Layer *layer);
 
