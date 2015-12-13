@@ -121,7 +121,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="-38.0843" RightMargin="1318.0842" TopMargin="33.4244" BottomMargin="686.5756" Volume="1.0000" ctype="SimpleAudioObjectData">
+          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="-38.0843" RightMargin="1318.0844" TopMargin="33.4244" BottomMargin="686.5756" Volume="1.0000" ctype="SimpleAudioObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position X="-38.0843" Y="686.5756" />
@@ -134,18 +134,18 @@
             <Size X="88.0000" Y="18.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="100.4167" Y="685.3621" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.5168" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0785" Y="0.9519" />
             <PreSize X="0.0688" Y="0.0250" />
             <FileData Type="Normal" Path="Lives.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Sprite_3" ActionTag="318459719" Tag="14" IconVisible="False" LeftMargin="1015.7296" RightMargin="178.2704" TopMargin="25.8563" BottomMargin="676.1437" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_3" ActionTag="318459719" Tag="14" IconVisible="False" LeftMargin="1015.7294" RightMargin="178.2706" TopMargin="25.8563" BottomMargin="676.1437" ctype="SpriteObjectData">
             <Size X="86.0000" Y="18.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1058.7296" Y="685.1437" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="1058.7294" Y="685.1437" />
+            <Scale ScaleX="1.0000" ScaleY="1.5168" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.8271" Y="0.9516" />
             <PreSize X="0.0672" Y="0.0250" />
