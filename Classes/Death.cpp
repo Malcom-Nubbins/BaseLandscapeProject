@@ -7,7 +7,6 @@ Death::Death()
 {
 	WinSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-
 }
 
 void Death::SetDeath(cocos2d::Layer *layer)
@@ -16,7 +15,6 @@ void Death::SetDeath(cocos2d::Layer *layer)
 	auto death = PhysicsBody::createBox(Size(WinSize.width, WinSize.height/7));
 	death->setDynamic(false);
 	death->setGravityEnable(false);
-	
 	//ballBounding->setContactTestBitmask(0x02);
 	//ballBounding->setCollisionBitmask(1);
 	//ballBounding->setContactTestBitmask(true);

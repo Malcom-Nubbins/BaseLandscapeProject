@@ -11,13 +11,16 @@ public:
 	PowerUp();
 
 	void Update(float dt);
-	void SetPowerUp(cocos2d::Layer *layer);
-	void SetPowerUpPos(float posX, float posY);
+	void SetPowerUp(cocos2d::Layer *layer,float posX, float posY);
+	
 
 	int a;
 	int b;
-float x;
+	float x;
 	float y;
+
+	void SetPowerUpPos(float posX, float posY);
+
 private:
 	cocos2d::Size WinSize;
 	cocos2d::Vec2 origin;
@@ -25,7 +28,6 @@ private:
 
 	static PowerUp* instance;
 
-	
 };
 
 #endif //__POWERUP_H__
