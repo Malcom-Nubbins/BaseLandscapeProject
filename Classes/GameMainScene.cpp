@@ -141,21 +141,18 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			Ball::sharedBall()->AddToAcceleration(5000);
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
-
-			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
-
-			if (a == 4)
-			{	
 				Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+				Vec2 Second = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
 				//CCLOG("X: %f",x);
 				//CCLOG("Y: %f", y);
 				//CCLOG("position = (%f,%f)", x, y);
-
 				x = first.x;
 				y = first.y;
+
+				xb = Second.x;
+				yb = Second.y;
 				CCLOG("position = (%f,%f)", first.x, first.y);
 				this->schedule(schedule_selector(GameScene::SetPowerUp));
-			}
 
 			 if (level == 1)
 			{
@@ -211,12 +208,34 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				}
 			}
 		}
-
-		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+		//LIFE
+		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == LiveUp_Bitmask) || (a->getCollisionBitmask() == LiveUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			GameManager::sharedGameManager()->AddToLives(1);
 
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+		}
+		//TWO
+		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == TwoSplit_Bitmask) || (a->getCollisionBitmask() == TwoSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+		{
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			this->schedule(schedule_selector(GameScene::SetBall));
+		}
+		//THREE
+		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+		{
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			this->schedule(schedule_selector(GameScene::SetBall));
+			this->schedule(schedule_selector(GameScene::SetBall));
+		}
+		//FOUR
+		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == NineSplit_Bitmask) || (a->getCollisionBitmask() == NineSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
+		{
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+			for (int i = 1; i < 9; i++)
+			{
+				this->schedule(schedule_selector(GameScene::SetBall));
+			}
 		}
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
@@ -233,7 +252,22 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 
-		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == PowerUp_Bitmask) || (a->getCollisionBitmask() == PowerUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == LiveUp_Bitmask) || (a->getCollisionBitmask() == LiveUp_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == TwoSplit_Bitmask) || (a->getCollisionBitmask() == TwoSplit_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
+		{
+			this->removeChild(contact.getShapeA()->getBody()->getNode());
+		}
+
+		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == NineSplit_Bitmask) || (a->getCollisionBitmask() == NineSplit_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 		}
@@ -264,7 +298,7 @@ void GameScene::SetPlayer(float i)
 
 void GameScene::SetBall(float i)
 {
-	ball.SetBall(this);
+	ball.SetBall(this,xb,yb);
 	unschedule(schedule_selector(GameScene::SetBall));
 
 	
@@ -376,6 +410,7 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
 		//SoundManager::sharedSoundManager()->StopMusic();
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 
@@ -396,6 +431,7 @@ void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1);
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
 		ResumeButton->setVisible(true);
