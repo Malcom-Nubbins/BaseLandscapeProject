@@ -1,10 +1,10 @@
 #include "HelloWorldScene.h"
 #include "GameMainScene.h"
-#include "proj.win32\CreditsScene.h"
+#include "CreditsScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
-#include "proj.win32\SoundManager.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
