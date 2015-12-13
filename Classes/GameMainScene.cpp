@@ -137,15 +137,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			Ball::sharedBall()->AddToDampening(5000.0f);
 			GameManager::sharedGameManager()->AddToScore(1);
 			this->removeChild(contact.getShapeB()->getBody()->getNode());
-			Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(x, y));
-
 			
-
-			//CCLOG("X: %f",x);
-			//CCLOG("Y: %f", y);
-			//CCLOG("position = (%f,%f)", x, y);
-			CCLOG("position = (%f,%f)", first.x, first.y);
-			PowerUp::sharedPowerUp()->SetPowerUpPos(first.x, first.y);
 			Ball::sharedBall()->AddToAcceleration(5000);
 			//ScoreLabel->setString(StringUtils::format("%d", GameManager::sharedGameManager()->GetScore()));
 
@@ -153,7 +145,15 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			int a = cocos2d::RandomHelper::random_int(4, 4); //set this to everytime for testing purposes
 
 			if (a == 4)
-			{
+			{	
+				Vec2 first = contact.getShapeA()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+				//CCLOG("X: %f",x);
+				//CCLOG("Y: %f", y);
+				//CCLOG("position = (%f,%f)", x, y);
+
+				x = first.x;
+				y = first.y;
+				CCLOG("position = (%f,%f)", first.x, first.y);
 				this->schedule(schedule_selector(GameScene::SetPowerUp));
 			}
 		}
@@ -202,7 +202,8 @@ void GameScene::SetBall(float i)
 
 void GameScene::SetPowerUp(float i)
 {
-	powerUp.SetPowerUp(this);
+	//PowerUp::sharedPowerUp()->SetPowerUpPos(x, y);
+	powerUp.SetPowerUp(this,x,y);
 	unschedule(schedule_selector(GameScene::SetPowerUp));
 
 
