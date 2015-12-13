@@ -40,8 +40,12 @@
 #define Up_Max 0
 #define L1_Brick_NO 96
 
-//PowerUp
-#define PowerUp_Bitmask 4
+//PowerUps
+#define LiveUp_Bitmask 4
+#define TwoSplit_Bitmask 6
+#define ThreeSplit_Bitmask 7
+#define NineSplit_Bitmask 8
+
 
 //Death
 #define Death_Bitmask 5
