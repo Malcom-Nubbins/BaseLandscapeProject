@@ -376,6 +376,7 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
 		//SoundManager::sharedSoundManager()->StopMusic();
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 
@@ -396,6 +397,7 @@ void GameScene::ResumeButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1);
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
 		ResumeButton->setVisible(true);
