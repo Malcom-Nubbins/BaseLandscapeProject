@@ -58,6 +58,8 @@ private:
 	float b;
 	float x;
 	float y;
+	float xb;
+	float yb;
 	int lives;
 
 	cocos2d::PhysicsContact *onContactBegin;
