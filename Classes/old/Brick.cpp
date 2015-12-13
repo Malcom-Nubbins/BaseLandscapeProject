@@ -4,18 +4,6 @@
 
 USING_NS_CC;
 
-Brick* Brick::instance = NULL;
-
-Brick* Brick::sharedBrick()
-{
-	if (instance == NULL)
-	{
-		instance = new Brick();
-	}
-
-	return instance;
-}
-
 Brick::~Brick()
 {
 	
@@ -29,11 +17,6 @@ Brick::Brick()
 	cocos2d::CCArray *_bricks;
 	this->_bricks = CCArray::createWithCapacity(L1_Brick_NO);
 	this->_bricks->retain();
-}
-
-void Brick::SetLevel(int level)
-{
-	this->level += level;
 }
 
 bool Brick::init()
