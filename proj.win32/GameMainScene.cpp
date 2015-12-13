@@ -222,6 +222,13 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
 			GameManager::sharedGameManager()->AddToLives(-1);
+
+			this->lives = GameManager::sharedGameManager()->GetLives();
+			if (lives == 0)
+			{
+				auto scene = HelloWorld::createScene();
+				Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+			}
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}

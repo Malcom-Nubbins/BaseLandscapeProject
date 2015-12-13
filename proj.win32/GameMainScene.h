@@ -58,7 +58,7 @@ private:
 	float b;
 	float x;
 	float y;
-	int col;
+	int lives;
 
 	cocos2d::PhysicsContact *onContactBegin;
 
