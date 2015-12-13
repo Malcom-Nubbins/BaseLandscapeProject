@@ -1,10 +1,10 @@
 #include "HelloWorldScene.h"
 #include "GameMainScene.h"
-#include "proj.win32\CreditsScene.h"
+#include "CreditsScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "Define.h"
-#include "proj.win32\SoundManager.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -54,8 +54,9 @@ bool HelloWorld::init()
 	Credits = static_cast<ui::Button*>(rootNode->getChildByName("Credits"));
 	Credits->addTouchEventListener(CC_CALLBACK_2(HelloWorld::CreditsButtonPressed, this));
 	
-	SoundManager::sharedSoundManager()->PreLoadMusic("mainmenu.mp3");
-	SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
+	//SoundManager::sharedSoundManager()->PlayMusic("mainmenu.mp3", true);
 
     return true;
 }
@@ -88,7 +89,7 @@ void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEvent
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		SoundManager::sharedSoundManager()->StopMusic();
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto scene = GameScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->StartGame();
@@ -103,7 +104,7 @@ void HelloWorld::CreditsButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEve
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		//CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto scene = CreditsScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 		this->CreditsScene();

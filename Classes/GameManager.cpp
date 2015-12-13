@@ -65,7 +65,7 @@ int GameManager::GetScore()
 
 void GameManager::AddToLives(int increment)
 {
-
+	this->lives += increment;
 }
 
 //-------------------------------------------------------------------------
@@ -74,7 +74,7 @@ void GameManager::AddToLives(int increment)
 
 void GameManager::ResetLives()
 {
-
+	lives = 3;
 }
 
 //-------------------------------------------------------------------------
