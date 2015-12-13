@@ -19,8 +19,6 @@ void Player::SetPlayer(cocos2d::Layer *layer)
 		auto paddleBounding = PhysicsBody::createBox(paddle->getContentSize());// CHANGE TO CIRCLE PhysicsShapeCircle
 		paddleBounding->setDynamic(false);
 		paddleBounding->setGravityEnable(false);
-		paddleBounding->setContactTestBitmask(Paddle_Bitmask);
-		paddleBounding->setCollisionBitmask(Paddle_Bitmask);
 		paddle->setPhysicsBody(paddleBounding); //sets a bounding box around brick.
 		SetPlayerPos(WinSize.width / 2, WinSize.height / 6);
 		layer->addChild(paddle,1);
