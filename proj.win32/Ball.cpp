@@ -50,6 +50,10 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 	this->x = posX;
 	this->y = posY;
 	this->amount = ba;
+
+	CCLOG("X %f,Y%f", x,y);
+	CCLOG("ba %f", ba);
+	CCLOG("AMOUNT %i", amount);
 	if (amount <= 0)
 	{
 		amount == 1;
@@ -66,7 +70,7 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 
 		int i = cocos2d::RandomHelper::random_int(-5000, 30000);
 		int o = cocos2d::RandomHelper::random_int(-5000, 30000);
-		ballBounding->applyImpulse(Vect(50000 + i, 68000 + o)); // Dont Understand why the values need to be so high.
+		ballBounding->applyImpulse(Vect(40000, 58000)); // Dont Understand why the values need to be so high.
 		ballBounding->applyTorque(200000); // helps keeps the ball path true. Think spinning a coin
 		force = (Vec2(10 + dampening, 10 + dampening));
 		ballPos = (Vec2(550, 150));;
@@ -81,7 +85,7 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 		ballBounding->setGravityEnable(false);
 		ball->setPhysicsBody(ballBounding); //sets a bounding box around brick.
 
-		if (ba <= 1)
+		if (amount <= 1)
 		{
 			ball->setPosition(Vec2(550, 150));
 		}
