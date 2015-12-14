@@ -121,7 +121,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="-38.0843" RightMargin="1318.0842" TopMargin="33.4244" BottomMargin="686.5756" Volume="1.0000" ctype="SimpleAudioObjectData">
+          <AbstractNodeData Name="gameBGM" ActionTag="1892787" Tag="10" IconVisible="True" LeftMargin="-38.0843" RightMargin="1318.0844" TopMargin="33.4244" BottomMargin="686.5756" Volume="1.0000" ctype="SimpleAudioObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position X="-38.0843" Y="686.5756" />
@@ -184,6 +184,21 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5922" Y="0.2493" />
+            <PreSize X="0.1094" Y="0.1042" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="RestartButton" ActionTag="586797598" Tag="17" IconVisible="False" LeftMargin="702.1566" RightMargin="437.8434" TopMargin="502.7879" BottomMargin="142.2121" TouchEnable="True" FontSize="20" ButtonText="Restart" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="140.0000" Y="75.0000" />
+            <AnchorPoint ScaleX="0.4692" ScaleY="0.6966" />
+            <Position X="767.8492" Y="194.4549" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5999" Y="0.2701" />
             <PreSize X="0.1094" Y="0.1042" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />

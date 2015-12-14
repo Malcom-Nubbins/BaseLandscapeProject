@@ -35,7 +35,6 @@ public:
 	void LeftButtonUp();
 	void RightButtonDown();
 	void RightButtonUp();
-	int balls;
 
 protected:
 	cocos2d::CCArray *_bricks;
@@ -59,12 +58,7 @@ private:
 	float b;
 	float x;
 	float y;
-	float xb;
-	float yb;
-
-	int lives;
-	int ba;
-	
+	int col;
 
 	cocos2d::PhysicsContact *onContactBegin;
 
@@ -78,9 +72,7 @@ private:
 	bool setHit(cocos2d::PhysicsContact &contact);
 	bool setHitPaddle(cocos2d::PhysicsContact &contact);
 	bool hit;
-	int level;
-	int number;
-
+	
 	Brick brick;
 	Player player;
 	Ball ball;
