@@ -93,6 +93,11 @@ bool GameScene::init()
 	ResumeButton->setPositionX(winSize.width + ResumeButton->getContentSize().width);
 	ResumeButton->setVisible(false);
 
+	RestartButton = static_cast<ui::Button*>(rootNode->getChildByName("RestartButton"));
+	RestartButton->addTouchEventListener(CC_CALLBACK_2(GameScene::RestartButtonPressed, this));
+	RestartButton->setPositionX(winSize.width + RestartButton->getContentSize().width);
+	RestartButton->setVisible(false);
+
 	this->scheduleUpdate();
 
 	ScoreLabel = (ui::Text*)rootNode->getChildByName("Score");
@@ -266,10 +271,12 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		
 			CCLOG("BALLS Death:%i", balls);
 			this->lives = GameManager::sharedGameManager()->GetLives();
-			if (lives == 0)
+			if (lives <= 0)
 			{
-				auto scene = HelloWorld::createScene();
-				Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+				/*auto scene = HelloWorld::createScene();
+				Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));*/
+
+				this->GameOver();
 			}
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
 			ba = 1;
@@ -353,19 +360,22 @@ void GameScene::SetDeath(float i)
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-	CCLOG("Left!");
-
-	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+	if (GameManager::sharedGameManager()->isGameLive == true)
 	{
-		SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
-		isLeftFingerDown = true;
-		LeftButtonDown();
-	}
+		CCLOG("Left!");
 
-	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
-	{
-		SoundManager::sharedSoundManager()->StopSoundEffect();
-		LeftButtonUp();
+		if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
+			isLeftFingerDown = true;
+			LeftButtonDown();
+		}
+
+		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+		{
+			SoundManager::sharedSoundManager()->StopSoundEffect();
+			LeftButtonUp();
+		}
 	}
 }
 
@@ -388,18 +398,21 @@ void GameScene::LeftButtonUp()
 
 void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
-	CCLOG("Right!");
-	if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+	if (GameManager::sharedGameManager()->isGameLive == true)
 	{
-		SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
-		isRightFingerDown = true;
-		RightButtonDown();
-	}
+		CCLOG("Right!");
+		if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
+		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
+			isRightFingerDown = true;
+			RightButtonDown();
+		}
 
-	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
-	{
-		SoundManager::sharedSoundManager()->StopSoundEffect();
-		RightButtonUp();
+		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+		{
+			SoundManager::sharedSoundManager()->StopSoundEffect();
+			RightButtonUp();
+		}
 	}
 }
 
@@ -431,21 +444,22 @@ void GameScene::PauseButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 	auto winSize = Director::getInstance()->getVisibleSize();
 	CCLOG("Paused!");
 
-	// Temporary menu return. Takes the user back to menu, and resets the game scene. *ONLY FOR TESTING. WILL BE REMOVED LATER FOR PROPER PAUSE MENU*
-
-	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	if (GameManager::sharedGameManager()->isGameLive == true)
 	{
-		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
-		//SoundManager::sharedSoundManager()->StopMusic();
-		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+		{
+			Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
+			//SoundManager::sharedSoundManager()->StopMusic();
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 
-		auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, ResumeButton->getPositionY()));
-		ResumeButton->setVisible(true);
-		ResumeButton->runAction(resumeMoveTo);
+			auto resumeMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, ResumeButton->getPositionY()));
+			ResumeButton->setVisible(true);
+			ResumeButton->runAction(resumeMoveTo);
 
-		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 1.5, ReturnButton->getPositionY()));
-		ReturnButton->setVisible(true);
-		ReturnButton->runAction(returnMoveTo);
+			auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 1.5, ReturnButton->getPositionY()));
+			ReturnButton->setVisible(true);
+			ReturnButton->runAction(returnMoveTo);
+		}
 	}
 }
 
@@ -481,6 +495,48 @@ void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 	}
 }
 
+
+void GameScene::RestartButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	CCLOG("Restarting Game!");
+	auto winSize = Director::getInstance()->getVisibleSize();
+
+	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+	{
+		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1);
+		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+		auto restartMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
+		RestartButton->setVisible(true);
+		RestartButton->runAction(restartMoveTo);
+
+		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ReturnButton->getContentSize().width, ReturnButton->getPositionY()));
+		ReturnButton->setVisible(true);
+		ReturnButton->runAction(returnMoveTo);
+
+		this->schedule(schedule_selector(GameScene::SetBrick));
+		this->schedule(schedule_selector(GameScene::SetPlayer));
+		this->schedule(schedule_selector(GameScene::SetBall));
+
+		GameManager::sharedGameManager()->ResetLives();
+		GameManager::sharedGameManager()->ResetScore();
+		GameManager::sharedGameManager()->isGameLive = true;
+	}
+}
+
+void GameScene::GameOver()
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+	Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0);
+	GameManager::sharedGameManager()->isGameLive = false;
+
+	auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 1.5, ReturnButton->getPositionY()));
+	ReturnButton->setVisible(true);
+	ReturnButton->runAction(returnMoveTo);
+
+	auto restartMoveTo = MoveTo::create(0.5, Vec2(winSize.width / 3, RestartButton->getPositionY()));
+	RestartButton->setVisible(true);
+	RestartButton->runAction(restartMoveTo);
+}
 
 void GameScene::update(float dt)
 {
