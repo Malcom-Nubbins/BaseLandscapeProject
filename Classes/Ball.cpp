@@ -55,9 +55,6 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 	this->y = posY;
 	this->amount = ba;
 
-	CCLOG("X %f,Y%f", x,y);
-	CCLOG("ba %f", ba);
-	CCLOG("AMOUNT %i", amount);
 	if (amount <= 0)
 	{
 		amount == 1;
