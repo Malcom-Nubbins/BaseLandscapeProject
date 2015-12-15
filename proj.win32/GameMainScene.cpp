@@ -238,7 +238,13 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+
+			Vec2 BallPos = contact.getShapeB()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+			xb = BallPos.x;
+			yb = BallPos.y;
+
 			balls = balls + 2;
+			ba = ba + 2;
 			this->schedule(schedule_selector(GameScene::SetBall));
 			
 		}
@@ -246,7 +252,13 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == NineSplit_Bitmask) || (a->getCollisionBitmask() == NineSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			this->removeChild(contact.getShapeA()->getBody()->getNode());
+
+			Vec2 BallPos = contact.getShapeB()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
+			xb = BallPos.x;
+			yb = BallPos.y;
+
 			balls = balls + 8;
+			ba = ba + 8;
 			this->schedule(schedule_selector(GameScene::SetBall));
 		}
 

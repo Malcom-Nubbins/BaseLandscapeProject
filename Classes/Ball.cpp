@@ -43,6 +43,10 @@ void Ball::ResetDampening()
 	dampening = 0.0f;
 }
 
+void Ball::RemoveBall()
+{
+	ball->removeChild(ball, true);
+}
 
 void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 {
@@ -62,7 +66,7 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 	{
 		acceleration = 0;
 		CCLOG("Ball %i",q); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
-		CCSprite *ball = CCSprite::create("Ball.png");
+		ball = CCSprite::create("Ball.png");
 		auto ballBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 			PhysicsMaterial(1.0f, 2.0f, 0.0f));
 		//ballBounding->setVelocity(Vec2(-500, -500)); // 
@@ -93,9 +97,55 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 
 		else
 		{
-			int r = cocos2d::RandomHelper::random_int(-10, 10);
+			if (q == 1)
+			{
+				rx = 0;
+				ry = 0;
+			}
 
-			ball->setPosition(Vec2(x+r, y+r));
+			else if(q == 2)
+			{
+				rx = -20;
+				ry = +10;
+			}
+
+			else if (q == 3)
+			{
+				rx = +20;
+				ry = +10;
+			}
+
+			else if (q == 4)
+			{
+				rx = -30;
+				ry = +40;
+			}
+
+			else if (q == 5)
+			{
+				rx = +30;
+				ry = +40;
+			}
+
+			else if (q == 6)
+			{
+				rx = -20;
+				ry = +60;
+			}
+
+			else if (q == 7)
+			{
+				rx = +20;
+				ry = +60;
+			}
+
+			else if (q == 8)
+			{
+				rx = 0;
+				ry = +30;
+			}
+
+			ball->setPosition(Vec2(x+rx, y+ry));
 		}
 		layer->addChild(ball, 2);
 		ball->setTag(1);
