@@ -30,7 +30,7 @@
 //Blocks
 #define Brick_Debug 44
 #define Brick_Distance 0
-#define Brick_Bitmask 3
+#define Brick_Bitmask 11
 #define Brick_Bitmask_2 0x31
 #define Brick_Line_Distance 0
 #define Brick_Size 60

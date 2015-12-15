@@ -79,7 +79,7 @@ bool GameScene::init()
 	this->schedule(schedule_selector(GameScene::SetPlayer)); 
 	this->schedule(schedule_selector(GameScene::SetBall));
 	ba = 1;
-	balls = 1;
+	balls =  1;
 	CCLOG("tester: %i", balls);
 	this->schedule(schedule_selector(GameScene::SetDeath));
 	isLeftFingerDown = false;
@@ -268,25 +268,34 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
+			CCLOG("BALLS B4 amount:%i", balls);
+			CCLOG("BA B4 amount:%i", ba);
+
 			this->lives = GameManager::sharedGameManager()->GetLives();
-			if (balls >= 1 && lives > 0)
+			if (balls <= 1 && lives > 0)
 			{
-				CCLOG("BALLS:%i", balls);
+				CCLOG("BALLS amount:%i", balls);
+				CCLOG("BA amount:%i", ba);
 				GameManager::sharedGameManager()->AddToLives(-1);
 				this->schedule(schedule_selector(GameScene::SetBall));
 				balls = balls + 1;
+				ba = ba + 1;
+				
 			}
 
-			else if (balls >= 1 && lives <= 0)
+			else if (balls <= 1 && lives <= 0)
 			{
 				GameManager::sharedGameManager()->AddToLives(-1);
-				balls = balls + 1;
 			}
 
-			balls = balls - 1;
-		
-			CCLOG("BALLS Death:%i", balls);
-			
+			if (balls >= 1 && lives > 0)
+			{
+				CCLOG("BALLS amount:%i", balls);
+				CCLOG("BA amount:%i", ba);
+				balls = balls - 1;
+				ba = ba - 1;
+			}
+
 			if (lives <= 0)
 			{
 				/*auto scene = HelloWorld::createScene();
