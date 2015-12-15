@@ -12,6 +12,7 @@ public:
 	void SetPlayer(cocos2d::Layer *layer);
 	void SetPlayerPos(float x, float y);
 	float GetPlayerPosX();
+	void RemovePlayer();
 
 private:
 	cocos2d::Size WinSize;

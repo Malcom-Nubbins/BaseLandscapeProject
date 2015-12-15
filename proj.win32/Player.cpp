@@ -36,3 +36,8 @@ float Player::GetPlayerPosX()
 {
 	return paddle->getPositionX();
 }
+
+void Player::RemovePlayer()
+{
+	paddle->removeChild(paddle, true);
+}
