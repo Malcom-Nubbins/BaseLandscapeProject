@@ -97,9 +97,55 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 
 		else
 		{
-			int r = cocos2d::RandomHelper::random_int(-10, 10);
+			if (q == 1)
+			{
+				rx = 0;
+				ry = 0;
+			}
 
-			ball->setPosition(Vec2(x+r, y+r));
+			else if(q == 2)
+			{
+				rx = -20;
+				ry = +10;
+			}
+
+			else if (q == 3)
+			{
+				rx = +20;
+				ry = +10;
+			}
+
+			else if (q == 4)
+			{
+				rx = -30;
+				ry = +40;
+			}
+
+			else if (q == 5)
+			{
+				rx = +30;
+				ry = +40;
+			}
+
+			else if (q == 6)
+			{
+				rx = -20;
+				ry = +60;
+			}
+
+			else if (q == 7)
+			{
+				rx = +20;
+				ry = +60;
+			}
+
+			else if (q == 8)
+			{
+				rx = 0;
+				ry = +30;
+			}
+
+			ball->setPosition(Vec2(x+rx, y+ry));
 		}
 		layer->addChild(ball, 2);
 		ball->setTag(1);

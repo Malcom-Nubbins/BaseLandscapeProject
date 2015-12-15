@@ -36,6 +36,8 @@ private:
 	float x;
 	float y;
 	int amount;
+	int rx;
+	int ry;
 	static Ball* instance;
 
 	int acceleration;
