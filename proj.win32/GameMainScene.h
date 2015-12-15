@@ -30,6 +30,9 @@ public:
 	void PauseGame();
 	void ResumeButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void ReturnButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void RestartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
+	void GameOver();
 
 	void LeftButtonDown();
 	void LeftButtonUp();
@@ -48,6 +51,7 @@ private:
 	cocos2d::ui::Button* PauseButton;
 	cocos2d::ui::Button* ResumeButton;
 	cocos2d::ui::Button* ReturnButton;
+	cocos2d::ui::Button* RestartButton;
 	cocos2d::ui::Text*	 ScoreLabel;
 	cocos2d::ui::Text*	 LivesLabel;
 	cocos2d::ui::Text*	 AmmoLabel;
