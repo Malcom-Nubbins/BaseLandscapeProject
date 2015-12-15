@@ -252,8 +252,8 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 		if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 		{
-
-			if (balls <= 1)
+			this->lives = GameManager::sharedGameManager()->GetLives();
+			if (balls >= 1 && lives > 0)
 			{
 				CCLOG("BALLS:%i", balls);
 				GameManager::sharedGameManager()->AddToLives(-1);
@@ -261,10 +261,16 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				balls = balls + 1;
 			}
 
+			else if (balls >= 1 && lives <= 0)
+			{
+				GameManager::sharedGameManager()->AddToLives(-1);
+				balls = balls + 1;
+			}
+
 			balls = balls - 1;
 		
 			CCLOG("BALLS Death:%i", balls);
-			this->lives = GameManager::sharedGameManager()->GetLives();
+			
 			if (lives <= 0)
 			{
 				/*auto scene = HelloWorld::createScene();
@@ -496,22 +502,9 @@ void GameScene::RestartButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEven
 
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
-		Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1);
-		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
-		auto restartMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ResumeButton->getContentSize().width, ResumeButton->getPositionY()));
-		RestartButton->setVisible(true);
-		RestartButton->runAction(restartMoveTo);
-
-		auto returnMoveTo = MoveTo::create(0.5, Vec2(winSize.width + ReturnButton->getContentSize().width, ReturnButton->getPositionY()));
-		ReturnButton->setVisible(true);
-		ReturnButton->runAction(returnMoveTo);
-
-		this->schedule(schedule_selector(GameScene::SetBrick));
-		this->schedule(schedule_selector(GameScene::SetPlayer));
-		this->schedule(schedule_selector(GameScene::SetBall));
-
-		GameManager::sharedGameManager()->ResetLives();
-		GameManager::sharedGameManager()->ResetScore();
+		auto newScene = GameScene::createScene();
+		Director::getInstance()->replaceScene(newScene);
+	;
 		GameManager::sharedGameManager()->isGameLive = true;
 	}
 }

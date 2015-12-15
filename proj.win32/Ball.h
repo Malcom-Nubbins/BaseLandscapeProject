@@ -20,6 +20,8 @@ public:
 	void AddToDampening(float dampening);
 	void ResetDampening();
 
+	void RemoveBall();
+
 protected:
 	cocos2d::CCArray *_balls;
 
@@ -29,6 +31,7 @@ private:
 
 	cocos2d::Vec2 ballPos;
 	cocos2d::Vec2 force;
+	cocos2d::CCSprite* ball;
 
 	float x;
 	float y;
