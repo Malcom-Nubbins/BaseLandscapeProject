@@ -123,8 +123,8 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	PhysicsBody *b = contact.getShapeB()->getBody();
 
 	float* v = new float[2];
-	v[0] = a->getVelocity().length();
-	v[1] = b->getVelocity().length();
+	v[0] = a->getVelocity().length(); // Created By An Unknown Source, Via Stack OverFlow
+	v[1] = b->getVelocity().length(); // Created By An Unknown Source, Via Stack OverFlow
 
 	contact.setData(v);
 	
@@ -334,7 +334,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 	return true;
 }
 
-void GameScene::Seperate(cocos2d::PhysicsContact &contact) 
+void GameScene::Seperate(cocos2d::PhysicsContact &contact) // Created By An Unknown Source, Via Stack OverFlow
 {
 	auto a = contact.getShapeA()->getBody();
 	auto b = contact.getShapeB()->getBody();
