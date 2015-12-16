@@ -5,6 +5,7 @@
 #include "ui/CocosGUI.h"
 #include "Define.h"
 #include "SoundManager.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -92,6 +93,7 @@ void HelloWorld::StartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEvent
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		auto scene = GameScene::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
+		GameManager::sharedGameManager()->isGameLive = false;
 		this->StartGame();
 	}
 	this->StartGame();

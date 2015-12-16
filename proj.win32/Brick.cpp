@@ -35,7 +35,7 @@ Brick::Brick()
 
 void Brick::SetLevel(int level)
 {
-	this->level += level;
+	this->level = level;
 }
 
 bool Brick::init()
@@ -46,7 +46,7 @@ void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives differen
 	
 {
 
-	CCLOG("level: %i", level);
+	//CCLOG("level: %i", level);
 	this->level = level;
 	bricks = 0;
 	//blocks = 0;
@@ -65,8 +65,8 @@ void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives differen
 	 bricks = Bricks->intValue();
 	 lines = Lines->intValue();
 
-	 CCLOG("Bricks: %i", bricks);
-	 CCLOG("Lines: %i", lines);
+	 //CCLOG("Bricks: %i", bricks);
+	 //CCLOG("Lines: %i", lines);
 
 	 for (int i = 1; i < bricks; i++)
 	 {

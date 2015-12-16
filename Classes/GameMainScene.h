@@ -30,11 +30,21 @@ public:
 	void PauseGame();
 	void ResumeButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void ReturnButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void RestartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
+	void Level1ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level2ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level3ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level4ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level5ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
+	void GameOver();
 
 	void LeftButtonDown();
 	void LeftButtonUp();
 	void RightButtonDown();
 	void RightButtonUp();
+	int balls;
 
 protected:
 	cocos2d::CCArray *_bricks;
@@ -47,6 +57,12 @@ private:
 	cocos2d::ui::Button* PauseButton;
 	cocos2d::ui::Button* ResumeButton;
 	cocos2d::ui::Button* ReturnButton;
+	cocos2d::ui::Button* RestartButton;
+	cocos2d::ui::Button* Level1Select;
+	cocos2d::ui::Button* Level2Select;
+	cocos2d::ui::Button* Level3Select;
+	cocos2d::ui::Button* Level4Select;
+	cocos2d::ui::Button* Level5Select;
 	cocos2d::ui::Text*	 ScoreLabel;
 	cocos2d::ui::Text*	 LivesLabel;
 	cocos2d::ui::Text*	 AmmoLabel;
@@ -58,13 +74,11 @@ private:
 	float b;
 	float x;
 	float y;
-<<<<<<< HEAD
 	float xb;
 	float yb;
-=======
->>>>>>> origin/testing
 	int lives;
 	int ba;
+	
 
 	cocos2d::PhysicsContact *onContactBegin;
 
@@ -76,6 +90,7 @@ private:
 	void SetPowerUp(float i);
 	void SetDeath(float i);
 	bool setHit(cocos2d::PhysicsContact &contact);
+	void Seperate(cocos2d::PhysicsContact &contact);
 	bool setHitPaddle(cocos2d::PhysicsContact &contact);
 	bool hit;
 	int level;
