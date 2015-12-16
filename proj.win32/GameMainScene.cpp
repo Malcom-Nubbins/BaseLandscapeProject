@@ -51,13 +51,6 @@ bool GameScene::init()
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
 	//auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
 
-	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f),10);
-	PhysicsMaterial(0.0f, 0.0f, 0.0f);
-	auto edgeNode = Node::create();
-	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
-	edgeNode->setPhysicsBody(edgeBody);
-	this->addChild(edgeNode);
-
 
 	LeftButton = static_cast<ui::Button*>(rootNode->getChildByName("LeftButton"));
 	LeftButton->addTouchEventListener(CC_CALLBACK_2(GameScene::LeftButtonPressed, this));
@@ -460,6 +453,7 @@ void GameScene::SetDeath(float i)
 void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 1 Selected.");
@@ -484,6 +478,13 @@ void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -491,6 +492,7 @@ void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 2 Selected.");
@@ -516,6 +518,13 @@ void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -523,6 +532,7 @@ void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 3 Selected.");
@@ -549,6 +559,13 @@ void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -556,6 +573,7 @@ void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 4 Selected.");
@@ -582,6 +600,13 @@ void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -589,6 +614,7 @@ void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level5ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 5 Selected.");
@@ -615,6 +641,13 @@ void GameScene::Level5ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
