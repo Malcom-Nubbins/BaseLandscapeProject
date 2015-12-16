@@ -46,6 +46,9 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballRebound.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
 	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
 	PhysicsMaterial(0.0f, 0.0f, 0.0f);
 	auto edgeNode = Node::create();
@@ -138,6 +141,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 		{
 			Ball::sharedBall()->AddToDampening(5000.0f);
+			SoundManager::sharedSoundManager()->PlaySoundEffect("ballRebound.mp3", false, 1.0f, 1.0f, 1.0f);
 		}
 
 		if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
@@ -386,14 +390,14 @@ void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventTy
 
 		if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 		{
-			SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
+			//SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
 			isLeftFingerDown = true;
 			LeftButtonDown();
 		}
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
-			SoundManager::sharedSoundManager()->StopSoundEffect();
+			//SoundManager::sharedSoundManager()->StopSoundEffect();
 			LeftButtonUp();
 		}
 	}
@@ -423,14 +427,14 @@ void GameScene::RightButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventT
 		CCLOG("Right!");
 		if (type == cocos2d::ui::Widget::TouchEventType::BEGAN)
 		{
-			SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
+			//SoundManager::sharedSoundManager()->PlaySoundEffect("paddleMove.mp3", true, 1.0f, 1.0f, 1.0f);
 			isRightFingerDown = true;
 			RightButtonDown();
 		}
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
-			SoundManager::sharedSoundManager()->StopSoundEffect();
+			//SoundManager::sharedSoundManager()->StopSoundEffect();
 			RightButtonUp();
 		}
 	}

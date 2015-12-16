@@ -32,6 +32,10 @@ public:
 	void ReturnButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void RestartButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
+	void Level1ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level2ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level3ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+
 	void GameOver();
 
 	void LeftButtonDown();
@@ -52,6 +56,9 @@ private:
 	cocos2d::ui::Button* ResumeButton;
 	cocos2d::ui::Button* ReturnButton;
 	cocos2d::ui::Button* RestartButton;
+	cocos2d::ui::Button* Level1Select;
+	cocos2d::ui::Button* Level2Select;
+	cocos2d::ui::Button* Level3Select;
 	cocos2d::ui::Text*	 ScoreLabel;
 	cocos2d::ui::Text*	 LivesLabel;
 	cocos2d::ui::Text*	 AmmoLabel;
