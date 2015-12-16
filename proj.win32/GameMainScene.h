@@ -35,6 +35,8 @@ public:
 	void Level1ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void Level2ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 	void Level3ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level4ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
+	void Level5ButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type);
 
 	void GameOver();
 
@@ -59,6 +61,8 @@ private:
 	cocos2d::ui::Button* Level1Select;
 	cocos2d::ui::Button* Level2Select;
 	cocos2d::ui::Button* Level3Select;
+	cocos2d::ui::Button* Level4Select;
+	cocos2d::ui::Button* Level5Select;
 	cocos2d::ui::Text*	 ScoreLabel;
 	cocos2d::ui::Text*	 LivesLabel;
 	cocos2d::ui::Text*	 AmmoLabel;
