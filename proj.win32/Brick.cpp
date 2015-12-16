@@ -35,7 +35,7 @@ Brick::Brick()
 
 void Brick::SetLevel(int level)
 {
-	this->level += level;
+	this->level = level;
 }
 
 bool Brick::init()
@@ -57,7 +57,7 @@ void Brick::SetBrick(cocos2d::Layer *layer, int level)	// Level 2 gives differen
 	startLine = 576;
 	__String spawn = "1";
 
-	__String *file = __String::createWithFormat("level 5.plist",level); // allows mutiple level .plists
+	__String *file = __String::createWithFormat("level %i.plist",level); // allows mutiple level .plists
 	__Dictionary *list = __Dictionary::createWithContentsOfFile(file->getCString()); //makes a list with all the data
 	__String *Bricks = __String::create(list->valueForKey("Bricks")->getCString()); //assiging a key.
 	__String *Lines = __String::create(list->valueForKey("Lines")->getCString());
