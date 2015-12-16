@@ -75,9 +75,9 @@ bool GameScene::init()
 	ReturnButton->setPositionX(winSize.width + ReturnButton->getContentSize().width);
 	ReturnButton->setVisible(false);
 
-	this->schedule(schedule_selector(GameScene::SetBrick)); 
-	this->schedule(schedule_selector(GameScene::SetPlayer)); 
-	this->schedule(schedule_selector(GameScene::SetBall));
+	
+
+	
 	ba = 1;
 	balls =  1;
 	CCLOG("tester: %i", balls);
@@ -106,6 +106,12 @@ bool GameScene::init()
 	{
 		Level1Select = static_cast<ui::Button*>(rootNode->getChildByName("Level1Select"));
 		Level1Select->addTouchEventListener(CC_CALLBACK_2(GameScene::Level1ButtonPressed, this));
+
+		Level2Select = static_cast<ui::Button*>(rootNode->getChildByName("Level2Select"));
+		Level2Select->addTouchEventListener(CC_CALLBACK_2(GameScene::Level2ButtonPressed, this));
+
+		Level3Select = static_cast<ui::Button*>(rootNode->getChildByName("Level3Select"));
+		Level3Select->addTouchEventListener(CC_CALLBACK_2(GameScene::Level3ButtonPressed, this));
 		//auto Level1MoveTo = MoveTo::create(0.5, Vec2(320, Level1Select->getPositionY()));
 		//Level1Select ->runAction(Level1MoveTo);
 		//Level1Select->setVisible(false);
@@ -113,6 +119,9 @@ bool GameScene::init()
 	else if (GameManager::sharedGameManager()->isGameLive == true)
 	{
 		rootNode->removeChildByName("Level1Select");
+		rootNode->removeChildByName("Level2Select");
+		rootNode->removeChildByName("Level3Select");
+		//this->schedule(schedule_selector(GameScene::SetBrick));
 		//Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1);
 	}
 
@@ -197,28 +206,28 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				else if (level == 2)
 				{
 					number = number + 1;
-
-					if (number == 5)
+					brick.SetLevel(level);
+					/*if (number == 5)
 					{
 						level = 3;
 						this->removeChild(contact.getShapeA()->getBody()->getNode());
 						this->schedule(schedule_selector(GameScene::SetBrick));
 						this->schedule(schedule_selector(GameScene::SetBall));
-					}
+					}*/
 
 				}
 
 				else if (level == 3)
 				{
 					number = number + 1;
-
-					if (number == 5)
+					brick.SetLevel(level);
+					/*if (number == 5)
 					{
 						level = 4;
 						this->removeChild(contact.getShapeA()->getBody()->getNode());
 						this->schedule(schedule_selector(GameScene::SetBrick));
 						this->schedule(schedule_selector(GameScene::SetBall));
-					}
+					}*/
 				}
 
 				else if (level == 4)
@@ -356,10 +365,7 @@ void GameScene::SetBrick(float i)
 
 
 	CCLOG("level gam: %i", level);
-	if (level <= 0)
-	{
-		level = 1;
-	}
+
 	CCLOG("levelgame after: %i", level);
 	brick.SetBrick(this,level);
 	unschedule(schedule_selector(GameScene::SetBrick));
@@ -411,24 +417,79 @@ void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			
 			auto Level1MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level1Select->getContentSize().width, Level1Select->getPositionY()));
 			Level1Select->runAction(Level1MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
+			
 
-			level = 1;
-
-			auto newScene = GameScene::createScene();
-			Director::getInstance()->replaceScene(newScene);
+			//auto newScene = GameScene::createScene();
+			//Director::getInstance()->replaceScene(newScene);
 			Level1Select->setVisible(false);
+			Level2Select->setVisible(false);
+			Level3Select->setVisible(false);
+			level = 1;
+			brick.SetBrick(this, level);
+			this->schedule(schedule_selector(GameScene::SetBall));
+			this->schedule(schedule_selector(GameScene::SetPlayer));
 		}
 	}
 }
 
 void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
+	auto winSize = Director::getInstance()->getVisibleSize();
+	if (GameManager::sharedGameManager()->isGameLive == false)
+	{
+		CCLOG("Level 2 Selected.");
 
+		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+		{
+			auto Level2MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level2Select->getContentSize().width, Level2Select->getPositionY()));
+			Level2Select->runAction(Level2MoveTo);
+			GameManager::sharedGameManager()->isGameLive = true;
+
+			
+			//auto newScene = GameScene::createScene();
+			//Director::getInstance()->replaceScene(newScene);
+			Level1Select->setVisible(false);
+			Level2Select->setVisible(false);
+			Level3Select->setVisible(false);
+			level = 2;
+			brick.SetBrick(this, level);
+			this->schedule(schedule_selector(GameScene::SetBall));
+			this->schedule(schedule_selector(GameScene::SetPlayer));
+		}
+	}
 }
 
+void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+{
+	auto winSize = Director::getInstance()->getVisibleSize();
+	if (GameManager::sharedGameManager()->isGameLive == false)
+	{
+		CCLOG("Level 3 Selected.");
+
+		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
+		{
+			auto Level3MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level3Select->getContentSize().width, Level3Select->getPositionY()));
+			Level3Select->runAction(Level3MoveTo);
+			GameManager::sharedGameManager()->isGameLive = true;
+
+			
+			
+			//auto newScene = GameScene::createScene();
+			//Director::getInstance()->replaceScene(newScene);
+			Level1Select->setVisible(false);
+			Level2Select->setVisible(false);
+			Level3Select->setVisible(false);
+			level = 3;
+			brick.SetBrick(this, level);
+			this->schedule(schedule_selector(GameScene::SetBall));
+			this->schedule(schedule_selector(GameScene::SetPlayer));
+		}
+	}
+}
 
 void GameScene::LeftButtonPressed(Ref *sender, cocos2d::ui::Widget::TouchEventType type)
 {
