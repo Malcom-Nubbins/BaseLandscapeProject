@@ -429,7 +429,7 @@ void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
-			
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 			auto Level1MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level1Select->getContentSize().width, Level1Select->getPositionY()));
 			Level1Select->runAction(Level1MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -460,6 +460,8 @@ void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level2MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level2Select->getContentSize().width, Level2Select->getPositionY()));
 			Level2Select->runAction(Level2MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -490,6 +492,8 @@ void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level3MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level3Select->getContentSize().width, Level3Select->getPositionY()));
 			Level3Select->runAction(Level3MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -521,6 +525,8 @@ void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level4MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level4Select->getContentSize().width, Level4Select->getPositionY()));
 			Level4Select->runAction(Level4MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -552,6 +558,8 @@ void GameScene::Level5ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level5MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level5Select->getContentSize().width, Level5Select->getPositionY()));
 			Level5Select->runAction(Level5MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;

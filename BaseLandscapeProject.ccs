@@ -29,6 +29,22 @@
         <Image Name="CreditsScreen.png" />
         <Image Name="Lives.png" />
         <Image Name="Score.png" />
+        <Image Name="ReturnButton.png" />
+        <Image Name="ReturnButtonDown.png" />
+        <Image Name="ResumeButton.png" />
+        <Image Name="ResumeButtonDown.png" />
+        <Image Name="RestartButton.png" />
+        <Image Name="RestartButtonDown.png" />
+        <Image Name="Level1Button.png" />
+        <Image Name="Level2Button.png" />
+        <Image Name="Level3Button.png" />
+        <Image Name="Level4Button.png" />
+        <Image Name="Level5Button.png" />
+        <Image Name="Level1ButtonDown.png" />
+        <Image Name="Level2ButtonDown.png" />
+        <Image Name="Level3ButtonDown.png" />
+        <Image Name="Level4ButtonDown.png" />
+        <Image Name="Level5ButtonDown.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
