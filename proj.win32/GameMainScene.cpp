@@ -46,14 +46,12 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
-
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballRebound.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
 	//auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
 
 	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f),10);
-
 	PhysicsMaterial(0.0f, 0.0f, 0.0f);
 	auto edgeNode = Node::create();
 	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
@@ -79,9 +77,6 @@ bool GameScene::init()
 	ReturnButton->setPositionX(winSize.width + ReturnButton->getContentSize().width);
 	ReturnButton->setVisible(false);
 
-	
-
-	
 	ba = 1;
 	balls =  1;
 	CCLOG("tester: %i", balls);
@@ -412,6 +407,7 @@ void GameScene::Seperate(cocos2d::PhysicsContact &contact) // Created By An Unkn
 		CCLOG("setVelocity b : %f", b);
 	}
 	delete v;
+
 }
 
 void GameScene::SetBrick(float i)
@@ -419,7 +415,6 @@ void GameScene::SetBrick(float i)
 
 
 	CCLOG("level gam: %i", level);
-
 	CCLOG("levelgame after: %i", level);
 	brick.SetBrick(this,level);
 	unschedule(schedule_selector(GameScene::SetBrick));
@@ -756,12 +751,14 @@ void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
 		GameManager::sharedGameManager()->isGameLive = false;
+
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		//SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}
 }
+
 
 
 void GameScene::RestartButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)

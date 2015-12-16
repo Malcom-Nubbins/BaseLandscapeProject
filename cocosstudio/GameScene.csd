@@ -125,18 +125,18 @@
             <Size X="88.0000" Y="18.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="100.4167" Y="685.3621" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.5168" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0785" Y="0.9519" />
             <PreSize X="0.0688" Y="0.0250" />
             <FileData Type="Normal" Path="Lives.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Sprite_3" ActionTag="318459719" Tag="14" IconVisible="False" LeftMargin="1015.7296" RightMargin="178.2704" TopMargin="25.8563" BottomMargin="676.1437" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Sprite_3" ActionTag="318459719" Tag="14" IconVisible="False" LeftMargin="1015.7294" RightMargin="178.2706" TopMargin="25.8563" BottomMargin="676.1437" ctype="SpriteObjectData">
             <Size X="86.0000" Y="18.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1058.7296" Y="685.1437" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="1058.7294" Y="685.1437" />
+            <Scale ScaleX="1.0000" ScaleY="1.5168" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.8271" Y="0.9516" />
             <PreSize X="0.0672" Y="0.0250" />
