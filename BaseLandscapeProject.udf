@@ -3,7 +3,7 @@
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="VS" />
-        <IsLastPublish Value="True" />
+        <IsLastPublish Value="False" />
         <LastRunType Value="Windows" />
       </Value>
     </Item>
@@ -28,10 +28,19 @@
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
+<<<<<<< HEAD
+=======
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
-        <ActiveDocument />
+        <OpenedDocuments>
+          <FilePathData Path="GameScene.csd" />
+          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="SplashScreen.csd" />
+          <FilePathData Path="Credits.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="Credits.csd" />
       </Value>
     </Item>
+>>>>>>> master
   </Properties>
 </UserData>

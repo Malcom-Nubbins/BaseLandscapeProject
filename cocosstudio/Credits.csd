@@ -17,22 +17,22 @@
             <FileData Type="Normal" Path="CreditsScreen.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="menuReturn" ActionTag="755514045" Tag="12" IconVisible="False" LeftMargin="39.6671" RightMargin="1090.3329" TopMargin="598.7971" BottomMargin="37.2029" TouchEnable="True" FontSize="36" ButtonText="Return" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="150.0000" Y="84.0000" />
+          <AbstractNodeData Name="menuReturn" ActionTag="755514045" Tag="12" IconVisible="False" LeftMargin="31.1012" RightMargin="945.8988" TopMargin="595.7124" BottomMargin="31.2876" TouchEnable="True" FontSize="36" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="273" Scale9Height="71" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="303.0000" Y="93.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="114.6671" Y="79.2029" />
+            <Position X="182.6012" Y="77.7876" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0896" Y="0.1100" />
-            <PreSize X="0.1172" Y="0.1167" />
+            <PrePosition X="0.1427" Y="0.1080" />
+            <PreSize X="0.2367" Y="0.1292" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <PressedFileData Type="Normal" Path="ReturnButtonDown.png" Plist="" />
+            <NormalFileData Type="Normal" Path="ReturnButton.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Credits1" ActionTag="1607686351" Tag="13" IconVisible="False" LeftMargin="100.6529" RightMargin="830.3472" TopMargin="418.8720" BottomMargin="117.1280" FontSize="20" LabelText="Programming:&#xA;Joshua Marshall &amp; James Edgerton&#xA;&#xA;Art: James Edgerton &amp; Joshua Marshall&#xA;&#xA;Sound: ---&#xA;&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="Credits1" ActionTag="1607686351" Tag="13" IconVisible="False" LeftMargin="100.6529" RightMargin="830.3471" TopMargin="418.8720" BottomMargin="117.1280" FontSize="20" LabelText="Programming:&#xA;Joshua Marshall &amp; James Edgerton&#xA;&#xA;Art: James Edgerton &amp; Joshua Marshall&#xA;&#xA;Sound: Joshua Marshall&#xA;&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="349.0000" Y="184.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="275.1529" Y="209.1280" />
