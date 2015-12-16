@@ -46,10 +46,14 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
+
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballRebound.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
-	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
+	//auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
+
+	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f),10);
+
 	PhysicsMaterial(0.0f, 0.0f, 0.0f);
 	auto edgeNode = Node::create();
 	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
@@ -88,6 +92,7 @@ bool GameScene::init()
 	
 	auto contactListner = EventListenerPhysicsContactWithGroup::EventListenerPhysicsContact::create();
 	contactListner->onContactBegin = CC_CALLBACK_1(GameScene::setHit, this);
+	contactListner->onContactSeparate = CC_CALLBACK_1(GameScene::Seperate,this);
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListner, this);
 
 	ResumeButton = static_cast<ui::Button*>(rootNode->getChildByName("ResumeButton"));
@@ -152,10 +157,19 @@ bool GameScene::init()
 
 bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 {
+
 	if (GameManager::sharedGameManager()->isGameLive == true)
 	{
+
 		PhysicsBody *a = contact.getShapeA()->getBody();
 		PhysicsBody *b = contact.getShapeB()->getBody();
+
+		float* v = new float[2];
+		v[0] = a->getVelocity().length(); // Created By An Unknown Source, Via Stack OverFlow
+		v[1] = b->getVelocity().length(); // Created By An Unknown Source, Via Stack OverFlow
+
+		contact.setData(v);
+
 
 		if ((1 == a->getCollisionBitmask() && 2 == b->getCollisionBitmask()) || (2 == a->getCollisionBitmask() && 1 == b->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 		{
@@ -216,10 +230,10 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 					brick.SetLevel(level);
 					/*if (number == 5)
 					{
-						level = 3;
-						this->removeChild(contact.getShapeA()->getBody()->getNode());
-						this->schedule(schedule_selector(GameScene::SetBrick));
-						this->schedule(schedule_selector(GameScene::SetBall));
+					level = 3;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
 					}*/
 
 				}
@@ -230,10 +244,10 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 					brick.SetLevel(level);
 					/*if (number == 5)
 					{
-						level = 4;
-						this->removeChild(contact.getShapeA()->getBody()->getNode());
-						this->schedule(schedule_selector(GameScene::SetBrick));
-						this->schedule(schedule_selector(GameScene::SetBall));
+					level = 4;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
 					}*/
 				}
 
@@ -243,10 +257,10 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 					brick.SetLevel(level);
 					/*if (number == 5)
 					{
-						level = 5;
-						this->removeChild(contact.getShapeA()->getBody()->getNode());
-						this->schedule(schedule_selector(GameScene::SetBrick));
-						this->schedule(schedule_selector(GameScene::SetBall));
+					level = 5;
+					this->removeChild(contact.getShapeA()->getBody()->getNode());
+					this->schedule(schedule_selector(GameScene::SetBrick));
+					this->schedule(schedule_selector(GameScene::SetBall));
 					}*/
 				}
 				else if (level == 5)
@@ -370,6 +384,34 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		}
 	}
 	return true;
+}
+
+void GameScene::Seperate(cocos2d::PhysicsContact &contact) // Created By An Unknown Source, Via Stack OverFlow
+{
+	auto a = contact.getShapeA()->getBody();
+	auto b = contact.getShapeB()->getBody();
+	float* v = (float*)contact.getData();
+
+	if (a->getCollisionBitmask() == Ball_Bitmask)
+	{
+
+		CCLOG("setVelocity a : %f", a);
+		auto va = a->getVelocity();
+		va.normalize();
+		a->setVelocity(va * v[0]);
+
+		CCLOG("setVelocity a : %f",a);
+	}
+
+	if (b->getCollisionBitmask() == Ball_Bitmask)
+	{
+		CCLOG("setVelocity b : %f", b);
+		auto vb = b->getVelocity();
+		vb.normalize();
+		b->setVelocity(vb * v[1]);
+		CCLOG("setVelocity b : %f", b);
+	}
+	delete v;
 }
 
 void GameScene::SetBrick(float i)

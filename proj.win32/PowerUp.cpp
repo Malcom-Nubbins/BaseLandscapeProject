@@ -31,7 +31,7 @@ void PowerUp::SetPowerUpPos(float posX, float posY)
 void PowerUp::SetPowerUp(cocos2d::Layer *layer, float posX, float posY)
 {		
 	
-	int i = cocos2d::RandomHelper::random_int(0, 20); //set this to everytime for testing purposes
+	int i = cocos2d::RandomHelper::random_int(1, 20); //set this to everytime for testing purposes
 
 	//CCLOG("I: %i", i);
 	this->x = posX;
