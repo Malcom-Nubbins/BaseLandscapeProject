@@ -46,19 +46,10 @@ bool GameScene::init()
 
 	addChild(rootNode);
 
-
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballRebound.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
 	//auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
-
-	auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f),10);
-
-	PhysicsMaterial(0.0f, 0.0f, 0.0f);
-	auto edgeNode = Node::create();
-	edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
-	edgeNode->setPhysicsBody(edgeBody);
-	this->addChild(edgeNode);
 
 
 	LeftButton = static_cast<ui::Button*>(rootNode->getChildByName("LeftButton"));
@@ -79,9 +70,6 @@ bool GameScene::init()
 	ReturnButton->setPositionX(winSize.width + ReturnButton->getContentSize().width);
 	ReturnButton->setVisible(false);
 
-	
-
-	
 	ba = 1;
 	balls =  1;
 	CCLOG("tester: %i", balls);
@@ -174,7 +162,6 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((1 == a->getCollisionBitmask() && 2 == b->getCollisionBitmask()) || (2 == a->getCollisionBitmask() && 1 == b->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 		{
 			bool hit = true;
-			CCLOG(" A Collision has occured");
 		}
 
 		else
@@ -288,8 +275,10 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				xb = BallPos.x;
 				yb = BallPos.y;
 
-				balls = balls + 1;
-				ba = ba + 1;
+				balls = balls + 2;
+				ba = ba + 2;
+
+				CCLOG("Balls pu:%i", balls);
 				this->schedule(schedule_selector(GameScene::SetBall));
 			}
 			//THREE
@@ -301,8 +290,8 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				xb = BallPos.x;
 				yb = BallPos.y;
 
-				balls = balls + 2;
-				ba = ba + 2;
+				balls = balls + 3;
+				ba = ba + 3;
 				this->schedule(schedule_selector(GameScene::SetBall));
 
 			}
@@ -322,14 +311,11 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 			if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 			{
-				CCLOG("BALLS B4 amount:%i", balls);
-				CCLOG("BA B4 amount:%i", ba);
-
+				
+				CCLOG("Balls enter:%i", balls);
 				this->lives = GameManager::sharedGameManager()->GetLives();
 				if (balls <= 1 && lives > 0)
 				{
-					CCLOG("BALLS amount:%i", balls);
-					CCLOG("BA amount:%i", ba);
 					GameManager::sharedGameManager()->AddToLives(-1);
 					this->schedule(schedule_selector(GameScene::SetBall));
 					balls = balls + 1;
@@ -342,12 +328,11 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 					GameManager::sharedGameManager()->AddToLives(-1);
 				}
 
-				if (balls >= 1 && lives > 0)
+				if (balls > 1 && lives > 0)
 				{
-					CCLOG("BALLS amount:%i", balls);
-					CCLOG("BA amount:%i", ba);
+					
 					balls = balls - 1;
-					ba = ba - 1;
+					CCLOG("Balls return:%i", balls);
 				}
 
 				if (lives <= 0)
@@ -394,24 +379,19 @@ void GameScene::Seperate(cocos2d::PhysicsContact &contact) // Created By An Unkn
 
 	if (a->getCollisionBitmask() == Ball_Bitmask)
 	{
-
-		CCLOG("setVelocity a : %f", a);
 		auto va = a->getVelocity();
 		va.normalize();
 		a->setVelocity(va * v[0]);
-
-		CCLOG("setVelocity a : %f",a);
 	}
 
 	if (b->getCollisionBitmask() == Ball_Bitmask)
 	{
-		CCLOG("setVelocity b : %f", b);
 		auto vb = b->getVelocity();
 		vb.normalize();
 		b->setVelocity(vb * v[1]);
-		CCLOG("setVelocity b : %f", b);
 	}
 	delete v;
+
 }
 
 void GameScene::SetBrick(float i)
@@ -419,7 +399,6 @@ void GameScene::SetBrick(float i)
 
 
 	CCLOG("level gam: %i", level);
-
 	CCLOG("levelgame after: %i", level);
 	brick.SetBrick(this,level);
 	unschedule(schedule_selector(GameScene::SetBrick));
@@ -434,9 +413,10 @@ void GameScene::SetPlayer(float i)
 
 void GameScene::SetBall(float i)
 {
-	CCLOG("ba in setball %f", ba);
+	
 	ball.SetBall(this,xb,yb,ba);
 	unschedule(schedule_selector(GameScene::SetBall));
+	ba = 0;
 	
 }
 
@@ -465,13 +445,14 @@ void GameScene::SetDeath(float i)
 void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 1 Selected.");
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
-			
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 			auto Level1MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level1Select->getContentSize().width, Level1Select->getPositionY()));
 			Level1Select->runAction(Level1MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -489,6 +470,13 @@ void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -496,12 +484,15 @@ void GameScene::Level1ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 2 Selected.");
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level2MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level2Select->getContentSize().width, Level2Select->getPositionY()));
 			Level2Select->runAction(Level2MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -519,6 +510,13 @@ void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -526,12 +524,15 @@ void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 3 Selected.");
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level3MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level3Select->getContentSize().width, Level3Select->getPositionY()));
 			Level3Select->runAction(Level3MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -550,6 +551,13 @@ void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -557,12 +565,15 @@ void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 4 Selected.");
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level4MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level4Select->getContentSize().width, Level4Select->getPositionY()));
 			Level4Select->runAction(Level4MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -581,6 +592,13 @@ void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -588,12 +606,15 @@ void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 void GameScene::Level5ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
 {
 	auto winSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	if (GameManager::sharedGameManager()->isGameLive == false)
 	{
 		CCLOG("Level 5 Selected.");
 
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
+			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
+
 			auto Level5MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level5Select->getContentSize().width, Level5Select->getPositionY()));
 			Level5Select->runAction(Level5MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -612,6 +633,13 @@ void GameScene::Level5ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 			this->schedule(schedule_selector(GameScene::SetBall));
 			this->schedule(schedule_selector(GameScene::SetPlayer));
 			this->schedule(schedule_selector(GameScene::SetDeath));
+
+			auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PhysicsMaterial(0.1f, 1, 0.0f), 10);
+			PhysicsMaterial(0.0f, 0.0f, 0.0f);
+			auto edgeNode = Node::create();
+			edgeNode->setPosition(Point(winSize.width / 2 + origin.x, winSize.height / 2 + origin.y)); //Can Change the size of the bounding box.
+			edgeNode->setPhysicsBody(edgeBody);
+			this->addChild(edgeNode);
 		}
 	}
 }
@@ -748,12 +776,14 @@ void GameScene::ReturnButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 	if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 	{
 		GameManager::sharedGameManager()->isGameLive = false;
+
 		SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
 		//SoundManager::sharedSoundManager()->StopMusic();
 		auto scene = HelloWorld::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(Transition_Length, scene));
 	}
 }
+
 
 
 void GameScene::RestartButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEventType type)
