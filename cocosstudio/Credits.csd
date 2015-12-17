@@ -32,7 +32,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Credits1" ActionTag="1607686351" Tag="13" IconVisible="False" LeftMargin="100.6529" RightMargin="830.3471" TopMargin="418.8720" BottomMargin="117.1280" FontSize="20" LabelText="Programming:&#xA;Joshua Marshall &amp; James Edgerton&#xA;&#xA;Art: James Edgerton &amp; Joshua Marshall&#xA;&#xA;Sound: Joshua Marshall&#xA;&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="Credits1" ActionTag="1607686351" Tag="13" IconVisible="False" LeftMargin="100.6529" RightMargin="830.3471" TopMargin="418.8720" BottomMargin="117.1280" FontSize="20" LabelText="Programming:&#xA;Joshua Marshall &amp; James Edgerton&#xA;&#xA;Art: James Edgerton &amp; Joshua Marshall&#xA;&#xA;Sound: Joshua Marshall &amp; James Edgerton&#xA;&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="349.0000" Y="184.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="275.1529" Y="209.1280" />

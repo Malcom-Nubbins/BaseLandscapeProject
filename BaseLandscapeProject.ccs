@@ -8,7 +8,6 @@
         <Image Name="Tap Tap Slide BG draft.png" />
         <Project Name="Credits.csd" Type="Scene" />
         <Project Name="GameScene.csd" Type="Scene" />
-        <Audio Name="mainmenu.mp3" />
         <Project Name="SplashScreen.csd" Type="Scene" />
         <Image Name="Test.png" />
         <Image Name="GameUI.png" />

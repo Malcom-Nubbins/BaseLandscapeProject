@@ -3,7 +3,7 @@
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="VS" />
-        <IsLastPublish Value="False" />
+        <IsLastPublish Value="True" />
         <LastRunType Value="Windows" />
       </Value>
     </Item>
@@ -12,35 +12,18 @@
         <LuaIsEncrypt Value="False" />
         <LuaEncryptKey Value="" />
         <LuaEncryptSign Value="" />
-        <Android_PackageName Value="org.cocos.BASELA1" />
+        <Android_PackageName Value="org.cocos.BaseLandscapeProject" />
         <AndroidkeyStore Value="" />
         <AndroidVersion Value="android-19" />
-        <iOS_Target Value="BASELA~1-mobile" />
+        <iOS_Target Value="BaseLandscapeProject-mobile" />
         <iOS_BundleID Value="" />
-        <Platform Value="Android" />
-        <RunPlatform Value="Android" />
+        <Platform Value="None" />
+        <RunPlatform Value="None" />
         <FrameworkVersion Value="cocos2d-x-3.8" />
         <IsDebugKeystore Value="True" />
-        <KeystorePassword Value="" />
-        <KeystoreAliasName Value="" />
-        <KeystoreAliasPassword Value="" />
         <EnableSourceMap Value="False" />
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
-<<<<<<< HEAD
-=======
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="GameScene.csd" />
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="SplashScreen.csd" />
-          <FilePathData Path="Credits.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="Credits.csd" />
-      </Value>
-    </Item>
->>>>>>> master
   </Properties>
 </UserData>
