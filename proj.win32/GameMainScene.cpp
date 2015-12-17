@@ -49,6 +49,12 @@ bool GameScene::init()
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballRebound.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("buttonClick.mp3");
 	SoundManager::sharedSoundManager()->PreLoadSoundEffect("paddleMove.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("pop.mp3");
+	//SoundManager::sharedSoundManager()->PreLoadMusic("gameMusic.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("lifeUp.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballSplit2.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballSplit3.mp3");
+	SoundManager::sharedSoundManager()->PreLoadSoundEffect("ballSplit8.mp3");
 	//auto edgeBody = PhysicsBody::createEdgeBox(winSize = Vec2(1270, 650), PHYSICSBODY_MATERIAL_DEFAULT, 3);
 
 
@@ -180,6 +186,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 			if ((a->getCollisionBitmask() == Brick_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Brick_Bitmask))
 			{
+				SoundManager::sharedSoundManager()->PlaySoundEffect("pop.mp3", false, 1.0f, 1.0f, 1.0f);
 				Ball::sharedBall()->AddToDampening(5000.0f);
 				GameManager::sharedGameManager()->AddToScore(1);
 				this->removeChild(contact.getShapeB()->getBody()->getNode());
@@ -260,6 +267,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == LiveUp_Bitmask) || (a->getCollisionBitmask() == LiveUp_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 			{
 				GameManager::sharedGameManager()->AddToLives(1);
+				SoundManager::sharedSoundManager()->PlaySoundEffect("lifeUp.mp3", false, 1.0f, 1.0f, 1.0f);
 
 				this->removeChild(contact.getShapeA()->getBody()->getNode());
 
@@ -270,7 +278,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			{
 
 				this->removeChild(contact.getShapeA()->getBody()->getNode());
-
+				SoundManager::sharedSoundManager()->PlaySoundEffect("ballSplit2.mp3", false, 1.0f, 1.0f, 1.0f);
 				Vec2 BallPos = contact.getShapeB()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
 				xb = BallPos.x;
 				yb = BallPos.y;
@@ -285,7 +293,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == ThreeSplit_Bitmask) || (a->getCollisionBitmask() == ThreeSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 			{
 				this->removeChild(contact.getShapeA()->getBody()->getNode());
-
+				SoundManager::sharedSoundManager()->PlaySoundEffect("ballSplit3.mp3", false, 1.0f, 1.0f, 1.0f);
 				Vec2 BallPos = contact.getShapeB()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
 				xb = BallPos.x;
 				yb = BallPos.y;
@@ -299,7 +307,7 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 			if ((a->getCollisionBitmask() == Paddle_Bitmask && b->getCollisionBitmask() == NineSplit_Bitmask) || (a->getCollisionBitmask() == NineSplit_Bitmask && b->getCollisionBitmask() == Paddle_Bitmask))
 			{
 				this->removeChild(contact.getShapeA()->getBody()->getNode());
-
+				SoundManager::sharedSoundManager()->PlaySoundEffect("ballSplit8.mp3", false, 1.0f, 1.0f, 1.0f);
 				Vec2 BallPos = contact.getShapeB()->getBody()->getNode()->convertToWorldSpace(Vec2(50, 50));
 				xb = BallPos.x;
 				yb = BallPos.y;
@@ -492,7 +500,6 @@ void GameScene::Level2ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
 			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
-
 			auto Level2MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level2Select->getContentSize().width, Level2Select->getPositionY()));
 			Level2Select->runAction(Level2MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -532,7 +539,6 @@ void GameScene::Level3ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
 			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
-
 			auto Level3MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level3Select->getContentSize().width, Level3Select->getPositionY()));
 			Level3Select->runAction(Level3MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -573,7 +579,6 @@ void GameScene::Level4ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
 			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
-
 			auto Level4MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level4Select->getContentSize().width, Level4Select->getPositionY()));
 			Level4Select->runAction(Level4MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
@@ -614,7 +619,6 @@ void GameScene::Level5ButtonPressed(Ref* sender, cocos2d::ui::Widget::TouchEvent
 		if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
 		{
 			SoundManager::sharedSoundManager()->PlaySoundEffect("buttonClick.mp3", false, 1.0f, 1.0f, 1.0f);
-
 			auto Level5MoveTo = MoveTo::create(0.5, Vec2(winSize.width + Level5Select->getContentSize().width, Level5Select->getPositionY()));
 			Level5Select->runAction(Level5MoveTo);
 			GameManager::sharedGameManager()->isGameLive = true;
