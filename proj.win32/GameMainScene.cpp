@@ -162,7 +162,6 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 		if ((1 == a->getCollisionBitmask() && 2 == b->getCollisionBitmask()) || (2 == a->getCollisionBitmask() && 1 == b->getCollisionBitmask()))// BACK TO FRONT FOR NOW
 		{
 			bool hit = true;
-			CCLOG(" A Collision has occured");
 		}
 
 		else
@@ -276,8 +275,10 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				xb = BallPos.x;
 				yb = BallPos.y;
 
-				balls = balls + 1;
-				ba = ba + 1;
+				balls = balls + 2;
+				ba = ba + 2;
+
+				CCLOG("Balls pu:%i", balls);
 				this->schedule(schedule_selector(GameScene::SetBall));
 			}
 			//THREE
@@ -289,8 +290,8 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 				xb = BallPos.x;
 				yb = BallPos.y;
 
-				balls = balls + 2;
-				ba = ba + 2;
+				balls = balls + 3;
+				ba = ba + 3;
 				this->schedule(schedule_selector(GameScene::SetBall));
 
 			}
@@ -310,14 +311,11 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 
 			if ((a->getCollisionBitmask() == Death_Bitmask && b->getCollisionBitmask() == Ball_Bitmask) || (a->getCollisionBitmask() == Ball_Bitmask && b->getCollisionBitmask() == Death_Bitmask))
 			{
-				CCLOG("BALLS B4 amount:%i", balls);
-				CCLOG("BA B4 amount:%i", ba);
-
+				
+				CCLOG("Balls enter:%i", balls);
 				this->lives = GameManager::sharedGameManager()->GetLives();
 				if (balls <= 1 && lives > 0)
 				{
-					CCLOG("BALLS amount:%i", balls);
-					CCLOG("BA amount:%i", ba);
 					GameManager::sharedGameManager()->AddToLives(-1);
 					this->schedule(schedule_selector(GameScene::SetBall));
 					balls = balls + 1;
@@ -330,12 +328,11 @@ bool GameScene::setHit(cocos2d::PhysicsContact &contact)
 					GameManager::sharedGameManager()->AddToLives(-1);
 				}
 
-				if (balls >= 1 && lives > 0)
+				if (balls > 1 && lives > 0)
 				{
-					CCLOG("BALLS amount:%i", balls);
-					CCLOG("BA amount:%i", ba);
+					
 					balls = balls - 1;
-					ba = ba - 1;
+					CCLOG("Balls return:%i", balls);
 				}
 
 				if (lives <= 0)
@@ -382,22 +379,16 @@ void GameScene::Seperate(cocos2d::PhysicsContact &contact) // Created By An Unkn
 
 	if (a->getCollisionBitmask() == Ball_Bitmask)
 	{
-
-		CCLOG("setVelocity a : %f", a);
 		auto va = a->getVelocity();
 		va.normalize();
 		a->setVelocity(va * v[0]);
-
-		CCLOG("setVelocity a : %f",a);
 	}
 
 	if (b->getCollisionBitmask() == Ball_Bitmask)
 	{
-		CCLOG("setVelocity b : %f", b);
 		auto vb = b->getVelocity();
 		vb.normalize();
 		b->setVelocity(vb * v[1]);
-		CCLOG("setVelocity b : %f", b);
 	}
 	delete v;
 
@@ -422,9 +413,10 @@ void GameScene::SetPlayer(float i)
 
 void GameScene::SetBall(float i)
 {
-	CCLOG("ba in setball %f", ba);
+	
 	ball.SetBall(this,xb,yb,ba);
 	unschedule(schedule_selector(GameScene::SetBall));
+	ba = 0;
 	
 }
 

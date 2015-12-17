@@ -53,12 +53,10 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 	
 	this->x = posX;
 	this->y = posY;
+	CCLOG("ba in setball %i", ba);
+
 	this->amount = ba;
 
-	if (amount <= 0)
-	{
-		amount == 1;
-	}
 	for (int q = 0; q < amount; q++)
 	{
 		acceleration = 0;
@@ -73,7 +71,7 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 		int o = cocos2d::RandomHelper::random_int(-5000, 30000);
 		//ballBounding->applyImpulse(Vect(40000, 58000)); // Dont Understand why the values need to be so high.
 		ballBounding->applyTorque(200000); // helps keeps the ball path true. Think spinning a coin
-		Vect velocity(0,-300); 
+		Vect velocity(30,200); 
 		ballBounding->setVelocity(velocity);
 		force = (Vec2(10 + dampening, 10 + dampening));
 		ballPos = (Vec2(550, 150));;
@@ -97,49 +95,49 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 
 		else
 		{
-			if (q == 1)
+			if (q == 0)
 			{
 				rx = 0;
 				ry = 0;
 			}
 
-			else if(q == 2)
+			else if(q == 1)
 			{
 				rx = -20;
+				ry = +10;
+			}
+
+			else if (q == 2)
+			{
+				rx = +20;
 				ry = +10;
 			}
 
 			else if (q == 3)
 			{
-				rx = +20;
-				ry = +10;
-			}
-
-			else if (q == 4)
-			{
 				rx = -30;
 				ry = +40;
 			}
 
-			else if (q == 5)
+			else if (q == 4)
 			{
 				rx = +30;
 				ry = +40;
 			}
 
-			else if (q == 6)
+			else if (q == 5)
 			{
 				rx = -20;
 				ry = +60;
 			}
 
-			else if (q == 7)
+			else if (q == 6)
 			{
 				rx = +20;
 				ry = +60;
 			}
 
-			else if (q == 8)
+			else if (q == 7)
 			{
 				rx = 0;
 				ry = +30;
