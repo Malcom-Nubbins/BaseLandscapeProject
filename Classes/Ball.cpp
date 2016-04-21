@@ -20,7 +20,7 @@ Ball::Ball()
 	WinSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
-	_balls = new CCArray;
+	_balls = new Array;
 }
 
 void Ball::AddToAcceleration(int speed)
@@ -61,7 +61,7 @@ void Ball::SetBall(cocos2d::Layer *layer,float posX, float posY,int ba)
 	{
 		acceleration = 0;
 		CCLOG("Ball %i",q); //COCOS BUG: WONT ALWAYS SHOW IN OUTPUT
-		ball = CCSprite::create("Ball.png");
+		ball = Sprite::create("Ball.png");
 		auto ballBounding = PhysicsBody::createCircle((10.0f, 10.0f),
 			PhysicsMaterial(1.0f, 1.0f, 0.0f));
 		//ballBounding->setVelocity(Vec2(-500, -500)); // 

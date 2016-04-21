@@ -18,35 +18,37 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="..\Classes\Ball.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="GameMainScene.cpp">
+    <ClCompile Include="..\Classes\Brick.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="SplashScreenScene.cpp">
+    <ClCompile Include="..\Classes\CreditsScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="CreditsScene.cpp">
+    <ClCompile Include="..\Classes\Death.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameMainScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Brick.cpp">
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
+    <ClCompile Include="..\Classes\Player.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="..\Classes\PowerUp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="PowerUp.cpp">
+    <ClCompile Include="..\Classes\SoundManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Death.cpp">
+    <ClCompile Include="..\Classes\SplashScreenScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,38 +59,40 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
+    <ClInclude Include="..\Classes\Ball.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="GameMainScene.h">
+    <ClInclude Include="..\Classes\Brick.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Define.h">
+    <ClInclude Include="..\Classes\CreditsScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="SplashScreenScene.h">
+    <ClInclude Include="..\Classes\Death.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="CreditsScene.h">
+    <ClInclude Include="..\Classes\Define.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMainScene.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Brick.h">
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h">
+    <ClInclude Include="..\Classes\Player.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="..\Classes\PowerUp.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="PowerUp.h">
+    <ClInclude Include="..\Classes\SoundManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Death.h">
+    <ClInclude Include="..\Classes\SplashScreenScene.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

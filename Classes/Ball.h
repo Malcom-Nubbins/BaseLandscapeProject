@@ -23,7 +23,7 @@ public:
 	void RemoveBall();
 
 protected:
-	cocos2d::CCArray *_balls;
+	cocos2d::Array *_balls;
 
 private:
 	cocos2d::Size WinSize;
@@ -31,7 +31,7 @@ private:
 
 	cocos2d::Vec2 ballPos;
 	cocos2d::Vec2 force;
-	cocos2d::CCSprite* ball;
+	cocos2d::Sprite* ball;
 
 	float x;
 	float y;

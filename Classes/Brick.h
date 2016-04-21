@@ -27,7 +27,7 @@ public:
 	int type;
 	int level;
 protected:
-	cocos2d::CCArray *_bricks;
+	cocos2d::Array *_bricks;
 
 private:
 	cocos2d::Size WinSize;

@@ -11,7 +11,7 @@ Death::Death()
 
 void Death::SetDeath(cocos2d::Layer *layer)
 {
-	CCSprite *die = CCSprite::create();
+	Sprite *die = Sprite::create();
 	auto death = PhysicsBody::createBox(Size(WinSize.width, WinSize.height/7));
 	death->setDynamic(false);
 	death->setGravityEnable(false);

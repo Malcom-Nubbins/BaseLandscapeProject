@@ -47,8 +47,8 @@ public:
 
 
 protected:
-	cocos2d::CCArray *_bricks;
-	cocos2d::CCArray *_balls;
+	cocos2d::Array *_bricks;
+	cocos2d::Array *_balls;
 
 private:
 	cocos2d::ui::Button* LeftButton;

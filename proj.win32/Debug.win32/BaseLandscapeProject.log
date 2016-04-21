@@ -1,0 +1,22 @@
+﻿Build started 21/04/2016 10:03:31.
+     1>Project "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\BaseLandscapeProject.vcxproj" on node 2 (Build target(s)).
+     1>PreLinkEvent:
+         if not exist "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\" mkdir "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\"
+         
+         :VCEnd
+         60 File(s) copied
+       Link:
+         BaseLandscapeProject.vcxproj -> D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\BaseLandscapeProject.exe
+       CustomBuildStep:
+         if not exist "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\" mkdir "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\"
+         xcopy "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\..\Resources" "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\" /D /E /I /F /Y
+               
+         :VCEnd
+         D:\Users\David\Desktop\Tap-Tap-Slide\Resources\res\level 5.plist -> D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\Debug.win32\res\level 5.plist
+         1 File(s) copied
+     1>Done Building Project "D:\Users\David\Desktop\Tap-Tap-Slide\proj.win32\BaseLandscapeProject.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.50
