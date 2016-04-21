@@ -1,7 +1,7 @@
 # Mac
 .DS_Store
 
-#Java
+# Java
 *.class
 
 # XCode
@@ -20,11 +20,11 @@ profile
 xcuserdata
 .idea/*
 
-#Cocoa pods
+# Cocoa pods
 *.old
 Pods/*
 
-#cocos2d-x
+# cocos2d-x
 libs/
 bin/
 obj/
@@ -47,3 +47,17 @@ out/
 *.tar
 *.tgz
 *.gtgz
+
+# Visual Studio
+*.sdf
+*.opensdf
+proj.win32/Debug.win32/*
+OGLdpf.log
+*.suo
+*.pdb
+
+# Windows
+*humbs.db
+
+#APK
+package/*
